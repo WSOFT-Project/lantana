@@ -2,7 +2,7 @@
 title: 検索
 summary: 
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiue
 disable_nav: false
 disable_tol: true
 disable_tools : true

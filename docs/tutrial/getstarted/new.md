@@ -2,7 +2,7 @@
 title: サイトを作成する
 summary: この記事では、新たにサイトを作成する方法を説明します
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiueue
 date : 2022-10-22
 ---
 
@@ -22,29 +22,58 @@ mkdocs new mydocs
 ### mkdocs.yml を編集する
 `mydocs`直下に`mkdocs.yml`という名前のファイルが作成されています。このファイルを開きます。
 
-次のテンプレートにしたがって設定を記述します。
+次のテンプレートをコピーして貼り付けます。
 
 ```yaml title="mkdocs.yml"
-site_name: 'サイトの名前'
-copyright : 'フッターに表示する著作権表示'
-language : ja
+site_name: MyDocs
 
 docs_dir : 'docs'
 
-favicon : favicon.png
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+language : ja
+
 
 theme: lantana
+
+visible_search : true
 
 plugins:
     - search:
         lang : 'ja'
         min_search_length: 2
+    - awesome-pages
 
 markdown_extensions:
-    - codehilite:
-    - admonition:
+    - mdx_embedly
+    - attr_list
+    - pymdownx.highlight:
+       anchor_linenums: true
+    - admonition
+    - pymdownx.arithmatex:
+       generic : true
+    - md_in_html
+    - pymdownx.details
     - pymdownx.superfences:
-    - pymdownx.details:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.snippets
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.magiclink
+    - pymdownx.striphtml
 ```
 
 設定ファイルには、他にもいくつかの項目があります。どのような設定があるかを知るには、[設定ファイル](/cheatsheet/config)を参照してください。
@@ -66,8 +95,6 @@ mkdocs build
 mkdocs serve
 ```
 
-次に、ブラウザで[http://127.0.0.1:8000](http://127.0.0.1:8000)にアクセスします。すると、このようにサイトが表示されます。
+次に、ブラウザで[http://127.0.0.1:8000](http://127.0.0.1:8000)にアクセスします。
 
-![実行例](media/site.jpg)
-
-これでプロジェクトの作成は完了です。次に、記事を執筆するには、[記事を執筆する](../3_write)を参照してください。
+これでプロジェクトの作成は完了です。次に、記事を執筆するには、[記事を執筆する](../write)を参照してください。

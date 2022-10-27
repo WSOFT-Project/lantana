@@ -2,7 +2,7 @@
 title: マークダウン記法
 summary: この記事では、Lantanaで使用できるマークダウン記法の一覧を示します
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 ### 普通のテキスト

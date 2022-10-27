@@ -2,7 +2,7 @@
 title: 設定ファイル
 summary: この記事では、mkdocs.ymlで指定できる設定の一覧を示します
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 

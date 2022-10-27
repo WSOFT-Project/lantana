@@ -2,7 +2,7 @@
 title: Welcome to Lantana!
 summary: Lantana は、シンプルで軽量なMKDocsのテーマです。HTMLの知識がなくても簡単にサイトを作成できます。
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiue
 disable_tol: true
 disable_tools : true
 ---

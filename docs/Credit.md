@@ -2,7 +2,7 @@
 title: クレジット
 summary: Lantanaは、MKDocsの非公式テーマです
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 

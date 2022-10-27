@@ -2,7 +2,7 @@
 title: インストール
 summary: この記事では、お使いのコンピューターにLantanaをインストールし、使用可能にする方法を説明します
 author : Taiseiue
-author_url : https://github.com/Taiseiueue
+author_url : https://github.com/taiseiueue
 date : 2022-10-22
 ---
 ### 前提条件
@@ -16,4 +16,4 @@ Lantanaをインストールするには、pipを使用するのがもっとも�
 pip install lantana
 ```
 
-これでインストールは完了です。早速サイトを作成するには、[サイトを作成する](../2_create)を参照してください。
+これでインストールは完了です。早速サイトを作成するには、[サイトを作成する](../create)を参照してください。
