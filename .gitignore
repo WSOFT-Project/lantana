@@ -2,3 +2,4 @@ site/*
 build/*
 dist/*
 lantana.egg-info/*
+.vs/*
