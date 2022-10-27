@@ -398,12 +398,3 @@ HTMLコードは、そのまま記述することで埋め込むことができ�
 ```html
 <h3 id="query">この要素にはqueryというIdがつきます</h3>
 ```
-
-### コンテンツの埋め込み
-コンテンツを埋め込みカードで表示するには、Urlのhttp部分をembedに置き換えて書きます。httpsではembedsとします。
-```markdown title="例"
-e mbeds://youtube.com/embed/M7lc1UVf-VE
-```
-結果
-
-embeds://youtube.com/embed/M7lc1UVf-VE

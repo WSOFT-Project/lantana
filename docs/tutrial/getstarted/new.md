@@ -47,7 +47,6 @@ plugins:
     - awesome-pages
 
 markdown_extensions:
-    - mdx_embedly
     - attr_list
     - pymdownx.highlight:
        anchor_linenums: true
