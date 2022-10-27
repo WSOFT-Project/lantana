@@ -1,0 +1,58 @@
+site_name: Lantana
+copyright : 'Copyright &copy; 2022 WSOFT.'
+
+docs_dir : 'docs'
+
+repo_name : 'GitHub'
+repo_url : 'https://github.com/WSOFT-Project/lantana/'
+edit_uri: 'blob/main/docs/'
+edit_uri_template: 'blob/main/docs/{path}'
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+favicon : /favicon.png
+image : /favicon.png
+language : ja
+
+
+theme: "lantana"
+
+visible_search : true
+
+plugins:
+    - search:
+        lang : 'ja'
+        min_search_length: 2
+    - awesome-pages
+
+markdown_extensions:
+    #- lantana.extensions.mdx_embedly
+    #- lantana.extensions.mdx_wsid
+    - attr_list
+    - pymdownx.highlight:
+       anchor_linenums: true
+    - admonition
+    - pymdownx.arithmatex:
+       generic : true
+    - md_in_html
+    - pymdownx.details
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.snippets
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.magiclink
+    - pymdownx.striphtml

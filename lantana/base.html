@@ -1,0 +1,203 @@
+{% if page and page.meta.language %}
+<!DOCTYPE html lang="{{ page.meta.language }}">
+{% else %}
+<!DOCTYPE html lang="{{ config.language }}">
+{% endif %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% if page and page.meta.language %}
+  <meta http-equiv="content-language" content="{{ page.meta.language }}">
+{% else %}
+<meta http-equiv="content-language" content="{{ config.language }}">
+{% endif %}
+
+  <meta http-equiv="content-language" content="{{ config.language }}">
+    {% if page and page.meta.summary %}
+    <meta property="og:site_name" content="{{ config.site_name }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}" />
+    {% if page and page.meta.summary %}
+    
+    <meta name="description" content="{{ page.meta.summary }}">
+      <meta property="og:description" content="{{ page.meta.summary }}" />
+      <meta name="twitter:description" content="{{ page.meta.summary }}" />
+    {% endif %}
+    {% if page and page.meta.image %}
+    <meta property="og:image" content="{{ page.meta.image|url }}" />
+    {% else %}
+    <meta property="og:image" content="{{ config.image|url }}" />
+    {% endif %}
+    <meta name="twitter:card" content="Summary Card" />
+    {% endif %}
+
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}</title>
+
+  {% if config.favicon_svg %}
+  <link rel="icon" href="{{ config.favicon_svg|url }}" type="image/svg+xml">
+  {% endif %}
+  {% if config.favicon %}
+  <link rel="icon alternate" href="{{ config.favicon|url }}">
+  {% endif%}
+  <script>var base_url = '{{ base_url }}';</script>
+{% if config.google_analytics %}
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-33M7VJN24C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{config.google_analytics}}');
+</script>
+  {% endif %}
+<!-- The page supports both dark and light color schemes,
+         and the page author prefers / default is light. -->
+         <meta name="color-scheme" content="light dark">
+
+         <!-- Replace the Bootstrap CSS with the
+              Bootstrap-Dark Variant CSS -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-nightshade.min.css" rel="stylesheet">
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/js/darkmode.min.js"></script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
+
+  <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pygments-rouge-css@0.1.0/vs.min.css">
+
+  {% for path in config.extra_css %}
+    <link href="{{ path|url }}" rel="stylesheet">
+  {% endfor %}
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/mermaid/dist/mermaid.min.css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+
+  {% block extrahead %}
+  {% endblock %}
+
+</head>
+
+<body>
+  {% if not config.disable_header %}
+    <headers>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
+      <div class="container">
+          <a class="navbar-brand text-body" asp-area="" href="{{ "/"|url }}">
+            {% if config.favicon %}
+            <img src="{{ config.favicon|url }}" alt="{{ config.site_name }}" width="28" height="28"/>
+            {% endif%}
+            {{ config.site_name }}
+          </a>
+          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+              <p></p>
+              <form class="d-none d-md-flex input-group mb-3" style="max-width: 300px;" action="{{ "search/"|url }}">
+                <button class="btn btn-outline-secondary" onclick="darkmode.toggleDarkMode();" type="button"><i class="bi bi-brightness-high"></i></button>
+                
+              {% if config.visible_search %}
+                  <input class="form-control me-2" type="search" id="searchbox" placeholder="{{ config.site_name }}で検索" aria-label="検索" name="q"/>
+                  <button class="btn btn-outline-secondary" type="submit">
+                      <i class="bi bi-search"></i>
+                  </button>
+                  {% endif %}
+              </form>
+          </div>
+      </div>
+  </nav>
+  <nav class="navbar border-bottom box-shadow mb-3 d-md-none">
+    <div class="container">
+        <div class="navbar-collapse d-flex">
+          <p>
+            <form class="d-flex input-group mb-3" action="{{ "search/"|url }}">
+              {% if page and page.meta.disable_nav %}
+              <!-- NAV -->
+              {% else %}
+              <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="ナビゲーションを表示"><i class="bi bi-book"></i></button>
+              {% endif %}
+              <button class="btn btn-outline-secondary" onclick="darkmode.toggleDarkMode();" type="button"><i class="bi bi-brightness-high"></i></button>
+              
+              {% if config.visible_search %}
+              <input class="form-control" type="search" id="searchbox_mobile" placeholder="{{ config.site_name }}で検索" aria-label="検索"  name="q">
+              <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
+              {% endif %}
+              {% if page and page.meta.disable_tol %}
+               <!-- TOL -->
+              {% else %}
+              {% if page.toc %}
+              <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#tol"><i class="bi bi-list-ul"></i></button>
+              {% endif %}
+              {% endif %}
+          </form>
+          </p>
+        </div>
+    </div>
+</nav>
+</header>
+{% endif %}
+  <div class="container">
+    <main role="main" class="pb-3">
+      <div class="row">
+        
+    {% if page and page.meta.disable_nav %}
+    <!-- NAV -->
+    {% else %}
+    <div class="col-12 col-md-2">
+      <div class="collapse d-md-block" id="nav">
+        <ul class="list-group list-group-flush">
+        {% for nav_item in nav %}
+        {% if not nav_item.children %}
+        <li class="list-group-item"><a class="text-decoration-none {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a></li>
+        {% else %}
+        <li class="list-group-item">
+          <a class="nav_cop {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" aria-expanded="false" data-bs-toggle="collapse" role="button" >{{ nav_item.title }}</a>
+          <ul class="collapse list-group list-group-flush {% if nav_item.active %}show{% endif %} ">
+            {% include "nav.html" %}
+          </ul>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      </div>
+    </div>
+    {% endif %}
+       {% block main_content %}
+       {% endblock %}
+      </div>
+      </div>
+      <script src="{{ "js/theme.js"|url }}"></script>
+      {% for path in config.extra_javascript %}
+    <script src="{{ path|url }}"></script>
+      {% endfor %}
+    </main>
+  </div>
+  
+  {% if not config.disable_footer %}
+  <footer class="border-top footer text-muted .position-absolute.bottom-0.start-50.translate-middle-x" style="padding-top:15px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          {% if config.copyright %}
+          <p>{{ config.copyright }}</p>
+          {% endif %}
+        </div>
+        {% if config.footimg %}
+        <div class="col-md-1">
+          <p>
+            <img class="fit-picture" src="{{ config.footimg|url }}" height="30em" width="30em">
+          </p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </footer>
+  {% endif %}
+</body>
+</html>

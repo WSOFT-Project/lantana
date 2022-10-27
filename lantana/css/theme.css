@@ -1,0 +1,79 @@
+.highlight {
+    padding: 10px;
+    border: solid 1.5px #bcbebf;
+}
+img .img-fluid{
+    aspect-ratio: 16 / 9;
+}
+
+details > details,
+details > div {
+  padding-left: 16px;
+}
+
+a{
+    text-decoration: none;
+    color : #1558d6;
+}
+
+blockquote{
+    position:relative;
+    border-left:3px solid #c0c0c0;
+    padding-left:10px;
+}
+blockquote:before{
+    font-family:bootstrap-icons;
+    content:'\F6B0';
+    color:rgb(139, 139, 139);
+}
+blockquote p{
+    position:relative;
+}
+blockquote cite{
+    display: block;
+    font-size:0.8rem;
+    color:#F8C8B2;
+    text-align:right;
+}
+
+
+
+.alert-heading:before{
+    font-family:bootstrap-icons;
+    padding-right: 0.25em;
+    font-size: 15px;
+}
+
+.note .alert-heading:before{
+    content:'\F26A';
+}
+.abstract .alert-heading:before{
+    content:'\F3B8';
+}
+.info .alert-heading:before{
+    content:'\F430';
+}
+.tip .alert-heading:before{
+    content:'\F468';
+}
+.success .alert-heading:before{
+    content:'\F272';
+}
+.question .alert-heading:before{
+    content:'\F504';
+}
+.warning .alert-heading:before{
+    content:'\F33A';
+}
+.failure .alert-heading:before{
+    content:'\F622';
+}
+.danger .alert-heading:before{
+    content:'\F67B';
+}
+.bug .alert-heading:before{
+    content:'\F1DB';
+}
+.example .alert-heading:before{
+    content:'\F41F';
+}

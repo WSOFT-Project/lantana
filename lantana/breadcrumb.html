@@ -1,0 +1,9 @@
+{% for nav_item in nav_item.children %}
+        {% if nav_item.active %}
+        <li class="breadcrumb-item active" aria-current="page">{{ nav_item.title }}</li>
+        
+        {% if nav_item.children %}
+        {% include "breadcrumb.html" %}
+        {% endif %}
+        {% endif %}
+{% endfor %}

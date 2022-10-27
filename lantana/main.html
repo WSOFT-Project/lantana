@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block main_content %}
+    {% if page and page.meta.disable_tol %}
+    <!-- TOL -->
+    {% else %}
+    {% if page.toc %}
+    <div class="col-12 col-md-2 order-md-3">
+      <div class="collapse d-md-block" id="tol">
+        <span>目次</span>
+         <hr/>
+        <ul class="list-group list-group-flush">
+          {% for toc_item in page.toc %}
+              <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    <div class="col-12 col-md-8">
+    <h1>{{ page.title }}</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">{{ config.site_name }}</li>
+        {% for nav_item in nav %}
+        {% if nav_item.active %}
+        <li class="breadcrumb-item active" aria-current="page">{{ nav_item.title }}</li>
+        {% if nav_item.children %}
+        {% include "breadcrumb.html" %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+    {% if page and page.meta.summary %}
+        <p>{{ page.meta.summary }}</p>
+    <hr/>
+    {% endif %}
+    {% if page and not page.meta.disable_tools %}
+    <div class="d-flex justify-content-between">
+      <div>
+        {% if page.previous_page %}
+        <a class="btn text-primary" href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}"><i class="bi bi-chevron-left"></i></a>
+        {% else %}
+        <a class="btn text-muted"><i class="bi bi-chevron-left"></i></a>
+        {% endif %}
+        {% if page.next_page %}
+        <a class="btn text-primary" href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"><i class="bi bi-chevron-right"></i></a>
+        {% else %}
+        <a class="btn text-muted"><i class="bi bi-chevron-right"></i></a>
+        {% endif %}
+      </div>
+      <div>
+        <div>
+          {% if page and page.meta.author %}
+          {% if page and page.meta.author_url %}
+          <a href="{{ page.meta.author_url }}">{{ page.meta.author }}</a>
+          {% else %}
+          <span>{{ page.meta.author }}</span>
+          {% endif %}
+          <span>|</span>
+          {% endif %}
+          {% if page and page.meta.date %}
+          <span>{{ page.meta.date }}</span>
+          {% endif %}
+          <button class="btn" onclick="window.print();"><i class="bi bi-printer"></i></button>
+          {% if page and page.edit_url %}
+          <a class="btn" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
+          {% elif config.repo_url %}
+          <a class="btn" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
+          {% else %}
+          <a class="btn disabled"><i class="bi bi-pencil"></i></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <hr/>
+    {% endif %}
+    {% block content %}
+      {{ page.content }}
+    {% endblock %}
+    
+{% endblock %}
