@@ -12,5 +12,5 @@ disable_tools : true
 </div>
 
 <div id="mkdocs-search-results">
-  Sorry, page not found.
+  指定されたページは見つかりませんでした
 </div>
