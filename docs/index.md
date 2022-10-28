@@ -18,19 +18,6 @@ Lantanaはシンプルながらも、多言語に対応しており、フリー�
     * [インストール](/tutrial/getstarted/install)
     * [サイトの作成](/tutrial/getstarted/new)
     * [記事を執筆する](/tutrial/getstarted/write)
-
-    ガイド
-
-    * [リンクを使ってページをつなぐ方法](/guide/link)
-
-!!! note "作成したサイトの公開"
-    ---
-    公開
-
-    * [公開手法の検討](/tutrial/publish)
-    * [自分のサーバーで公開する](/tutrial/publish/onpremiss)
-    * [Github Pagesで公開する](/tutrial/publish/github)
-    * [Cloudflare Pagesで公開する](/tutrial/publish/cloudflare)
     
 
 ### 貢献
