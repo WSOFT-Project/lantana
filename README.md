@@ -1,4 +1,4 @@
-# Lantana
+# [Lantana](https://lantana.wsoft.ws/)
 Lantanaは、シンプルで軽量なMKDocsのテーマです。HTMLの知識がなくても簡単にサイトを作成できます。Lantanaは、WSOFT Docsのために開発されています。
 
 Lantanaはシンプルながらも、多言語に対応しており、フリーソフトかつオープンソースプロジェクトで開発されています。
@@ -12,7 +12,7 @@ LantanaはPyPIからダウンロードできます。
 ```shell
 pip install lantana
 ```
-Lantanaの詳しい使用方法については、[Lantanaのサイト](http://wsoft-project.github.io/lantana/)を参照してください。
+Lantanaの詳しい使用方法については、[チュートリアル:作業開始](https://lantana.wsoft.ws/tutrial/getstarted/)を参照してください。
 
 ## 使用しているライブラリなど
-* docs/Credit.mdにまとめてあります。ご確認ください。
+* [docs/Credit.md](https://lantana.wsoft.ws/Credit)にまとめてあります。ご確認ください。
