@@ -42,6 +42,7 @@
   <link rel="icon alternate" href="{{ config.favicon|url }}">
   {% endif%}
   <script async>var base_url = '{{ base_url }}';</script>
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 {% if config.google_analytics %}
    <!-- Google tag (gtag.js) -->
 <script async async src="https://www.googletagmanager.com/gtag/js?id=G-33M7VJN24C"></script>
@@ -64,19 +65,17 @@
 
   <link rel="stylesheet"
       href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css">
-  <script async async src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+  <script async src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pygments-rouge-css@0.1.0/vs.min.css">
 
   {% for path in config.extra_css %}
     <link href="{{ path|url }}" rel="stylesheet">
   {% endfor %}
-  <script async src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://unpkg.com/mermaid/dist/mermaid.min.css">
+ 
 
   {% block extrahead %}
   {% endblock %}
-
 </head>
 
 <body>
