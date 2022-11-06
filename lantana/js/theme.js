@@ -45,6 +45,18 @@ function copy_btn_clicked(btn){
     btn.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
 }
 
+//ページのコピーボタンが押されたときの処理
+function page_copy_btn_clicked(btn){
+    $(document.body).append("<textarea id=\"copyTarget\" style=\"position:absolute; left:-9999px; top:0px;\" readonly=\"readonly\">" +location.href+ "</textarea>");
+  let obj = document.getElementById("copyTarget");
+  let range = document.createRange();
+  range.selectNode(obj);
+  window.getSelection().addRange(range);
+  document.execCommand('copy');
+    btn.querySelector('.'+ICON_COPY).classList.add('text-success');
+    btn.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
+}
+
 //表をBootstrap仕様に
 $("table").addClass("table");
 

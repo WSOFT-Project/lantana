@@ -26,6 +26,7 @@ plugins:
         lang : 'ja'
         min_search_length: 2
     - awesome-pages
+    - macros
 
 markdown_extensions:
     #- lantana.extensions.mdx_embedly
