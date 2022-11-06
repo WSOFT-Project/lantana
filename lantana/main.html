@@ -64,12 +64,15 @@
           <span>{{ page.meta.date }}</span>
           {% endif %}
           <button class="btn" onclick="window.print();"><i class="bi bi-printer"></i></button>
+          <button class="btn" onclick="page_copy_btn_clicked(this);"><i class="bi bi-clipboard"></i></button>
+          {% if page and not page.meta.disable_tools %}
           {% if page and page.edit_url %}
           <a class="btn" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
           {% elif config.repo_url %}
           <a class="btn" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
           {% else %}
           <a class="btn disabled"><i class="bi bi-pencil"></i></a>
+          {% endif %}
           {% endif %}
         </div>
       </div>
