@@ -4,12 +4,13 @@ summary: Lantanaは、MKDocsの非公式テーマです
 author : Taiseiue
 author_url : https://github.com/taiseiue
 date : 2022-10-22
+disable_edit : true
 ---
 Lantanaは、下記のプロジェクトの一部または全部を使用して作成されました。また、LantanaはMITライセンスで配布しています。
 <div class="accordion" >
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#credit-mkdocs" aria-expanded="false" >
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#credit-mkdocs" aria-expanded="false" >
         MKDocs
       </button>
     </h2>
@@ -42,7 +43,7 @@ Lantanaは、下記のプロジェクトの一部または全部を使用して�
     </div>
     <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#credit-bootstrap" aria-expanded="false" >
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#credit-bootstrap" aria-expanded="false" >
         Bootstrap
       </button>
     </h2>
@@ -71,7 +72,7 @@ THE SOFTWARE.</p>
     </div>
     <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#credit-highlightjs" aria-expanded="false" >
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#credit-highlightjs" aria-expanded="false" >
         highlight.js
       </button>
     </h2>
@@ -105,7 +106,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
     </div>
     <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#credit-mdx-embedly" aria-expanded="false" >
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#credit-mdx-embedly" aria-expanded="false" >
         Embedly Extension for Python-Markdown
       </button>
     </h2>
@@ -133,7 +134,7 @@ SOFTWARE.</P>
     </div>
      <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#credit-mdx-bootstrap-dark" aria-expanded="false" >
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#credit-mdx-bootstrap-dark" aria-expanded="false" >
         The Ancillary Guide to Dark Mode and Bootstrap 5
       </button>
     </h2>

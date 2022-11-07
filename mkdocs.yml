@@ -17,7 +17,10 @@ image : favicon.png
 language : ja
 
 
-theme: "lantana"
+# theme: "lantana"
+theme:
+    name: lantana
+    custom_dir: lantana/
 
 visible_search : true
 
@@ -25,8 +28,8 @@ plugins:
     - search:
         lang : 'ja'
         min_search_length: 2
-    - awesome-pages
     - macros
+    - awesome-pages
 
 markdown_extensions:
     #- lantana.extensions.mdx_embedly
