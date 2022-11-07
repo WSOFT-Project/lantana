@@ -92,7 +92,7 @@
             {% endif%}
             {{ config.site_name }}
           </a>
-          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between print-hide">
               <p></p>
               <form class="d-none d-md-flex input-group mb-3" style="max-width: 300px;" action="{{ "search/"|url }}">
                 <button class="btn btn-outline-secondary" onclick="darkmode.toggleDarkMode();" type="button"><i class="bi bi-brightness-high"></i></button>
@@ -107,7 +107,7 @@
           </div>
       </div>
   </nav>
-  <nav class="navbar border-bottom box-shadow mb-3 d-md-none">
+  <nav class="navbar border-bottom box-shadow mb-3 d-md-none  print-hide">
     <div class="container">
         <div class="navbar-collapse d-flex">
           <p>
@@ -144,7 +144,7 @@
     {% if page and page.meta.disable_nav %}
     <!-- NAV -->
     {% else %}
-    <div class="col-12 col-md-2">
+    <div class="col-12 col-md-2 print-hide">
       <div class="collapse d-md-block text-nowrap" id="nav"  style="overflow-x:scroll;">
         <ul class="list-group list-group-flush">
         {% for nav_item in nav %}

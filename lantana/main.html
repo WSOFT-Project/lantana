@@ -4,7 +4,7 @@
     <!-- TOL -->
     {% else %}
     {% if page.toc %}
-    <div class="col-12 col-md-2 order-md-3">
+    <div class="col-12 col-md-2 order-md-3 print-hide">
       <div class="collapse d-md-block" id="tol" style="overflow-x:scroll;">
         <span>目次</span>
          <hr/>
@@ -17,7 +17,7 @@
     </div>
     {% endif %}
     {% endif %}
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8 print-main">
     <h1>{{ page.title }}</h1>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -40,15 +40,17 @@
     <div class="d-flex justify-content-between">
       <div>
         {% if page.previous_page %}
-        <a class="btn text-primary" href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}"><i class="bi bi-chevron-left"></i></a>
+        <a class="btn text-primary print-hide" href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}"><i class="bi bi-chevron-left"></i></a>
         {% else %}
-        <a class="btn text-muted"><i class="bi bi-chevron-left"></i></a>
+        <a class="btn text-muted print-hide"><i class="bi bi-chevron-left"></i></a>
         {% endif %}
         {% if page.next_page %}
-        <a class="btn text-primary" href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"><i class="bi bi-chevron-right"></i></a>
+        <a class="btn text-primary print-hide" href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"><i class="bi bi-chevron-right"></i></a>
         {% else %}
-        <a class="btn text-muted"><i class="bi bi-chevron-right"></i></a>
+        <a class="btn text-muted print-hide"><i class="bi bi-chevron-right"></i></a>
         {% endif %}
+        <button class="btn print-visible d-none" onclick="print_page();" title="このページを印刷する"><i class="bi bi-printer"></i></button>
+        <button class="btn print-visible d-none" onclick="print_normal();" title="通常ページに戻る"><i class="bi bi-box-arrow-right"></i></button>
       </div>
       <div>
         <div>
@@ -63,16 +65,23 @@
           {% if page and page.meta.date %}
           <span>{{ page.meta.date }}</span>
           {% endif %}
-          <button class="btn" onclick="window.print();"><i class="bi bi-printer"></i></button>
-          <button class="btn" onclick="page_copy_btn_clicked(this);"><i class="bi bi-clipboard"></i></button>
-          {% if page and not page.meta.disable_tools %}
+          <button class="btn print-hide" title="印刷用ページを表示" onclick="print_view();"><i class="bi bi-printer"></i></button>
+          {% if page and not page.meta.disable_edit %}
           {% if page and page.edit_url %}
-          <a class="btn" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
+          <a class="btn print-hide" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
           {% elif config.repo_url %}
-          <a class="btn" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
+          <a class="btn print-hide" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
           {% else %}
-          <a class="btn disabled"><i class="bi bi-pencil"></i></a>
+          <a class="btn disabled print-hide"><i class="bi bi-pencil"></i></a>
           {% endif %}
+          <span class="dropdown print-hide">
+            <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="btn dropdown-item" href="https://twitter.com/share?ref_src=twsrc%5Etfw"><i class="bi bi-twitter"></i>&nbsp;Twitter</a></li>
+              <li><button class="btn dropdown-item" onclick="share_to_facebook();"><i class="bi bi-facebook"></i>&nbsp;Facebook</button></li>
+              <li><button class="btn dropdown-item" onclick="page_copy_btn_clicked(this);"><i class="bi bi-clipboard"></i>&nbsp;URLをコピー</button></li>
+            </ul>
+          </span>
           {% endif %}
         </div>
       </div>

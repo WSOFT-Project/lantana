@@ -1,5 +1,47 @@
 //Materialテーマ相互運用機能
 
+//印刷用ページの設定
+function isPrintMode(){
+    var i = new URL(window.location.href);
+    var pms = i.searchParams;
+    return pms.has('print');
+}
+
+function togglePrintMode(){
+if(isPrintMode()) {
+    document.querySelectorAll('.print-hide').forEach(element =>element.parentNode.removeChild(element));
+    document.querySelectorAll('.print-visible').forEach(element =>element.classList.remove('d-none'));
+    document.querySelector('.print-main').classList.remove('col-md-8');
+}}
+
+togglePrintMode();
+
+function print_view(){
+    var url = new URL(window.location.href);
+	url.searchParams.append('print','');
+	location.href = url;
+}
+
+function print_normal(){
+    var url = new URL(window.location.href);
+	url.searchParams.delete('print');
+	location.href = url;
+}
+
+function print_page(){
+    document.querySelectorAll('.print-visible').forEach(element =>element.classList.add('d-none'));
+    const val=darkmode.inDarkMode;
+    darkmode.setDarkMode(false);
+    window.print();
+    darkmode.setDarkMode(val);
+    document.querySelectorAll('.print-visible').forEach(element =>element.classList.remove('d-none'));
+}
+
+function share_to_facebook(){
+    alert('http://www.facebook.com/share.php?u='+escape(location.href));
+    location.href='http://www.facebook.com/share.php?u='+escape(location.href);
+}
+
 //該当するクラスを置換するメソッド
 function replace_class(base,to){
     document.querySelectorAll('.'+base).forEach(element => element.classList.replace(base,to));
