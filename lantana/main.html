@@ -4,15 +4,24 @@
     <!-- TOL -->
     {% else %}
     {% if page.toc %}
+    
     <div class="col-12 col-md-2 order-md-3 print-hide">
-      <div class="collapse d-md-block" id="tol" style="overflow-x:scroll;">
+      <div class="collapse d-md-block text-nowrap" id="tol"  style="overflow-x:scroll;">
         <span>目次</span>
          <hr/>
         <ul class="list-group list-group-flush">
-          {% for toc_item in page.toc %}
-              <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+        {% for toc_item in page.toc %}
+        <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url|url }}" >{{ toc_item.title }}</a>
+          {% if toc_item.children %}
+      <ul class="list-group list-group-flush">
+          {% for toc_item in toc_item.children %}
+              {% include "toc.html" %}
           {% endfor %}
-        </ul>
+      </ul>
+          {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
       </div>
     </div>
     {% endif %}
@@ -49,8 +58,6 @@
         {% else %}
         <a class="btn text-muted print-hide"><i class="bi bi-chevron-right"></i></a>
         {% endif %}
-        <button class="btn print-visible d-none" onclick="print_page();" title="このページを印刷する"><i class="bi bi-printer"></i></button>
-        <button class="btn print-visible d-none" onclick="print_normal();" title="通常ページに戻る"><i class="bi bi-box-arrow-right"></i></button>
       </div>
       <div>
         <div>
@@ -61,11 +68,17 @@
           <span>{{ page.meta.author }}</span>
           {% endif %}
           <span>|</span>
+          {% else %}
+          {% if git_page_authors %}
+          <span>{{ git_page_authors }}</span>
+          <span>|</span>
+          {% endif %}
           {% endif %}
           {% if page and page.meta.date %}
           <span>{{ page.meta.date }}</span>
           {% endif %}
-          <button class="btn print-hide" title="印刷用ページを表示" onclick="print_view();"><i class="bi bi-printer"></i></button>
+          <button class="btn print-block" title="このページを印刷" onclick="window.print();"><i class="bi bi-printer"></i></button>
+          <button class="btn print-visible d-none" onclick="print_normal();" title="新しいタブで開く"><i class="bi bi-arrow-up-right-square"></i></button>
           {% if page and not page.meta.disable_edit %}
           {% if page and page.edit_url %}
           <a class="btn print-hide" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
@@ -79,6 +92,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="btn dropdown-item" href="https://twitter.com/share?ref_src=twsrc%5Etfw"><i class="bi bi-twitter"></i>&nbsp;Twitter</a></li>
               <li><button class="btn dropdown-item" onclick="share_to_facebook();"><i class="bi bi-facebook"></i>&nbsp;Facebook</button></li>
+              <li><button class="btn dropdown-item" onclick="print_view();"><i class="bi bi-file-earmark-text"></i>&nbsp;埋込モードで表示</button></li>
               <li><button class="btn dropdown-item" onclick="page_copy_btn_clicked(this);"><i class="bi bi-clipboard"></i>&nbsp;URLをコピー</button></li>
             </ul>
           </span>

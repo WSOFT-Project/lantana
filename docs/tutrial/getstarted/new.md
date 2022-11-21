@@ -43,9 +43,10 @@ visible_search : true
 plugins:
     - search:
         lang : 'ja'
-        min_search_length: 2  
+        min_search_length: 2
     - macros
     - awesome-pages
+    - git-authors
 
 markdown_extensions:
     - attr_list

@@ -4,7 +4,7 @@
 function isPrintMode(){
     var i = new URL(window.location.href);
     var pms = i.searchParams;
-    return pms.has('print');
+    return pms.has('embed');
 }
 
 function togglePrintMode(){
@@ -18,23 +18,14 @@ togglePrintMode();
 
 function print_view(){
     var url = new URL(window.location.href);
-	url.searchParams.append('print','');
+	url.searchParams.append('embed','');
 	location.href = url;
 }
 
 function print_normal(){
     var url = new URL(window.location.href);
-	url.searchParams.delete('print');
-	location.href = url;
-}
-
-function print_page(){
-    document.querySelectorAll('.print-visible').forEach(element =>element.classList.add('d-none'));
-    const val=darkmode.inDarkMode;
-    darkmode.setDarkMode(false);
-    window.print();
-    darkmode.setDarkMode(val);
-    document.querySelectorAll('.print-visible').forEach(element =>element.classList.remove('d-none'));
+	url.searchParams.delete('embed');
+	window.open(url);
 }
 
 function share_to_facebook(){
@@ -53,7 +44,8 @@ function add_class(base,to){
 //MaterialのAdmonitionをAlertに置換
 replace_class('admonition','alert');
 replace_class('admonition-title','alert-heading');
-$(".alert-heading a").addClass("alert-link");
+$(".alert a").addClass("alert-link");
+$(".alert a").addClass("text-decoration-underline");
 
 //MaterialのAdmonition色をAlert色に置換
 add_class('note','alert-primary');

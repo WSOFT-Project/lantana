@@ -12,12 +12,12 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+logo : favicon.png
 favicon : favicon.png
 image : favicon.png
 language : ja
 
 
-# theme: "lantana"
 theme:
     name: lantana
     custom_dir: lantana/
@@ -30,10 +30,10 @@ plugins:
         min_search_length: 2
     - macros
     - awesome-pages
+    - git-authors:
+        show_contribution: true
 
 markdown_extensions:
-    #- lantana.extensions.mdx_embedly
-    #- lantana.extensions.mdx_wsid
     - attr_list
     - pymdownx.highlight:
        anchor_linenums: true
