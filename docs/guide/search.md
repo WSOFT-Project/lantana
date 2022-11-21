@@ -1,8 +1,6 @@
 ---
 title: 検索を使用する
 summary: この記事では、Lantanaで検索を使用する方法を説明します
-author : Taiseiue
-author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 ### 検索ページを作成する

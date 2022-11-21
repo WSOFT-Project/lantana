@@ -1,8 +1,6 @@
 ---
 title: Lantanaの概要
 summary: Lantanaの概要に関するチュートリアルへようこそ
-author : Taiseiue
-author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 ## ツアー

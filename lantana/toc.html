@@ -1,0 +1,11 @@
+{% if toc_item %}
+    <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url|url }}" >{{ toc_item.title }}</a>
+    {% if toc_item.children %}
+<ul class="list-group list-group-flush">
+    {% for toc_item in toc_item.children %}
+        {% include "toc.html" %}
+    {% endfor %}
+</ul>
+    {% endif %}
+    </li>
+{% endif %}

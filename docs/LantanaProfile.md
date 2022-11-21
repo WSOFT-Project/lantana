@@ -2,8 +2,6 @@
 title: Lantana（キャラクター）のプロフィール
 summary: Lantana及びLantanaOpenSourceProjectのマスコットキャラクター兼公式アンバサダーである。
 date : 2022-10-30
-author : matsuzen
-author_url : https://github.com/matsu-zen
 ---
 ### 概要
 Lantana及びLantanaOpenSourceProjectのマスコットキャラクター兼公式アンバサダーである。黒い長髪が特徴のおしとやかな少女で、運動神経が高く足が速い。不器用だがどんな仕事も最後まで真面目にこなし、絶対に諦めない。普段からネットの海を旅しているため、決まった所に住処を持たない。どんな人とも仲良くできるがAliceとだけはいつも喧嘩している。

@@ -1,8 +1,6 @@
 ---
 title: 設定ファイル
 summary: この記事では、mkdocs.ymlで指定できる設定の一覧を示します
-author : Taiseiue
-author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 
@@ -43,19 +41,19 @@ extra_stylesheet:
 ### ファビコン
 サイトのアイコンです。これは、サイト上部に表示されるほか、サイトのファビコンにも使用されます。
 ```yaml
-favicon : favicon.png
+logo : logo.png
 ```
 
 ### Svg形式のファビコン
 Svc形式のファビコンです。これは、サイトのファビコンに使用されます。
 ```yaml
-favicon_svg : favicon.svg
+logo_svg : logo.svg
 ```
 
 ### フッターアイコン
 サイトのサブアイコンです。これは、サイト下部に表示されます。
 ```yaml
-footimg : favicon.svg
+footimg : logo.svg
 ```
 
 ### サイトの画像
