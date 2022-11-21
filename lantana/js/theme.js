@@ -130,6 +130,21 @@ function toggle_toc(toc){
     }
 }
 
+function search(ismobile){
+    let query=document.getElementById('searchbox').value;
+    if(ismobile){
+        query=document.getElementById('searchbox_mobile').value;
+    }
+    let target = document.getElementById('mkdocs-search-query');
+    target.value=query;
+    let e = new Event('keyup');
+    target.dispatchEvent(e);
+    let searchModal = new bootstrap.Modal(document.getElementById('searchModal'), {
+        keyboard: false
+      });
+    searchModal.show();
+}
+
 let url = new URL(window.location.href);
 let params = url.searchParams;
 

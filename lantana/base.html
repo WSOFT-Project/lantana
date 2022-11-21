@@ -33,17 +33,16 @@
     <meta name="twitter:card" content="Summary Card" />
     {% endif %}
 
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}</title>
+    {% if config.site_short_name %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_short_name }}</title>
+    {% else %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}</title>
+    {% endif %}
+  
 
-  {% if config.logo_svg %}
-  <link rel="favicon" href="{{ config.logo_svg|url }}" type="image/svg+xml">
-  {% endif %}
   {% if config.favicon %}
-  <link rel="favicon alternate" href="{{ config.favicon|url }}">
+  <link rel="favicon" href="{{ config.favicon|url }}">
   {% endif %}
-  {% if config.logo %}
-  <link rel="favicon alternate" href="{{ config.logo|url }}">
-  {% endif%}
   <script async>var base_url = '{{ base_url }}';</script>
   <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 {% if config.google_analytics %}
@@ -98,16 +97,16 @@
           </a>
           <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between print-hide">
               <p></p>
-              <form class="d-none d-md-flex input-group mb-3" style="max-width: 300px;" action="{{ "search/"|url }}">
+              <div class="d-none d-md-flex input-group mb-3" style="max-width: 300px;">
                 <button class="btn btn-outline-secondary" onclick="darkmode.toggleDarkMode();" type="button"><i class="bi bi-brightness-high"></i></button>
                 
-              {% if config.visible_search %}
-                  <input class="form-control me-2" type="search" id="searchbox" placeholder="{{ config.site_name }}で検索" aria-label="検索" name="q"/>
-                  <button class="btn btn-outline-secondary" type="submit">
+              {% if config.visible_search!=false %}
+                  <input class="form-control me-2" type="search" id="searchbox" placeholder="{{ config.site_name }}で検索" aria-label="検索"/>
+                  <button class="btn btn-outline-secondary" type="button" onclick="search(false);">
                       <i class="bi bi-search"></i>
                   </button>
                   {% endif %}
-              </form>
+              </div>
           </div>
       </div>
   </nav>
@@ -115,7 +114,7 @@
     <div class="container">
         <div class="navbar-collapse d-flex">
           <p>
-            <form class="d-flex input-group mb-3" action="{{ "search/"|url }}">
+            <div class="d-flex input-group mb-3">
               {% if page and page.meta.disable_nav %}
               <!-- NAV -->
               {% else %}
@@ -124,8 +123,8 @@
               <button class="btn btn-outline-secondary" onclick="darkmode.toggleDarkMode();" type="button"><i class="bi bi-brightness-high"></i></button>
               
               {% if config.visible_search %}
-              <input class="form-control" type="search" id="searchbox_mobile" placeholder="{{ config.site_name }}で検索" aria-label="検索"  name="q">
-              <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
+              <input class="form-control" type="search" id="searchbox_mobile" placeholder="{{ config.site_name }}で検索" aria-label="検索">
+              <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i class="bi bi-search"></i></button>
               {% endif %}
               {% if page and page.meta.disable_tol %}
                <!-- TOL -->
@@ -134,7 +133,7 @@
               <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#tol"><i class="bi bi-list-ul"></i></button>
               {% endif %}
               {% endif %}
-          </form>
+          </div>
           </p>
         </div>
     </div>
@@ -198,7 +197,26 @@
     </div>
   </footer>
   {% endif %}
-  
+
+<div class="modal fade" id="searchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg print-hide">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">検索</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input id="mkdocs-search-query" type="text" class="form-control" aria-label="検索" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div id="mkdocs-search-results">
+          No results found
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
   <script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script async>mermaid.initialize({startOnLoad: true});</script>
 </body>

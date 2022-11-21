@@ -1,8 +1,6 @@
 ---
 title: メタタグ
 summary: この記事では、Lantanaで使用できるメタタグの一覧を示します
-author : Taiseiue
-author_url : https://github.com/taiseiue
 date : 2022-10-22
 ---
 

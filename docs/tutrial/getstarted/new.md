@@ -1,8 +1,6 @@
 ---
 title: サイトを作成する
 summary: この記事では、新たにサイトを作成する方法を説明します
-author : Taiseiue
-author_url : https://github.com/taiseiueue
 date : 2022-10-22
 ---
 

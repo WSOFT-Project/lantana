@@ -1,8 +1,6 @@
 ---
 title: インストール
 summary: この記事では、お使いのコンピューターにLantanaをインストールし、使用可能にする方法を説明します
-author : Taiseiue
-author_url : https://github.com/taiseiueue
 date : 2022-10-22
 ---
 ### 前提条件
