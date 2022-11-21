@@ -70,8 +70,7 @@
           <span>|</span>
           {% else %}
           {% if git_page_authors %}
-          <span>{{ git_page_authors }}</span>
-          <span>|</span>
+          <p><small>Authors: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}</small></p>
           {% endif %}
           {% endif %}
           {% if page and page.meta.date %}
