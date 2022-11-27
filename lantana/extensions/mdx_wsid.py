@@ -19,6 +19,9 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
+
+# WSOFTDownloadCenter ダウンロード番号自動変換拡張機能
+# この拡張機能は「[WS00000]」のようなダウンロード番号を自動的にリンクへと置き換えます
 from markdown import Extension
 from markdown.postprocessors import Postprocessor
 import re
@@ -31,15 +34,15 @@ class WSIDExtension(Extension):
 
 class WSIDPostprocesser(Postprocessor):
 
-    _pattern = re.compile(r"WS[0-9]{5}")
+    _pattern = re.compile(r"\[WS[0-9]{5}\]")
 
     def run(self, html):
         html = re.sub(self._pattern, self._replace_wsid, html) 
         return html
 
     def _replace_wsid(self, match):
-        url = match.group(0).lstrip("WS")
-        title = "WSOFTDownloadCenter"
+        url = match.group(0).lstrip("[WS").rstrip("]")
+        title = "WSOFTダウンロードセンターからダウンロード"
         return """
 <a href="https://download.wsoft.ws/WS{0}" title="{1}">WS{0}</a>
 """.format(url, title)
