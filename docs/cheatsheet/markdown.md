@@ -297,7 +297,7 @@ Bootstrapの制約により、ヘッダーでは左右中央揃えが適用さ�
 ### 図形
 Lantanaは規定でmermaid.jsをサポートします。mermaid.jsを使うと、複雑な図形を簡単に挿入できます。
 ```markdown title="例"
-<div class="mermaid">
+```mermaid
   sequenceDiagram
     本部->>隊長: レンジャー1、状況を報告しろ！
     隊長->>本部:巨大生物と交戦、数匹を撃破しました！
@@ -312,7 +312,7 @@ Lantanaは規定でmermaid.jsをサポートします。mermaid.jsを使うと�
 </div>
 ```
 結果
-<div class="mermaid">
+```mermaid
   sequenceDiagram
     本部->>隊長: レンジャー1、状況を報告しろ！
     隊長->>本部:巨大生物と交戦、数匹を撃破しました！
@@ -324,7 +324,7 @@ Lantanaは規定でmermaid.jsをサポートします。mermaid.jsを使うと�
     loop 無線
       本部->>隊長:聞こえないぞ、繰り返せ！
     end
-</div>
+```
 
 ### アラート
 目を引く形で説明したい場合、`!!! 種類 "タイトル"`で囲みます。

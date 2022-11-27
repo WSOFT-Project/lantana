@@ -76,6 +76,10 @@
           {% endif %}
           {% if page and page.meta.date %}
           <span>{{ page.meta.date }}</span>
+          {% else %}
+          {% if page.meta.revision_date %}
+          <span>{{ page.meta.revision_date }}</span>
+          {% endif %}
           {% endif %}
           <button class="btn print-block" title="このページを印刷" onclick="window.print();"><i class="bi bi-printer"></i></button>
           <button class="btn print-visible d-none" onclick="print_normal();" title="新しいタブで開く"><i class="bi bi-arrow-up-right-square"></i></button>

@@ -19,7 +19,7 @@ togglePrintMode();
 function print_view(){
     var url = new URL(window.location.href);
 	url.searchParams.append('embed','');
-	location.href = url;
+	window.open(url);
 }
 
 function print_normal(){
