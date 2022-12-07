@@ -1,4 +1,5 @@
 # [Lantana](https://lantana.wsoft.ws/)
+![Screenshot](/screenshot.png)
 Lantanaは、シンプルで軽量なMKDocsのテーマです。HTMLの知識がなくても簡単にサイトを作成できます。Lantanaは、WSOFT Docsのために開発されています。
 
 Lantanaはシンプルながらも、多言語に対応しており、フリーソフトかつオープンソースプロジェクトで開発されています。
