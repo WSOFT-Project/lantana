@@ -45,7 +45,6 @@ function add_class(base,to){
 replace_class('admonition','alert');
 replace_class('admonition-title','alert-heading');
 $(".alert a").addClass("alert-link");
-$(".alert a").addClass("text-decoration-underline");
 
 //MaterialのAdmonition色をAlert色に置換
 add_class('note','alert-primary');

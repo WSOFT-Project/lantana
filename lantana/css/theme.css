@@ -11,10 +11,7 @@ details > div {
   padding-left: 16px;
 }
 
-a{
-    text-decoration: none;
-    color : #1558d6;
-}
+
 
 blockquote{
     position:relative;
@@ -92,3 +89,20 @@ blockquote cite{
         width: 100%;
     }
 }
+
+a{
+    text-decoration: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    a{
+        color:385898;
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    a{
+        color:0066CC;
+    }
+  }

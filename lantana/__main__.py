@@ -77,7 +77,7 @@ summary: Lantana のプロジェクトテンプレートです。ここから、
 
 def cli():
     """
-    MkDocs - Project documentation with Markdown.
+    Lantana - Project documentation with Markdown,flavor MkDocs.
     """
 
 
