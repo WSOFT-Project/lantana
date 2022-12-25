@@ -29,8 +29,10 @@ function print_normal(){
 }
 
 function share_to_facebook(){
-    alert('http://www.facebook.com/share.php?u='+escape(location.href));
-    location.href='http://www.facebook.com/share.php?u='+escape(location.href);
+    location.href='http://www.facebook.com/share.php?u='+encodeURI(location.href);
+}
+function share_to_twitter(text){
+    location.href='https://twiter.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text);
 }
 
 //該当するクラスを置換するメソッド
@@ -66,7 +68,7 @@ const ICON_COPY_CHECK = 'bi-clipboard-check';
 
 //コードブロックにコピーボタンを追加
 $(".highlight").addClass("position-relative");
-$(".highlight").prepend('<button onclick="copy_btn_clicked(this)" class="btn position-absolute top-0 end-0"><i class="bi '+ICON_COPY+'"></i></button>');
+$(".highlight").prepend('<button onclick="copy_btn_clicked(this)" class="btn copybtn position-absolute top-0 end-0"><i class="bi '+ICON_COPY+'"></i></button>');
 
 //コードブロックのコピーボタンが押されたときの処理
 function copy_btn_clicked(btn){

@@ -98,9 +98,9 @@ __ か \*\* で囲むとHTMLのstrongタグになり、**このように** 表�
 また、`print("Hello,World!");`と記述することでコードをインライン表示できます。
 
 ### コードブロック
-```` ``` ```` で囲むことでコードとして認識され、初めを```` ```言語名 ```` とすることでシンタックスハイライトがつきます。`title="タイトル"`とすることでファイル名なども表現できます。また、`linenums="1"`とすると行番号を表示できます。
+```` ``` ```` で囲むことでコードとして認識され、初めを```` ```言語名 ```` とすることでシンタックスハイライトがつきます。`title="タイトル"`とすることでファイル名なども表現できます。
 ```markdown title="例"
-``` csharp title="Program.cs" linenums="1"
+``` csharp title="Program.cs"
 using System;
 
 public class Program
@@ -110,12 +110,13 @@ public class Program
             Console.WriteLine("Hello World!");
      }
  }
+ ```
 ```
 
 結果
-``` csharp title="Program.cs" linenums="1"
+``` csharp title="Program.cs"
 using System;
-
+ 
 public class Program
  {
     public static void Main()
@@ -126,7 +127,7 @@ public class Program
 ```
 
 !!! warning "注意"
-    上記のサンプルでは末尾の```` ``` ````が欠落しています。（マークダウンの制約）コピペで使用する際はご注意ください。
+    テーブルのデザインや一貫性の問題から、`linenums=1`属性はLantana2.0から非推奨になりました。
 
 ### 数式
 `\$\$`で囲むことでTeX記法を用いて数式を記述できます。

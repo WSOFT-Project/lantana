@@ -94,7 +94,7 @@
           <span class="dropdown print-hide">
             <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="btn dropdown-item" href="https://twitter.com/share?ref_src=twsrc%5Etfw"><i class="bi bi-twitter"></i>&nbsp;Twitter</a></li>
+              <li><button class="btn dropdown-item" onclick="share_to_twitter('{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}');"><i class="bi bi-twitter"></i>&nbsp;Twitter</button></li>
               <li><button class="btn dropdown-item" onclick="share_to_facebook();"><i class="bi bi-facebook"></i>&nbsp;Facebook</button></li>
               <li><button class="btn dropdown-item" onclick="print_view();"><i class="bi bi-file-earmark-text"></i>&nbsp;埋込モードで表示</button></li>
               <li><button class="btn dropdown-item" onclick="page_copy_btn_clicked(this);"><i class="bi bi-clipboard"></i>&nbsp;URLをコピー</button></li>
