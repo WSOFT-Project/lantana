@@ -1,7 +1,19 @@
 .highlight {
-    padding: 10px;
-    border: solid 1.5px #bcbebf;
+    padding-top: 10px;
 }
+
+p code{
+    padding : 5px;
+}
+.highlighttable .copybtn , .highlighttable .filename , .highlight .copybtn , .highlight .filename,.highlighttable tr , .highlight pre{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.highlighttable tr , .highlight pre{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
 img .img-fluid{
     aspect-ratio: 16 / 9;
 }
@@ -99,10 +111,30 @@ a{
     a{
         color:385898;
     }
+    .highlighttable , .highlight{
+        background: #404040;
+    }
+    code , .highlighttable tr , .highlight pre{
+        color : #e1e1e1;
+        background : #2f2f2f !important;
+    }
+    .highlight{
+        border: solid 0.5px #404040;
+    }
   }
   
   @media (prefers-color-scheme: light) {
     a{
         color:0066CC;
+    }
+    .highlighttable , .highlight{
+        background: #e6e6e6;
+    }
+    code , .highlighttable tr , .highlight pre{
+        color : #171717;
+        background : #f2f2f2 !important;
+    }
+    .highlight{
+        border: solid 0.5px #e6e6e6;
     }
   }
