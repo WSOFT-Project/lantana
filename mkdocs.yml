@@ -2,6 +2,7 @@ site_name: Lantana
 copyright : 'Copyright &copy; 2022 WSOFT All rights reserved.'
 
 docs_dir : 'docs'
+site_url : 'https://lantana.wsoft.ws/'
 
 repo_name : 'GitHub'
 repo_url : 'https://github.com/WSOFT-Project/lantana/'

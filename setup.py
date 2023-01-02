@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.0.0'
+VERSION = '2.1.0'
 
 setup(
     name="lantana",
@@ -11,7 +11,6 @@ setup(
     author='WSOFT',
     author_email='info@wsoft.ws',
     packages=find_packages(),
-    long_description='Lantanaは、シンプルで軽量なMkDocsのテーマです。詳細な使用方法は、https://lantana.wsoft.ws/ を参照してください。',
     include_package_data=True,
     install_requires=['mkdocs>=1.1','mkdocs-material>=7.0','mkdocs-awesome-pages-plugin>=2.3','mkdocs-macros-plugin>=0.6.3','mkdocs-git-authors-plugin>=0.6.2','mkdocs-mermaid2-plugin>=0.5.0','mkdocs-git-revision-date-plugin>=0.3.1'],
     python_requires='>=3.5',
