@@ -63,7 +63,7 @@
         <div>
           {% if page and page.meta.author %}
           {% if page and page.meta.author_url %}
-          <a href="{{ page.meta.author_url }}">{{ page.meta.author }}</a>
+          <a href="{{ page.meta.author_url }}" class="unnewtab">{{ page.meta.author }}</a>
           {% else %}
           <span>{{ page.meta.author }}</span>
           {% endif %}
@@ -85,9 +85,9 @@
           <button class="btn print-visible d-none" onclick="print_normal();" title="新しいタブで開く"><i class="bi bi-arrow-up-right-square"></i></button>
           {% if page and not page.meta.disable_edit %}
           {% if page and page.edit_url %}
-          <a class="btn print-hide" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
+          <a class="btn print-hide unnewtab" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
           {% elif config.repo_url %}
-          <a class="btn print-hide" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
+          <a class="btn print-hide unnewtab" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
           {% else %}
           <a class="btn disabled print-hide"><i class="bi bi-pencil"></i></a>
           {% endif %}

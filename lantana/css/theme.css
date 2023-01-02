@@ -50,9 +50,6 @@ a[target="_blank"]:after{
     font-size:0.7rem;
 }
 
-a:hover{
-    text-decoration: underline;
-}
 
 .alert-heading:before{
     font-family:bootstrap-icons;

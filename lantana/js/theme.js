@@ -15,7 +15,7 @@ if(isPrintMode()) {
 }}
 
 function linkToNewTab(url){
-document.querySelectorAll('a[href*="://"]:not([href*="'+url+'"])').forEach(element =>element.setAttribute('target','_blank'));
+document.querySelectorAll('a[href*="://"]:not([href*="'+url+'"]):not(.unnewtab)').forEach(element =>element.setAttribute('target','_blank'));
 }
 
 function afterload(){
