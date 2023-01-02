@@ -214,12 +214,17 @@ https://lantana.wsoft.ws
 info@wsoft.ws
 
 ### リンク
+このサイト外へのリンクは新規タブで開かれます。
 ```markdown title="例"
 [リンク](about:blank)
+
+[WSOFT](https://wsoft.ws/)
 ```
 結果
 
 [リンク](about:blank)
+
+[WSOFT](https://wsoft.ws/)
 
 ### タイトル付きリンク
 タイトルはリンクをホバーした時に表示されます。

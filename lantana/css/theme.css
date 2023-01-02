@@ -1,5 +1,6 @@
 .highlight {
     padding-top: 10px;
+    margin-bottom: 10px;
 }
 
 p code{
@@ -23,8 +24,6 @@ details > div {
   padding-left: 16px;
 }
 
-
-
 blockquote{
     position:relative;
     border-left:3px solid #c0c0c0;
@@ -45,7 +44,15 @@ blockquote cite{
     text-align:right;
 }
 
+a[target="_blank"]:after{
+    font-family:bootstrap-icons;
+    content:'\00A0\F143';
+    font-size:0.7rem;
+}
 
+a:hover{
+    text-decoration: underline;
+}
 
 .alert-heading:before{
     font-family:bootstrap-icons;

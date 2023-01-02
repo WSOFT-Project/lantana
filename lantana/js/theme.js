@@ -14,6 +14,14 @@ if(isPrintMode()) {
     document.querySelector('.print-main').classList.remove('col-md-8');
 }}
 
+function linkToNewTab(url){
+document.querySelectorAll('a[href*="://"]:not([href*="'+url+'"])').forEach(element =>element.setAttribute('target','_blank'));
+}
+
+function afterload(){
+document.querySelectorAll('a[target="_blank"]').forEach(element =>element.setAttribute('rel','noopener noreferrer'));
+}
+
 togglePrintMode();
 
 function print_view(){
