@@ -63,6 +63,9 @@
   {% for path in config.extra_css %}
     <link href="{{ path|url }}" rel="stylesheet">
   {% endfor %}
+  {% for path2 in page.extra_css %}
+    <link href="{{ path2|url }}" rel="stylesheet">
+  {% endfor %}
   
   <script async>var base_url = '{{ base_url }}';</script>
   <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
@@ -162,6 +165,9 @@
       {% endif %}
       {% for path in config.extra_javascript %}
     <script async src="{{ path|url }}"></script>
+      {% endfor %}
+      {% for path2 in page.extra_javascript %}
+    <script async src="{{ path2|url }}"></script>
       {% endfor %}
       <script>
         afterload();
