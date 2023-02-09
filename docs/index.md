@@ -33,3 +33,10 @@ Lantanaはシンプルながらも、多言語に対応しており、フリー�
 * マークダウン拡張の[Embedly Extension for Python-Markdown](https://github.com/yymm/mdx_embedly)を使用し、一部改変しています
 * 検索エンジンに[lunr.js](https://lunrjs.com/)を使用しています
 * Lantanaのアイコンは、[icooon-mono](https://icooon-mono.com/)にお借りしました
+
+<div class="mermaid">
+graph TD;
+    Botの振る舞いを指定するプログラム.alice -->人格ファイル.identity;
+    人格の名前や必要な権限などの定義-->人格ファイル.identity;
+    その他の画像や音楽などのデータ-->人格ファイル.identity;
+</div>

@@ -109,6 +109,7 @@ $("blockquote").addClass("blockquote");
 //画像をBootstrap仕様に
 $("img").addClass("img-fluid");
 
+
 //
 $('.btn-outline-secondary .switch').on('click', function() {
     this.replace_class('btn-outline-secondary','btn-secondary');

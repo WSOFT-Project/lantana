@@ -1,5 +1,6 @@
 site_name: Lantana
 copyright : 'Copyright &copy; 2022 WSOFT All rights reserved.'
+author : WSOFT
 
 docs_dir : 'docs'
 site_url : 'https://lantana.wsoft.ws/'
@@ -22,6 +23,10 @@ language : ja
 theme:
     name: lantana
     custom_dir: lantana/
+    static_templates : 
+        - 404.html
+        - statics.html
+        - version.json
 
 visible_search : true
 
