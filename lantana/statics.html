@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% set ns = namespace(cnt = 1) %}
+{% for pg in pages %}
+{% set ns.cnt = ns.cnt + 1 %}
+{% endfor %}
+<div class="col-12 col-md-8">
+<h1>{{ config.site_name }}について</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">このサイトに関する統計情報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">記事の総数</th>
+        <td>{{ ns.cnt }}</td>
+      </tr>
+      <tr>
+        <th scope="row">サイトの最終更新日(UTC)</th>
+        <td>{{ build_date_utc }}</td>
+      </tr>
+      {% if config.author %}
+      <tr>
+        <th scope="row">サイトの作者</th>
+        <td colspan="2">{{ config.author }}</td>
+      </tr>
+      {% endif %}
+      {% if config.repo_url %}
+      <tr>
+        <th scope="row">リポジトリ</th>
+        <td colspan="2"><a href="{{ config.repo_url }}">{% if config.repo_name %}{{ config.repo_name }}{% else %}{{ config.repo_url }}{% endif %}</a></td>
+      </tr>
+      {% endif %}
+      <tr>
+        <th scope="row">Lantanaのバージョン</th>
+        <td>WSOFT Lantana v2.3.0(tapioca)</td>
+      </tr>
+      <tr>
+        <th scope="row">MkDocsのバージョン</th>
+        <td>{{ mkdocs_version }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

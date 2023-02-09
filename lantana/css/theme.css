@@ -46,10 +46,13 @@ blockquote cite{
 
 a[target="_blank"]:after{
     font-family:bootstrap-icons;
-    content:'\00A0\F143';
+    content:'\F143';
     font-size:0.7rem;
 }
 
+svg{
+    width: 100%;
+}
 
 .alert-heading:before{
     font-family:bootstrap-icons;

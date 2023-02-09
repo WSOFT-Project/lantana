@@ -4,6 +4,7 @@
 # Instructs the search plugin to include the search.html template
 static_templates : 
   - 404.html
+  - statics.html
   - version.json
 
 include_search_page: false
