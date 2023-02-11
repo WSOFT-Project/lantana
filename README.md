@@ -15,4 +15,5 @@ pip install lantana
 Lantanaの詳しい使用方法については、[チュートリアル:作業開始](https://lantana.wsoft.ws/tutrial/getstarted/)を参照してください。
 
 ## 使用しているライブラリなど
+* Lantanaでは、Bootstrapをカスタマイズして使用しています。ソースは、[Bootstrap-README](./bootstrap-custom/README.md)にあります。[LICENSE](./bootstrap-custom/LICENSE)も参照してください。
 * [docs/Credit.md](https://lantana.wsoft.ws/Credit)にまとめてあります。ご確認ください。
