@@ -17,6 +17,7 @@ p code{
 
 img .img-fluid{
     aspect-ratio: 16 / 9;
+    width : 100%;
 }
 
 details > details,
