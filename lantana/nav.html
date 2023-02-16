@@ -4,7 +4,7 @@
         {% if not nav_item.children %}
             <li class="list-group-item"><a class="text-decoration-none {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a></li>
             {% else %}
-            <li class="list-group-item"><a class="nav_cop {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" aria-expanded="false" data-bs-toggle="collapse" role="button" >{{ nav_item.title }}</a>
+            <li class="list-group-item"><a class="text-decoration-none nav_cop {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" aria-expanded="false" data-bs-toggle="collapse" role="button" >{{ nav_item.title }}</a>
               <ul class="collapse list-group list-group-flush {% if nav_item.active %}show{% endif %}">
                 {% include "nav.html" %}
               </ul>
