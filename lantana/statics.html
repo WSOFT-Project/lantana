@@ -14,6 +14,10 @@
     </thead>
     <tbody>
       <tr>
+        <th scope="row">サイト名</th>
+        <td>{{ config.site_name }}</td>
+      </tr>
+      <tr>
         <th scope="row">記事の総数</th>
         <td>{{ ns.cnt }}</td>
       </tr>
@@ -35,7 +39,7 @@
       {% endif %}
       <tr>
         <th scope="row">Lantanaのバージョン</th>
-        <td>WSOFT Lantana v2.3.0(tapioca)</td>
+        <td>WSOFT Lantana v2.4.0(tapioca)</td>
       </tr>
       <tr>
         <th scope="row">MkDocsのバージョン</th>
@@ -43,5 +47,13 @@
       </tr>
     </tbody>
   </table>
+  <div class="card">
+    <div class="card-body">
+      <p>Lantana</p>
+      <p>Copyright 2022 WSOFT. All rights reserved.</p>
+      <p>Lantanaは<a href="https://www.mkdocs.org/">MkDocs</a>やその他のオープンソース ソフトウェアによって実現しました。</p>
+      <p><a href="https://lantana.wsoft.ws/">Lantanaのホームページ</a>/<a href="https://github.com/WSOFT-Project/lantana">GitHubリポジトリ</a>/<a href="https://wsoft.ws/">WSOFTのサイト</a></p>
+    </div>
+  </div>
 </div>
 {% endblock %}
