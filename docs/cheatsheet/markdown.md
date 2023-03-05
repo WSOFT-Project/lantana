@@ -250,12 +250,12 @@ info@wsoft.ws
 
 ### 画像
 ```markdown title="例"
-![代替テキスト](/logo.png)
+![代替テキスト](https://wsoft.ws/products/Alice.jpg)
 ```
 
 結果
 
-![代替テキスト](/logo.png)
+![代替テキスト](https://wsoft.ws/products/Alice.jpg)
 
 
 ### 表

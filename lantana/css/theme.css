@@ -15,9 +15,13 @@ p code{
     padding-bottom: 10px;
 }
 
-img .img-fluid{
-    aspect-ratio: 16 / 9;
+
+img{
     width : 100%;
+}
+
+.img-structure{
+    width: auto;
 }
 
 details > details,

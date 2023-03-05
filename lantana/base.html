@@ -82,9 +82,13 @@
       <div class="container">
           <a class="navbar-brand text-body" asp-area="" href="{{ "/"|url }}">
             {% if config.logo %}
-            <img src="{{ config.logo|url }}" alt="{{ config.site_name }}" width="28" height="28"/>
+            <img class="img-structure" src="{{ config.logo|url }}" alt="{{ config.site_name }}" width="28" height="28"/>
             {% endif%}
-            {{ config.site_name }}
+            {% if config.header_name %}
+              {{ config.header_name }}
+            {% else %}
+              {{ config.site_name }}
+            {% endif %}
           </a>
           <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between print-hide">
               <p></p>
