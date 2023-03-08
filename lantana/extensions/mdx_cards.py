@@ -38,7 +38,7 @@ def get_thumbnail_element(dir, index_filename='index.md',pages_filename='.pages'
             card.dir_title=dir_title
             cards.append(card)
     
-    cards = natsorted(cards,key=lambda x:x.order)
+    cards = natsorted(cards,key=lambda x:x.order).reverse()
 
     html = '<div class="container-fluid">\n'
     for card in cards:
