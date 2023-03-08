@@ -36,7 +36,6 @@ plugins:
         min_search_length: 2
     - mermaid2
     - git-revision-date
-    - macros
     - awesome-pages
     - git-authors:
         show_email_address: true
@@ -46,6 +45,8 @@ plugins:
 
 markdown_extensions:
     - attr_list
+    - mdx_cards
+    - mdx_wsid
     - pymdownx.highlight:
        anchor_linenums: true
     - admonition

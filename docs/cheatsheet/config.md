@@ -2,6 +2,7 @@
 title: 設定ファイル
 summary: この記事では、mkdocs.ymlで指定できる設定の一覧を示します
 date : 2022-10-22
+order : 2
 ---
 
 Lantanaでは、`mkdocs.yml`を使ってサイト全体の設定を変更できます。
