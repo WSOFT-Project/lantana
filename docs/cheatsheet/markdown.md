@@ -127,6 +127,66 @@ public class Program
  }
 ```
 
+`hl_lines`属性を指定すると、特定の行を強調表示できます。
+
+```markdown title="例"
+```csharp title="AnimalClasses.cs" hl_lines="6 20"
+public class Animal
+{
+    public string Name { get;set; }
+    public string Description { get;set; }
+
+    public virtual void Move()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class Cat : Animal
+{
+    public Cat()
+    {
+        this.Name = "たま";
+        this.Description = "吾輩は猫である。名前も決まっている。";
+    }
+
+    public override void Move()
+    {
+        /// ひっかく
+    }
+}
+ ```
+```
+
+結果
+
+```csharp title="AnimalClasses.cs" hl_lines="6 20"
+public class Animal
+{
+    public string Name { get;set; }
+    public string Description { get;set; }
+
+    public virtual void Move()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class Cat : Animal
+{
+    public Cat()
+    {
+        this.Name = "たま";
+        this.Description = "吾輩は猫である。名前も決まっている。";
+    }
+
+    public override void Move()
+    {
+        /// ひっかく
+    }
+}
+```
+
 !!! warning "注意"
     テーブルのデザインや一貫性の問題から、`linenums=1`属性はLantana2.0から非推奨になりました。
 
