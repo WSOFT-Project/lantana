@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.6.2'
+VERSION = '2.6.5'
 
 setup(
     name="lantana",
@@ -12,7 +12,7 @@ setup(
     author_email='info@wsoft.ws',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=['mkdocs>=1.1','mkdocs-material>=7.0','mkdocs-awesome-pages-plugin>=2.3','mkdocs-macros-plugin>=0.6.3','mkdocs-git-authors-plugin>=0.6.2','mkdocs-mermaid2-plugin>=0.5.0','mkdocs-git-revision-date-plugin>=0.3.1','natsort>=8.3.1'],
+    install_requires=[ 'markdown<3.4','mkdocs>=1.1','mkdocs-material>=7.0','mkdocs-awesome-pages-plugin>=2.3','mkdocs-macros-plugin>=0.6.3','mkdocs-git-authors-plugin>=0.6.2','mkdocs-mermaid2-plugin>=0.5.0','mkdocs-git-revision-date-plugin>=0.3.1','natsort>=8.3.1'],
     python_requires='>=3.5',
     entry_points={
         'mkdocs.themes': [
