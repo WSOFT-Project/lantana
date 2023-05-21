@@ -5,3 +5,4 @@ lantana.egg-info/*
 .vs/*
 *.bat
 bootstrap-custom/*
+lantana/__pycache__/*
