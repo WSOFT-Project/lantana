@@ -45,20 +45,11 @@
     <link rel="favicon" href="{{ config.favicon|url }}">
   {% endif %}
 
-  {% if config.google_analytics %}
-    <script async async src="https://www.googletagmanager.com/gtag/js?id={{config.google_analytics}}"></script>
-    <script async>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{config.google_analytics}}');
-    </script>
-  {% endif %}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet" media="not print">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" media="print">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pygments-rouge-css@0.1.0/vs.min.css">
+  <link rel="stylesheet" href="{{ "css/bootstrap.min.css"|url }}" media="print">
+  <link rel="stylesheet" href="{{ "css/bootstrap-dark.min.css"|url }}" media="not print">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{{ "css/default.min.css"|url }}">
+  <link rel="stylesheet" href="{{ "css/vs.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
   {% for path in config.extra_css %}
     <link href="{{ path|url }}" rel="stylesheet">
@@ -68,9 +59,9 @@
   {% endfor %}
   
   <script async>var base_url = '{{ base_url }}';</script>
-  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script async src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+  <script src="{{ "js/jquery-3.6.1.slim.min.js"|url }}"></script>
+  <script src="{{ "js/bootstrap.bundle.min.js"|url }}"></script>
+  <script async src="{{ "js/highlight.min.js"|url }}"></script>
 
   {% block extrahead %}
   {% endblock %}
