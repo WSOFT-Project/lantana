@@ -34,7 +34,7 @@ def get_thumbnail_element(dir, index_filename='index.md',pages_filename='.pages'
             card.date = read_property(filename,'date')
             card.author = read_property(filename,'author')
             card.order = read_property(filename,'order',filename)
-            card.content_dir = filename.lstrip('docs/').rstrip('.md')
+            card.content_dir = remove_filename(filename)
             card.dir_title=dir_title
             cards.append(card)
     
@@ -48,6 +48,14 @@ def get_thumbnail_element(dir, index_filename='index.md',pages_filename='.pages'
         html += '    </div>\n'
     html += '</div>'
     return html
+
+def remove_filename(filename):
+    """
+        docs/***.mdのようなファイル名を**のみに切り出す関数
+    """
+    filename = filename.replace("docs/","",1)
+    filename=filename[::-1].replace("dm.","",1)
+    return filename[::-1]
 
 def read_property(filename,key,default=""):
     """記事や.pagesファイルからプロパティを読みだす関数

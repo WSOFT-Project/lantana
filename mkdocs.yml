@@ -20,6 +20,8 @@ image : favicon.png
 language : ja
 
 
+
+
 theme:
     name: lantana
     custom_dir: lantana/

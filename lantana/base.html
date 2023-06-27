@@ -69,7 +69,7 @@
 <body>
   {% if not config.disable_header %}
     <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 {% if config.disable_header_when_printing %} print-hide {% endif %}">
       <div class="container">
           <a class="navbar-brand text-body" asp-area="" href="{{ "/"|url }}">
             {% if config.logo %}
@@ -81,8 +81,8 @@
               {{ config.site_name }}
             {% endif %}
           </a>
-          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between print-hide">
-              <p></p>
+          <div class="print-hide">
+          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
               <div class="d-none d-md-flex input-group mb-3" style="max-width: 300px;">
               {% if config.visible_search!=false %}
                   <input class="form-control me-2" type="search" id="searchbox" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索"/>
@@ -92,9 +92,10 @@
                   {% endif %}
               </div>
           </div>
+          </div>
       </div>
   </nav>
-  <nav class="navbar border-bottom box-shadow mb-3 d-md-none  print-hide">
+  <nav class="navbar border-bottom box-shadow mb-3 d-md-none print-hide">
     <div class="container">
         <div class="navbar-collapse d-flex">
           <p>
