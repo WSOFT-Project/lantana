@@ -47,7 +47,7 @@
 
   <link rel="stylesheet" href="{{ "css/bootstrap.min.css"|url }}" media="print">
   <link rel="stylesheet" href="{{ "css/bootstrap-dark.min.css"|url }}" media="not print">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{{ "css/bootstrap-icons.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/default.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/vs.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
@@ -67,62 +67,68 @@
   {% endblock %}
 </head>
 <body>
+  {% block before_header %}
+  {% endblock %}
   {% if not config.disable_header %}
+    {% block header %}
     <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 {% if config.disable_header_when_printing %} print-hide {% endif %}">
+      <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 {% if config.disable_header_when_printing %} print-hide {% endif %}">
+        <div class="container">
+            <a class="navbar-brand text-body" asp-area="" href="{{ "/"|url }}">
+              {% if config.logo %}
+              <img class="img-structure" src="{{ config.logo|url }}" alt="{{ config.site_name }}" width="28" height="28"/>
+              {% endif%}
+              {% if config.header_name %}
+                {{ config.header_name }}
+              {% else %}
+                {{ config.site_name }}
+              {% endif %}
+            </a>
+            <div class="print-hide">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="d-none d-md-flex input-group mb-3" style="max-width: 300px;">
+                {% if config.visible_search!=false %}
+                    <input class="form-control me-2" type="search" id="searchbox" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索"/>
+                    <button class="btn btn-outline-secondary" type="button" onclick="search(false);">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar border-bottom box-shadow mb-3 d-md-none print-hide">
       <div class="container">
-          <a class="navbar-brand text-body" asp-area="" href="{{ "/"|url }}">
-            {% if config.logo %}
-            <img class="img-structure" src="{{ config.logo|url }}" alt="{{ config.site_name }}" width="28" height="28"/>
-            {% endif%}
-            {% if config.header_name %}
-              {{ config.header_name }}
-            {% else %}
-              {{ config.site_name }}
-            {% endif %}
-          </a>
-          <div class="print-hide">
-          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-              <div class="d-none d-md-flex input-group mb-3" style="max-width: 300px;">
-              {% if config.visible_search!=false %}
-                  <input class="form-control me-2" type="search" id="searchbox" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索"/>
-                  <button class="btn btn-outline-secondary" type="button" onclick="search(false);">
-                      <i class="bi bi-search"></i>
-                  </button>
-                  {% endif %}
-              </div>
-          </div>
+          <div class="navbar-collapse d-flex">
+            <p>
+              <div class="d-flex input-group mb-3">
+                {% if page and page.meta.disable_nav %}
+                <!-- NAV -->
+                {% else %}
+                <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="ナビゲーションを表示"><i class="bi bi-book"></i></button>
+                {% endif %}
+                {% if config.visible_search %}
+                <input class="form-control" type="search" id="searchbox_mobile" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索">
+                <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i class="bi bi-search"></i></button>
+                {% endif %}
+                {% if page and page.meta.disable_tol %}
+                 <!-- TOL -->
+                {% else %}
+                {% if page.toc %}
+                <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#tol"><i class="bi bi-list-ul"></i></button>
+                {% endif %}
+                {% endif %}
+            </div>
+            </p>
           </div>
       </div>
-  </nav>
-  <nav class="navbar border-bottom box-shadow mb-3 d-md-none print-hide">
-    <div class="container">
-        <div class="navbar-collapse d-flex">
-          <p>
-            <div class="d-flex input-group mb-3">
-              {% if page and page.meta.disable_nav %}
-              <!-- NAV -->
-              {% else %}
-              <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="ナビゲーションを表示"><i class="bi bi-book"></i></button>
-              {% endif %}
-              {% if config.visible_search %}
-              <input class="form-control" type="search" id="searchbox_mobile" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索">
-              <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i class="bi bi-search"></i></button>
-              {% endif %}
-              {% if page and page.meta.disable_tol %}
-               <!-- TOL -->
-              {% else %}
-              {% if page.toc %}
-              <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#tol"><i class="bi bi-list-ul"></i></button>
-              {% endif %}
-              {% endif %}
-          </div>
-          </p>
-        </div>
-    </div>
-  </nav>
-</header>
-{% endif %}
+    </nav>
+  </header>
+    {% endblock %}
+  {% endif %}
+  {% block after_header %}
+  {% endblock %}
   <div class="container">
     <main role="main" class="pb-3">
       <div class="row">
@@ -171,7 +177,10 @@
     </main>
   </div>
   
+  {% block before_footer %}
+  {% endblock %}
   {% if not config.disable_footer %}
+  {% block footer %}
   <footer class="border-top footer text-muted .position-absolute.bottom-0.start-50.translate-middle-x" style="padding-top:15px;">
     <div class="container">
       <div class="row">
@@ -189,8 +198,11 @@
         {% endif %}
       </div>
     </div>
-  </footer>
+  </footer>{% endblock %}
   {% endif %}
+  
+  {% block after_footer %}
+  {% endblock %}
 
 <div class="modal fade" id="searchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
   <div class="modal-dialog modal-lg print-hide">
@@ -204,7 +216,7 @@
           <input id="mkdocs-search-query" type="text" class="form-control" aria-label="検索" aria-describedby="inputGroup-sizing-default">
         </div>
         <div id="mkdocs-search-results">
-          No results found
+          キーワードを入力して検索を始めましょう
         </div>
 
       </div>
