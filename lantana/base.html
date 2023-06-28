@@ -67,8 +67,7 @@
   {% endblock %}
 </head>
 <body>
-  {% block before_header %}
-  {% endblock %}
+  {% include "before_header.html" %}
   {% if not config.disable_header %}
     {% block header %}
     <header>
@@ -200,9 +199,7 @@
     </div>
   </footer>{% endblock %}
   {% endif %}
-  
-  {% block after_footer %}
-  {% endblock %}
+  {% include "after_header.html" %}
 
 <div class="modal fade" id="searchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
   <div class="modal-dialog modal-lg print-hide">
