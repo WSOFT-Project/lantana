@@ -85,10 +85,10 @@
             </a>
             <div class="print-hide">
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <div class="d-none d-md-flex input-group mb-3" style="max-width: 300px;">
+                <div class="d-none d-md-flex input-group mb-3">
                 {% if config.visible_search!=false %}
-                    <input class="form-control me-2" type="search" id="searchbox" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索"/>
-                    <button class="btn btn-outline-secondary" type="button" onclick="search(false);">
+                    <input class="form-control" type="search" id="searchbox" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索" aria-describedby="search-btn"/>
+                    <button class="btn btn-outline-secondary" type="button" id="search-btn" onclick="search(false);">
                         <i class="bi bi-search"></i>
                     </button>
                     {% endif %}
