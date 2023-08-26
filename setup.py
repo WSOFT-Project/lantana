@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.7.5'
+VERSION = '2.7.6'
 
 setup(
     name="lantana",
     version=VERSION,
-    url='http://wsoft-project.github.io/lantana/',
+    url='https://lantana.wsoft.ws/',
     license='MIT',
     description='Bootstrap theme for MkDocs',
     author='WSOFT',

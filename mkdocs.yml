@@ -19,7 +19,8 @@ favicon : favicon.png
 image : favicon.png
 language : ja
 
-
+share:
+    twitter_params : '&via=WSOFT7&related=WSOFT7&hashtags=WSOFTDocs'
 
 
 theme:

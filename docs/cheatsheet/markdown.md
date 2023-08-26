@@ -99,7 +99,7 @@ __ か \*\* で囲むとHTMLのstrongタグになり、**このように** 表�
 また、`print("Hello,World!");`と記述することでコードをインライン表示できます。
 
 ### 脚注
-<span class="badge bg-primary">対応バージョン:<=2.7.5</span>
+<span class="badge bg-primary">対応バージョン:<=2.7.6</span>
 
 `[^1]`のように文章の任意の場所に脚注へのリンクを設置すると、ページの末尾の説明へ移動します。
 説明は文章中の任意の場所で`[^1]: <説明>`とすることで記述できます。
@@ -137,7 +137,8 @@ public class Program
 ```
 
 結果
-``` csharp title="Program.cs"
+{: .runnable }
+```csharp title="Program.cs"
 using System;
  
 public class Program

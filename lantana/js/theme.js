@@ -39,8 +39,11 @@ function print_normal(){
 function share_to_facebook(){
     location.href='http://www.facebook.com/share.php?u='+encodeURI(location.href);
 }
-function share_to_twitter(text){
-    location.href='https://twiter.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text);
+function share_to_line(){
+    window.open('https://social-plugins.line.me/lineit/share?url='+encodeURI(location.href), '_blank');
+}
+function share_to_twitter(text,params){
+    window.open('https://x.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text)+params, '_blank');
 }
 
 //該当するクラスを置換するメソッド
@@ -100,15 +103,9 @@ function page_copy_btn_clicked(btn){
     btn.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
 }
 
-//表をBootstrap仕様に
-$("table").addClass("table");
-
-//引用をBootstrap仕様に
-$("blockquote").addClass("blockquote");
-
-//画像をBootstrap仕様に
-$("img").addClass("img-fluid");
-
+document.querySelectorAll("table:not(.disable-lantana)").forEach(element => element.classList.add('table'));
+document.querySelectorAll("img:not(.disable-lantana)").forEach(element => element.classList.add('img-fluid'));
+document.querySelectorAll("blockquote:not(.disable-lantana)").forEach(element => element.classList.add('blockquote'));
 
 //
 $('.btn-outline-secondary .switch').on('click', function() {
