@@ -124,7 +124,7 @@ disable_header : false
 ```
 
 ### 印刷時にヘッダーを非表示
-<span class="badge bg-primary">対応バージョン:<=2.7.7.4</span>
+<span class="badge bg-primary">対応バージョン:<=2.8</span>
 
 サイトのヘッダーを印刷時に非表示にするかどうかの値です。
 

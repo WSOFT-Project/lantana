@@ -1,49 +1,14 @@
 //Materialテーマ相互運用機能
 
-//印刷用ページの設定
-function isPrintMode(){
-    var i = new URL(window.location.href);
-    var pms = i.searchParams;
-    return pms.has('embed');
-}
+//必要な場合ページを印刷モードにする
+let i = new URL(window.location.href);
+let pms = i.searchParams;
 
-function togglePrintMode(){
-if(isPrintMode()) {
+if(pms.has('embed'))
+{
     document.querySelectorAll('.print-hide').forEach(element =>element.parentNode.removeChild(element));
     document.querySelectorAll('.print-visible').forEach(element =>element.classList.remove('d-none'));
     document.querySelector('.print-main').classList.remove('col-md-8');
-}}
-
-function linkToNewTab(url){
-document.querySelectorAll('a[href*="://"]:not([href*="'+url+'"]):not(.unnewtab)').forEach(element =>element.setAttribute('target','_blank'));
-}
-
-function afterload(){
-document.querySelectorAll('a[target="_blank"]').forEach(element =>element.setAttribute('rel','noopener noreferrer'));
-}
-
-togglePrintMode();
-
-function print_view(){
-    var url = new URL(window.location.href);
-	url.searchParams.append('embed','');
-	window.open(url);
-}
-
-function print_normal(){
-    var url = new URL(window.location.href);
-	url.searchParams.delete('embed');
-	window.open(url);
-}
-
-function share_to_facebook(){
-    location.href='http://www.facebook.com/share.php?u='+encodeURI(location.href);
-}
-function share_to_line(){
-    window.open('https://social-plugins.line.me/lineit/share?url='+encodeURI(location.href), '_blank');
-}
-function share_to_twitter(text,params){
-    window.open('https://x.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text)+params, '_blank');
 }
 
 //該当するクラスを置換するメソッド
@@ -72,6 +37,7 @@ add_class('danger','alert-danger');
 add_class('bug','alert-warning');
 add_class('example','alert-dark');
 add_class('quote','alert-light');
+
 
 //コードブロックのコピーアイコンの定義
 const ICON_COPY = 'bi-clipboard';
@@ -163,3 +129,37 @@ document.getElementById('searchbox_mobile').value=get_query;
 $('.nav_cop').click(function() {
     $(this).next().collapse('toggle');
 });
+
+
+
+function linkToNewTab(url)
+{
+    document.querySelectorAll('a[href*="://"]:not([href*="'+url+'"]):not(.unnewtab)').forEach(element =>element.setAttribute('target','_blank'));
+}
+    
+function afterload()
+{
+    document.querySelectorAll('a[target="_blank"]').forEach(element =>element.setAttribute('rel','noopener noreferrer'));
+}
+
+function print_view(){
+    var url = new URL(window.location.href);
+	url.searchParams.append('embed','');
+	window.open(url);
+}
+
+function print_normal(){
+    var url = new URL(window.location.href);
+	url.searchParams.delete('embed');
+	window.open(url);
+}
+
+function share_to_facebook(){
+    location.href='http://www.facebook.com/share.php?u='+encodeURI(location.href);
+}
+function share_to_line(){
+    window.open('https://social-plugins.line.me/lineit/share?url='+encodeURI(location.href), '_blank');
+}
+function share_to_twitter(text,params){
+    window.open('https://x.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text)+params, '_blank');
+}

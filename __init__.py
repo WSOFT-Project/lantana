@@ -1,5 +1,5 @@
 __copyright__    = 'Copyright (C) 2022 WSOFT.'
-__version__      = '2.7.7.4'
+__version__      = '2.8'
 __license__      = 'MIT'
 __author__       = 'WSOFT'
 __author_email__ = 'info@wsoft.ws'
