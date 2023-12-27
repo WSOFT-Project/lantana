@@ -51,11 +51,11 @@ blockquote cite{
     text-align:right;
 }
 
-a[target="_blank"]:after{
-    font-family:bootstrap-icons;
-    content:'\F143';
-    font-size:0.7rem;
+a[target="_blank"]:not(.btn)
+{
+    text-decoration:underline;
 }
+
 
 svg{
     width: 100%;
