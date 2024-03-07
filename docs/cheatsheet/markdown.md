@@ -99,7 +99,7 @@ __ か \*\* で囲むとHTMLのstrongタグになり、**このように** 表�
 また、`print("Hello,World!");`と記述することでコードをインライン表示できます。
 
 ### 脚注
-<span class="badge bg-primary">対応バージョン:<=2.8</span>
+<span class="badge bg-primary">対応バージョン:>=2.8</span>
 
 `[^1]`のように文章の任意の場所に脚注へのリンクを設置すると、ページの末尾の説明へ移動します。
 説明は文章中の任意の場所で`[^1]: <説明>`とすることで記述できます。
@@ -137,7 +137,7 @@ public class Program
 ```
 
 結果
-{: .runnable }
+
 ```csharp title="Program.cs"
 using System;
  
@@ -386,6 +386,11 @@ Bootstrapの制約により、ヘッダーでは左右中央揃えが適用さ�
 
 ### 図形
 Lantanaは規定でmermaid.jsをサポートします。mermaid.jsを使うと、複雑な図形を簡単に挿入できます。
+
+<span class="badge bg-primary">対応バージョン:>=2.9</span>
+
+バージョン2.9以降では、`mdx_mermaid_precompile`によってMermaid図形がプリコンパイルされます。それ以前のバージョンでは、Mermaid図形を表示するためにユーザーにインターネット接続が必要です。
+
 ```markdown title="例"
 ```mermaid
 graph TD;

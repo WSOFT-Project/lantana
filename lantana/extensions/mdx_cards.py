@@ -22,12 +22,33 @@ class Card:
 
 COL_NUM = 3
 
-def get_thumbnail_element(dir, index_filename='index.md',pages_filename='.pages'):
+def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename='.pages'):
     dir_title=read_property(f'docs/{dir}/{pages_filename}','title')
     filenames = natsorted(glob.glob(f'docs/{dir}/*.md'))
+    contain_index = "include-index" in options
+    contain_subdir = "include-subdir" in options
+    style_lite = "style-lite" in options
     cards=list()
     for i, filename in enumerate(filenames):
-        if not filename.endswith(index_filename):
+            card=Card()
+            card.title = read_property(filename,'title')
+            card.summary = read_property(filename,'summary')
+            card.date = read_property(filename,'date')
+            card.author = read_property(filename,'author')
+            card.order = read_property(filename,'order',filename)
+            card.content_dir = remove_filename(filename)
+            card.dir_title=dir_title
+            
+            if not filename.endswith(index_filename):
+                cards.append(card)
+            elif contain_index:
+                card.order = 9999
+                cards.insert(0,card)
+
+    # 指定されている場合はサブディレクトリも見る
+    if contain_subdir:
+        filenames = natsorted(glob.glob(f'docs/{dir}/*/index.md'))
+        for i, filename in enumerate(filenames):
             card=Card()
             card.title = read_property(filename,'title')
             card.summary = read_property(filename,'summary')
@@ -40,13 +61,21 @@ def get_thumbnail_element(dir, index_filename='index.md',pages_filename='.pages'
     
     cards = natsorted(cards,key=lambda x:x.order)
     cards.reverse()
+    
+    if style_lite:
+        html = '<ul>'
 
-    html = '<div class="container-fluid">\n'
-    for card in cards:
-        html += '    <div class="row mb-3 card">\n'
-        html += get_card_element(card.title, card.content_dir,card.summary,card.date,card.author,card.dir_title)
-        html += '    </div>\n'
-    html += '</div>'
+        for card in cards:
+            html += f'<li><a href="/{card.content_dir}/">{card.title}</a></li>'
+
+        html += '</ul>'
+    else:
+        html = '<div class="container-fluid">\n'
+        for card in cards:
+            html += '    <div class="row mb-3 card">\n'
+            html += get_card_element(card.title, card.content_dir,card.summary,card.date,card.author,card.dir_title)
+            html += '    </div>\n'
+        html += '</div>'
     return html
 
 def remove_filename(filename):
@@ -82,15 +111,14 @@ def get_card_element(title, dir,summary,date,author,dir_title):
     return card
 
 class CardsPostprocesser(Postprocessor):
-
-    _pattern = re.compile("=\\\".*\\\"=")
+    _pattern = re.compile("=\\\"(.*)\\\"(\\|\\[(.*)\\])?=")
     #_pattern = re.compile(r"\[WS[0-9]{5}\]")
     def run(self, html):
         html = re.sub(self._pattern, self._replace_card, html) 
         return html
 
     def _replace_card(self, match):
-        return get_thumbnail_element(match.group(0).lstrip("=(\"").rstrip("\")="))
+        return get_thumbnail_element(match.group(1),(match.group(3) or "").split(','))
 
 
 

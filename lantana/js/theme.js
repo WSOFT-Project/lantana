@@ -19,60 +19,31 @@ function add_class(base,to){
     document.querySelectorAll('.'+base).forEach(element => element.classList.add(to));
 }
 
-//MaterialのAdmonitionをAlertに置換
-replace_class('admonition','alert');
-replace_class('admonition-title','alert-heading');
-$(".alert a").addClass("alert-link");
-
-//MaterialのAdmonition色をAlert色に置換
-add_class('note','alert-primary');
-add_class('abstract','alert-secondary');
-add_class('info','alert-info');
-add_class('tip','alert-warning');
-add_class('success','alert-success');
-add_class('question','alert-secondary');
-add_class('warning','alert-warning');
-add_class('failure','alert-danger');
-add_class('danger','alert-danger');
-add_class('bug','alert-warning');
-add_class('example','alert-dark');
-add_class('quote','alert-light');
-
-
 //コードブロックのコピーアイコンの定義
 const ICON_COPY = 'bi-clipboard';
 const ICON_COPY_CHECK = 'bi-clipboard-check';
 
-//コードブロックにコピーボタンを追加
-$(".highlight").addClass("position-relative");
-$(".highlight").prepend('<button onclick="copy_btn_clicked(this)" class="btn copybtn position-absolute top-0 end-0"><i class="bi '+ICON_COPY+'"></i></button>');
-
 //コードブロックのコピーボタンが押されたときの処理
-function copy_btn_clicked(btn){
+$('.copybtn').click(function (){
     const selection = window.getSelection();
-    const code = btn.parentNode;
+    const code = this.parentNode;
     selection.selectAllChildren(code.children[code.children.length-1]);
     document.execCommand('copy');
-    btn.querySelector('.'+ICON_COPY).classList.add('text-success');
-    btn.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
-}
+    this.querySelector('.'+ICON_COPY).classList.add('text-success');
+    this.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
+});
 
 //ページのコピーボタンが押されたときの処理
-function page_copy_btn_clicked(btn){
+$('#page-url-copy-btn').on('click',function(){
     $(document.body).append("<textarea id=\"copyTarget\" style=\"position:absolute; left:-9999px; top:0px;\" readonly=\"readonly\">" +location.href+ "</textarea>");
   let obj = document.getElementById("copyTarget");
   let range = document.createRange();
   range.selectNode(obj);
   window.getSelection().addRange(range);
   document.execCommand('copy');
-    btn.querySelector('.'+ICON_COPY).classList.add('text-success');
-    btn.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
-}
-
-document.querySelectorAll("table:not(.disable-lantana)").forEach(element => element.classList.add('table'));
-document.querySelectorAll("img:not(.disable-lantana)").forEach(element => element.classList.add('img-fluid'));
-document.querySelectorAll("blockquote:not(.disable-lantana)").forEach(element => element.classList.add('blockquote'));
-
+    this.querySelector('.'+ICON_COPY).classList.add('text-success');
+    this.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
+});
 //
 $('.btn-outline-secondary .switch').on('click', function() {
     this.replace_class('btn-outline-secondary','btn-secondary');
@@ -129,8 +100,6 @@ document.getElementById('searchbox_mobile').value=get_query;
 $('.nav_cop').click(function() {
     $(this).next().collapse('toggle');
 });
-
-
 
 function linkToNewTab(url)
 {
