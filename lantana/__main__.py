@@ -63,10 +63,12 @@ markdown_extensions:
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
+    - mdx_mermaid_precompile
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.magiclink
     - pymdownx.striphtml
+    - mdx_lantana
 """
 index_text = """---
 title: Hello,World!

@@ -37,7 +37,6 @@ plugins:
     - search:
         lang : 'ja'
         min_search_length: 2
-    - mermaid2
     - git-revision-date
     - awesome-pages
     - git-authors:
@@ -76,3 +75,5 @@ markdown_extensions:
         custom_checkbox: true
     - pymdownx.magiclink
     - pymdownx.striphtml
+    - mdx_mermaid_precompile
+    - mdx_lantana
