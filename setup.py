@@ -26,7 +26,7 @@ setup(
             "mdx_wsid = lantana.extensions.mdx_wsid:WSIDExtension",
             "mdx_embedly = lantana.extensions.mdx_embedly:EmbedlyExtension",
             "mdx_lantana = lantana.extensions.mdx_lantana:LantanaExtension",
-            "mdx_lantana = lantana.extensions.mdx_mermaid_precompile:MermaidPrecompileExtension"
+            "mdx_mermaid_precompile = lantana.extensions.mdx_mermaid_precompile:MermaidPrecompileExtension"
         ]
     },
     zip_safe=False

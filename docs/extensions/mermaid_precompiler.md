@@ -17,12 +17,39 @@ MermaidPrecompiler拡張機能は、LantanaでMermaid図表を使用できるよ
 この拡張機能を使用するには、インターネット接続が必要です。
 
 ### 使用方法
+
+```markdown title="例"
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+**結果**
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+### 導入方法
 設定ファイル(`mkdocs.yml`)に以下の行を追加します。
 
 ```yml title="mkdocs.yml"
 markdown_extensions:
       (中略)
-    - mdx_lantana
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:mermaid2.fence_mermaid
+    - mdx_mermaid_precompile
+      (中略)
 ```
 
-このとき、`mdx_lantana`は最後の行に追加してください。
+このとき、`mdx_mermaid_precompile`は`markdown_superfences`より後に追加してください。
