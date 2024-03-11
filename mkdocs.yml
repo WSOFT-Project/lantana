@@ -47,7 +47,7 @@ plugins:
 
 markdown_extensions:
     - attr_list
-    - mdx_cards
+    - lantana.cards
     - mdx_wsid
     - footnotes
     - pymdownx.highlight:
@@ -75,5 +75,9 @@ markdown_extensions:
         custom_checkbox: true
     - pymdownx.magiclink
     - pymdownx.striphtml
-    - mdx_mermaid_precompile
-    - mdx_lantana
+    - lantana.link_opennewtab
+    - lantana.alerts
+    - lantana.accordion
+    - lantana.codeblock_copybtn
+    - lantana.mermaid_precompile
+    - lantana

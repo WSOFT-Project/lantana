@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.9.1'
+VERSION = '2.9.2'
 
 setup(
     name="lantana",
@@ -22,11 +22,15 @@ setup(
             'lantana = lantana.__main__:cli',
         ],
         "markdown.extensions": [
-            "mdx_cards = lantana.extensions.mdx_cards:CardsExtension",
             "mdx_wsid = lantana.extensions.mdx_wsid:WSIDExtension",
             "mdx_embedly = lantana.extensions.mdx_embedly:EmbedlyExtension",
-            "mdx_lantana = lantana.extensions.mdx_lantana:LantanaExtension",
-            "mdx_mermaid_precompile = lantana.extensions.mdx_mermaid_precompile:MermaidPrecompileExtension"
+            "lantana = lantana.extensions.lantana:LantanaExtension",
+            "lantana.cards = lantana.extensions.cards:CardsExtension",
+            "lantana.alerts = lantana.extensions.alerts:AlertsExtension",
+            "lantana.accordion = lantana.extensions.accordion:AccordionExtension",
+            "lantana.link_opennewtab = lantana.extensions.link_opennewtab:OpenNewTabExtension",
+            "lantana.codeblock_copybtn = lantana.extensions.codeblock_copybtn:CodeBlockCopyBtnExtension",
+            "lantana.mermaid_precompile = lantana.extensions.mermaid_precompile:MermaidPrecompileExtension",
         ]
     },
     zip_safe=False

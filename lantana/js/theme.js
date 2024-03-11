@@ -1,5 +1,3 @@
-//Materialテーマ相互運用機能
-
 //必要な場合ページを印刷モードにする
 let i = new URL(window.location.href);
 let pms = i.searchParams;
@@ -18,20 +16,6 @@ function replace_class(base,to){
 function add_class(base,to){
     document.querySelectorAll('.'+base).forEach(element => element.classList.add(to));
 }
-
-//コードブロックのコピーアイコンの定義
-const ICON_COPY = 'bi-clipboard';
-const ICON_COPY_CHECK = 'bi-clipboard-check';
-
-//コードブロックのコピーボタンが押されたときの処理
-$('.copybtn').click(function (){
-    const selection = window.getSelection();
-    const code = this.parentNode;
-    selection.selectAllChildren(code.children[code.children.length-1]);
-    document.execCommand('copy');
-    this.querySelector('.'+ICON_COPY).classList.add('text-success');
-    this.querySelector('.'+ICON_COPY).classList.replace(ICON_COPY,ICON_COPY_CHECK);
-});
 
 //ページのコピーボタンが押されたときの処理
 $('#page-url-copy-btn').on('click',function(){
@@ -101,15 +85,6 @@ $('.nav_cop').click(function() {
     $(this).next().collapse('toggle');
 });
 
-function linkToNewTab(url)
-{
-    document.querySelectorAll('a[href*="://"]:not([href*="'+url+'"]):not(.unnewtab)').forEach(element =>element.setAttribute('target','_blank'));
-}
-    
-function afterload()
-{
-    document.querySelectorAll('a[target="_blank"]').forEach(element =>element.setAttribute('rel','noopener noreferrer'));
-}
 
 function print_view(){
     var url = new URL(window.location.href);
@@ -130,5 +105,5 @@ function share_to_line(){
     window.open('https://social-plugins.line.me/lineit/share?url='+encodeURI(location.href), '_blank');
 }
 function share_to_twitter(text,params){
-    window.open('https://x.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text)+params, '_blank');
+    window.open('https://twitter.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text)+params, '_blank');
 }

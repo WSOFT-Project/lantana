@@ -48,8 +48,8 @@ markdown_extensions:
           - name: mermaid
             class: mermaid
             format: !!python/name:mermaid2.fence_mermaid
-    - mdx_mermaid_precompile
+    - lantana.mermaid_precompile
       (中略)
 ```
 
-このとき、`mdx_mermaid_precompile`は`markdown_superfences`より後に追加してください。
+このとき、`lantana.mermaid_precompile`は`markdown_superfences`より後に追加してください。

@@ -1,16 +1,16 @@
-# Lantana CSS調整拡張機能
-# この拡張機能は従来theme.jsで行っていたCSS関連の調整を事前に行います
+# Lantana Alerts拡張機能
+# この拡張機能はAdomonition拡張機能で作成されたアラートをLantanaでも使用できるように調整します
 from markdown import Extension
 from markdown.postprocessors import Postprocessor
 from bs4 import BeautifulSoup
 
-class LantanaExtension(Extension):
+class AlertsExtension(Extension):
 
     def extendMarkdown(self, md, md_globals):
-        md.postprocessors.add('lantana', LantanaPostprocesser(self), '>raw_html')
+        md.postprocessors.add('alerts', AlertsPostProcessor(self), '>raw_html')
 
 
-class LantanaPostprocesser(Postprocessor):
+class AlertsPostProcessor(Postprocessor):
 
     def run(self, html):
         return editRawHtml(html)
@@ -37,18 +37,6 @@ def editRawHtml(html):
 
     # Bootstrapのalert-linkを適用
     addClass(soup,'.alert a',['alert-link'])
-
-    # Bootstrapクラス追加処理
-    addClass(soup,'table:not(.disable-lantana)',['table'])
-    addClass(soup,'img:not(.disable-lantana)',['img-fluid'])
-    addClass(soup,'blockquote:not(.disable-lantana)',['blockquote'])
-
-    # コードブロックにコピーボタンを追加
-    ICON_COPY = 'bi-clipboard'
-
-    addClass(soup,'.highlight',['position-relative'])
-    for hlight in soup.select('.highlight'):
-        hlight.insert(0,BeautifulSoup('<button class="btn copybtn position-absolute top-0 end-0"><i class="bi '+ICON_COPY+'"></i></button>'))
     return str(soup)
 
 def addClass(soup,selector,ar):
@@ -56,14 +44,10 @@ def addClass(soup,selector,ar):
         tag.attrs.setdefault('class', list())
         tag["class"] += ar
 
-def removeClass(soup,selector,ar):
-    for tag in soup.select(selector):
-        tag["class"].remove(ar)
-
 def replaceClass(soup,selector,remove,add):
     for tag in soup.select(selector):
         tag["class"].remove(remove)
         tag["class"] += add
 
 def makeExtension(*args, **kwargs):
-    return LantanaExtension(*args, **kwargs)
+    return AlertsExtension(*args, **kwargs)

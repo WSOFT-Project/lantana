@@ -56,6 +56,11 @@ a[target="_blank"]:not(.btn)
     text-decoration:underline;
 }
 
+.accordion{
+    position : relative;
+    padding: 0.5rem 0;
+    margin-bottom : 0.5rem;
+}
 
 svg{
     width: 100%;
@@ -66,6 +71,7 @@ svg{
     padding-right: 0.25em;
     font-size: 15px;
 }
+
 
 .note .alert-heading:before{
     content:'\F26A';

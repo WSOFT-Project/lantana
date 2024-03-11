@@ -161,9 +161,6 @@
       </div>
       <script src="{{ "js/theme.js"|url }}"></script>
       {% if not config.disable_newtab_link %}
-      <script>
-        linkToNewTab("{{ config.site_url }}");
-      </script>
       {% endif %}
       {% for path in config.extra_javascript %}
     <script async src="{{ path|url }}"></script>
@@ -171,9 +168,6 @@
       {% for path2 in page.extra_javascript %}
     <script async src="{{ path2|url }}"></script>
       {% endfor %}
-      <script>
-        afterload();
-      </script>
     </main>
   </div>
   
