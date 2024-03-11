@@ -56,6 +56,6 @@ Cards構文中で使用できるオプションは以下の通りです。
 ```yml title="mkdocs.yml"
 markdown_extensions:
       (中略)
-    - mdx_cards
+    - lantana.cards
       (中略)
 ```
