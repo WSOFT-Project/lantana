@@ -24,6 +24,7 @@ def editRawHtml(html):
     return str(soup)
 
 def createAccordion(soup,tag):
+    
     title = tag.summary.text
     isOpen = "open" in tag.attrs and tag.attrs["open"] == "open"
     unique_id = "accordion-"+str(uuid.uuid4())
@@ -54,7 +55,12 @@ def createAccordion(soup,tag):
         addClass(accordion_inner,["show"])
     accordion_body = soup.new_tag("div")
     addClass(accordion_body,["accordion-body"])
-    accordion_body.append(tag.p)
+    
+    loopCount = 0
+    for child in tag.children:
+        if loopCount > 2:
+            accordion_body.append(child)
+        loopCount += 1
     accordion_inner.append(accordion_body)
     accordion_item.append(accordion_inner)
     accordion_box.append(accordion_item)
