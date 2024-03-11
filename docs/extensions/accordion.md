@@ -5,7 +5,7 @@ summary : この記事では、accordion拡張機能の使用方法について�
 date : 2024-03-11
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.9.2</span>
+<span class="badge bg-primary">対応バージョン:>=2.9.3</span>
 
 Accordion拡張機能は、Lantanaに折り畳み要素を追加する拡張機能です。
 

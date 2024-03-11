@@ -5,7 +5,7 @@ summary : この記事では、Alerts拡張機能の使用方法について説�
 date : 2024-03-11
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.9.2</span>
+<span class="badge bg-primary">対応バージョン:>=2.9.3</span>
 
 Alerts拡張機能は、Lantanaにアラートを追加する拡張機能です。
 
