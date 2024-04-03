@@ -42,7 +42,7 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
             if not filename.endswith(index_filename):
                 cards.append(card)
             elif contain_index:
-                card.order = 9999
+                card.order = -1
                 cards.insert(0,card)
 
     # 指定されている場合はサブディレクトリも見る
