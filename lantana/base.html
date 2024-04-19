@@ -21,7 +21,7 @@
   {% if page and page.meta.summary %}
     <meta property="og:site_name" content="{{ config.site_name }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}" />
     <meta name="twitter:card" content="Summary Card" />
     {% if page and page.meta.summary %}
       <meta name="description" content="{{ page.meta.summary }}">
@@ -35,10 +35,10 @@
     {% endif %}
   {% endif %}
 
-  {% if config.site_short_name %}
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_short_name }}</title>
+  {% if page and page.meta and page.meta.long_title %}
+    <title>{% if page.meta.long_title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
   {% else %}
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}</title>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
   {% endif %}
 
   {% if config.favicon %}
