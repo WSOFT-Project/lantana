@@ -1,14 +1,27 @@
 # Lantana CSS調整拡張機能
 # この拡張機能は従来theme.jsで行っていたCSS関連の調整を事前に行います
 from markdown import Extension
+from markdown.preprocessors import Preprocessor
 from markdown.postprocessors import Postprocessor
 from bs4 import BeautifulSoup
+import re
 
 class LantanaExtension(Extension):
 
     def extendMarkdown(self, md, md_globals):
-        md.postprocessors.add('lantana', LantanaPostprocesser(self), '>raw_html')
+        md.preprocessors.add('lantana-Pre',LantanaPreProcessor(self),'>html_block')
+        md.postprocessors.add('lantana-Post', LantanaPostprocesser(self), '>raw_html')
 
+class LantanaPreProcessor(Preprocessor):
+
+    _pattern = re.compile(r"> \[\!(.*)] *(.*)")
+
+    def run(self, lines: list):
+        for i in range(len(lines)):
+            matches = re.findall(self._pattern,lines[i])
+            if len(matches) > 0:
+                lines[i] = f'> []({matches[0][1].lower()}){{: .lantana-fence-tmp .{matches[0][0].lower()} }}'
+        return lines
 
 class LantanaPostprocesser(Postprocessor):
 

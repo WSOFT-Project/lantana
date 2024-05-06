@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.9.6'
+VERSION = '2.9.8.1'
 
 setup(
     name="lantana",
@@ -27,6 +27,8 @@ setup(
             "lantana = lantana.extensions.lantana:LantanaExtension",
             "lantana.cards = lantana.extensions.cards:CardsExtension",
             "lantana.alerts = lantana.extensions.alerts:AlertsExtension",
+            "lantana.alerts2 = lantana.extensions.alerts2:Alerts2Extension",
+            "lantana.selector = lantana.extensions.selector:SelectorExtension",
             "lantana.accordion = lantana.extensions.accordion:AccordionExtension",
             "lantana.link_opennewtab = lantana.extensions.link_opennewtab:OpenNewTabExtension",
             "lantana.codeblock_copybtn = lantana.extensions.codeblock_copybtn:CodeBlockCopyBtnExtension",

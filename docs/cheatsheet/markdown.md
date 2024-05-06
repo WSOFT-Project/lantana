@@ -474,6 +474,7 @@ graph TD;
 ```markdown title="例"
 = "cheatsheet" =\
 ```
+
 ### スニペットの埋め込み
 `--8<--`で囲い、その中にファイル名を書き込むと、そのファイルを埋め込みます。
 ```markdown title="例"
@@ -481,6 +482,7 @@ graph TD;
 snippet.md
 ;--8<--
 ```
+
 ### HTMLの埋め込み
 HTMLコードは、そのまま記述することで埋め込むことができます。
 ```html title="例"
