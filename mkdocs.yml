@@ -46,6 +46,9 @@ plugins:
         enabled: true
 
 markdown_extensions:
+    - lantana
+    - lantana.alerts2
+    - lantana.selector
     - attr_list
     - lantana.cards
     - mdx_wsid
@@ -80,4 +83,3 @@ markdown_extensions:
     - lantana.accordion
     - lantana.codeblock_copybtn
     - lantana.mermaid_precompile
-    - lantana

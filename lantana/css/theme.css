@@ -66,12 +66,6 @@ svg{
     width: 100%;
 }
 
-.alert-heading:before{
-    font-family:bootstrap-icons;
-    padding-right: 0.25em;
-    font-size: 15px;
-}
-
 /*
 .accordion-button:before{
     font-family:bootstrap-icons;
@@ -134,40 +128,6 @@ mark{
     --bs-accordion-active-bg : var(--bs-light-bg-subtle);
     --bs-accordion-active-color: var(--bs-light-text-emphasis);
     --bs-accordion-btn-focus-box-shadow : 0 0 0 0;
-}
-
-.note .alert-heading:before{
-    content:'\F26A';
-}
-.abstract .alert-heading:before{
-    content:'\F3B8';
-}
-.info .alert-heading:before{
-    content:'\F430';
-}
-.tip .alert-heading:before{
-    content:'\F468';
-}
-.success .alert-heading:before{
-    content:'\F272';
-}
-.question .alert-heading:before{
-    content:'\F504';
-}
-.warning .alert-heading:before{
-    content:'\F33A';
-}
-.failure .alert-heading:before{
-    content:'\F622';
-}
-.danger .alert-heading:before{
-    content:'\F67B';
-}
-.bug .alert-heading:before{
-    content:'\F1DB';
-}
-.example .alert-heading:before{
-    content:'\F41F';
 }
 
 @media print{

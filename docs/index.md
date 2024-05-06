@@ -33,5 +33,3 @@ Lantanaはシンプルながらも、多言語に対応しており、フリー�
 * マークダウン拡張の[Embedly Extension for Python-Markdown](https://github.com/yymm/mdx_embedly)を使用し、一部改変しています
 * 検索エンジンに[lunr.js](https://lunrjs.com/)を使用しています
 * Lantanaのアイコンは、[icooon-mono](https://icooon-mono.com/)にお借りしました
-
-="tutrial"|[include-subdir,style-lite]=
