@@ -16,7 +16,7 @@ class LantanaPreProcessor(Preprocessor):
 
     _pattern = re.compile(r"> \[\!(.*)] *(.*)")
 
-    def run(self, lines: list[str]) -> list[str]:
+    def run(self, lines: list):
         for i in range(len(lines)):
             matches = re.findall(self._pattern,lines[i])
             if len(matches) > 0:

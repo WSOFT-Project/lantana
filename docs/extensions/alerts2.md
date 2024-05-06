@@ -5,7 +5,7 @@ summary : この記事では、Alerts2拡張機能の使用方法について説
 date : 2024-05-06
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.9.8</span>
+<span class="badge bg-primary">対応バージョン:>=2.9.8.1</span>
 
 Alerts2拡張機能は、Lantanaに引用を使用したアラートを追加する拡張機能です。
 
