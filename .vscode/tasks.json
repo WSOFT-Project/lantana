@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Extension build and install",
+            "type": "shell",
+            "command": "pip3 install -e . --break-system-packages"
+        },
+        {
+            "label": "Starting serve website",
+            "type": "shell",
+            "command": "mkdocs serve --dev-addr localhost:8000  --watch-theme"
+        },
+        {
+            "label": "Build and serve",
+            "type": "shell",
+            "command": "echo building",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Extension build and install",
+                "Starting serve website"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind" : "build",
+                "isDefault" : true
+            }
+        }
+    ]
+}
