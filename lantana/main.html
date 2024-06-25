@@ -51,6 +51,7 @@
     {% endif %}
     {% if page and not page.meta.disable_tools %}
     <div class="d-flex justify-content-between">
+      {% if page and not page.meta.disable_nav_tool %}
       <div>
         {% if page.previous_page %}
         <a class="btn text-primary print-hide" href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}"><i class="bi bi-chevron-left"></i></a>
@@ -63,6 +64,8 @@
         <a class="btn text-muted print-hide"><i class="bi bi-chevron-right"></i></a>
         {% endif %}
       </div>
+      {% endif %}
+      {% include "after_nav_tool.html" %}
       <div>
         <div>
           {% if page and page.meta.author %}
@@ -70,8 +73,8 @@
           <a href="{{ page.meta.author_url }}" class="unnewtab">{{ page.meta.author }}</a>
           {% else %}
           <span>{{ page.meta.author }}</span>
-          {% endif %}
           <span>|</span>
+          {% endif %}
           {% else %}
           {% if git_page_authors %}
           <small>{{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}</small>
@@ -95,6 +98,7 @@
           {% else %}
           <a class="btn disabled print-hide"><i class="bi bi-pencil"></i></a>
           {% endif %}
+          {% endif %}
           <span class="dropdown print-hide">
             <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -106,7 +110,6 @@
               <li><button class="btn dropdown-item" id="page-url-copy-btn"><i class="bi bi-clipboard"></i>&nbsp;URLをコピー</button></li>
             </ul>
           </span>
-          {% endif %}
         </div>
       </div>
     </div>

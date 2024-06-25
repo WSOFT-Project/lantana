@@ -36,7 +36,7 @@
   {% endif %}
 
   {% if page and page.meta and page.meta.long_title %}
-    <title>{% if page.meta.long_title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
+    <title>{{ page.meta.long_title }} | {% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
   {% else %}
   <title>{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
   {% endif %}
