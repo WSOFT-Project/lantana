@@ -8,10 +8,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  
+  {% if not config.disable_darkmode %}
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="{{ "css/bootstrap.min.css"|url }}">
+  {% else %}
+  <link rel="stylesheet" href="{{ "css/bootstrap-lite.min.css"|url }}">
+  {% endif %}
 
   {% if page and page.meta.language %}
     <meta http-equiv="content-language" content="{{ page.meta.language }}">
@@ -45,7 +49,6 @@
     <link rel="favicon" href="{{ config.favicon|url }}">
   {% endif %}
 
-  <link rel="stylesheet" href="{{ "css/bootstrap.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/bootstrap-icons.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/default.min.css"|url }}">
   <link rel="stylesheet" href="{{ "css/vs.min.css"|url }}">
