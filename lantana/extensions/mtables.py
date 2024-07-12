@@ -31,7 +31,7 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
     style_lite = "style-lite" in options
     cards=list()
     for i, filename in enumerate(filenames):
-            if read_property(filename, 'mt_type'):
+            if read_property(filename, 'mt_type') == meta_type:
                 for k in range(int(read_property(filename, 'mt_overloads', "1"))):
                     card=Card()
                     card.title = read_property(filename,'mt_title', read_property(filename, 'title'), k)
@@ -51,7 +51,7 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
     if contain_subdir:
         filenames = natsorted(glob.glob(f'docs/{dir}/*/index.md'))
         for i, filename in enumerate(filenames):
-                if read_property(filename, 'mt_type'):
+                if read_property(filename, 'mt_type') == meta_type:
                     for k in range(int(read_property(filename, 'mt_overloads', "1"))):
                         card=Card()
                         card.title = read_property(filename,'mt_title', read_property(filename, 'title'), k)
