@@ -54,6 +54,6 @@ MetaTables構文中で使用できるオプションは以下の通りです。
 ```yml title="mkdocs.yml"
 markdown_extensions:
       (中略)
-    - lantana.cards
+    - lantana.mtables
       (中略)
 ```
