@@ -32,7 +32,10 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
     cards=list()
     for i, filename in enumerate(filenames):
             if read_property(filename, 'mt_type') == meta_type:
-                for k in range(int(read_property(filename, 'mt_overloads', "1"))):
+                overloads = count_property(filename, 'mt_title')
+                if overloads <= 0:
+                    overloads = 1
+                for k in range(overloads):
                     card=Card()
                     card.title = read_property(filename,'mt_title', read_property(filename, 'title'), k)
                     card.summary = read_property(filename,'mt_summary', read_property(filename, 'summary'), k)
@@ -52,7 +55,10 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
         filenames = natsorted(glob.glob(f'docs/{dir}/*/index.md'))
         for i, filename in enumerate(filenames):
                 if read_property(filename, 'mt_type') == meta_type:
-                    for k in range(int(read_property(filename, 'mt_overloads', "1"))):
+                    overloads = count_property(filename, 'mt_title')
+                    if overloads <= 0:
+                        overloads = 1
+                    for k in range(overloads):
                         card=Card()
                         card.title = read_property(filename,'mt_title', read_property(filename, 'title'), k)
                         card.summary = read_property(filename,'mt_summary', read_property(filename, 'summary'), k)
@@ -88,6 +94,19 @@ def remove_filename(filename):
     filename = filename.replace("docs/","",1)
     filename=filename[::-1].replace("dm.","",1)
     return filename[::-1]
+
+def count_property(filename,key):
+    """記事や.pagesファイルにプロパティがいくつあるかを調べる関数
+    
+    filename=ファイル名、key=プロパティの名前
+    """
+    with open(filename, "r", encoding="utf-8") as f:
+        search=re.findall(key+'\ *:\ *(.+)*\n*', f.read())
+        if search != None:
+            return len(search)
+        else:
+            return 0
+
 
 def read_property(filename,key,default="",index=0):
     """記事や.pagesファイルからプロパティを読みだす関数
