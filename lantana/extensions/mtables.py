@@ -7,7 +7,6 @@ import glob
 from natsort import natsorted
 
 class MetaTablesExtension(Extension):
-
     def extendMarkdown(self, md, md_globals):
         md.postprocessors.add('mtables', MetaTablesPostprocesser(self), '>raw_html')
 
@@ -29,6 +28,7 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
     contain_subdir = "include-subdir" in options
     meta_type = options[0]
     style_lite = "style-lite" in options
+    smart_jump = "smart-jump" in options
     cards=list()
     for i, filename in enumerate(filenames):
             if read_property(filename, 'mt_type') == meta_type:
@@ -43,7 +43,8 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
                     card.order = read_property(filename,'mt_order', read_property(filename, 'order'), k) 
                     card.content_dir = remove_filename(filename)
                     card.dir_title=dir_title
-                
+                    if smart_jump:
+                        card.content_dir += f'#{convert_to_id(card.title)}'
                     if not filename.endswith(index_filename):
                         cards.append(card)
                     elif contain_index:
@@ -67,6 +68,9 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
                         card.content_dir = remove_filename(filename)
                         card.dir_title=dir_title
                         cards.append(card)
+
+                        if smart_jump:
+                            card.content_dir += f'#{convert_to_id(card.title)}'
     
     cards = natsorted(cards,key=lambda x:x.order)
 
@@ -86,6 +90,14 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
             html += '</tr>'
         html += '</tbody></table>'
     return html
+
+def convert_to_id(name) -> str:
+    name = name.lower()
+    name = name.replace(' ', '-')
+    name = name.replace('(', '')
+    name = name.replace(')', '')
+    name = name.replace(',', '')
+    return name
 
 def remove_filename(filename):
     """
