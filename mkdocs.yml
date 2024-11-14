@@ -19,6 +19,8 @@ favicon : favicon.png
 image : favicon.png
 language : ja
 
+disable_darkmode : true
+
 share:
     twitter_params : '&via=WSOFT7&related=WSOFT7&hashtags=WSOFTDocs'
 
@@ -51,6 +53,7 @@ markdown_extensions:
     - lantana.selector
     - attr_list
     - lantana.cards
+    - lantana.mtables
     - mdx_wsid
     - footnotes
     - pymdownx.highlight:

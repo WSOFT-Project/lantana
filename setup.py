@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.9.8.1'
+VERSION = '2.10.1'
 
 setup(
     name="lantana",
@@ -26,6 +26,7 @@ setup(
             "mdx_embedly = lantana.extensions.mdx_embedly:EmbedlyExtension",
             "lantana = lantana.extensions.lantana:LantanaExtension",
             "lantana.cards = lantana.extensions.cards:CardsExtension",
+            "lantana.mtables = lantana.extensions.mtables:MetaTablesExtension",
             "lantana.alerts = lantana.extensions.alerts:AlertsExtension",
             "lantana.alerts2 = lantana.extensions.alerts2:Alerts2Extension",
             "lantana.selector = lantana.extensions.selector:SelectorExtension",
