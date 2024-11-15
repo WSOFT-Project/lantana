@@ -5,7 +5,7 @@ summary : この記事では、Selector拡張機能の使用方法について�
 date : 2024-05-06
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.10.1</span>
+<span class="badge bg-primary">対応バージョン:>=2.11.0</span>
 
 Selector拡張機能は、Lantanaに選択可能なサイトへのリンクを追加する拡張機能です。
 

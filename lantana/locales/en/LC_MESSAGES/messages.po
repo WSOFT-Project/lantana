@@ -1,0 +1,103 @@
+# English translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-11-16 03:41+0900\n"
+"PO-Revision-Date: 2024-11-16 01:12+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: lantana/404.html:6
+msgid "404-desc-with-reason"
+msgstr ""
+"We're sorry, but it seems that the page you're looking for is not "
+"currently available. There are a few reasons why this might be the case."
+
+#: lantana/404.html:8
+msgid "404-wrong-url"
+msgstr "Your use of Url is incorrect."
+
+#: lantana/404.html:9
+msgid "404-moved-url"
+msgstr "Article has been moved or deleted."
+
+#: lantana/404.html:11
+msgid "404-search-desktop"
+msgstr ""
+"You can find articles in the list of articles on the left side of the "
+"screen and in the search box in the upper right corner."
+
+#: lantana/404.html:12
+msgid "404-search-mobile"
+msgstr ""
+"You can find an article by clicking on the “<i class=\"bi bi-book\"></i>”"
+" icon at the top of the screen."
+
+#: lantana/404.html:13
+msgid "404-gotop"
+msgstr "Go to TopPage"
+
+#: lantana/base.html:96 lantana/base.html:117
+msgid "search-in-site"
+msgstr "Search in here"
+
+#: lantana/base.html:96 lantana/base.html:117 lantana/base.html:209
+#: lantana/base.html:214
+msgid "search"
+msgstr "Search"
+
+#: lantana/base.html:114
+msgid "nav-show"
+msgstr "Show Navigation"
+
+#: lantana/base.html:210
+msgid "close"
+msgstr "Close"
+
+#: lantana/base.html:217
+msgid "search-area-desc"
+msgstr "Enter a keyword to search."
+
+#: lantana/main.html:10
+msgid "tol"
+msgstr "In this article"
+
+#: lantana/main.html:94
+msgid "print-this-article"
+msgstr "Print this article"
+
+#: lantana/main.html:97
+msgid "open-new-tab"
+msgstr "Open NewTab"
+
+#: lantana/main.html:114
+msgid "share"
+msgstr "Share via"
+
+#: lantana/main.html:126
+msgid "print"
+msgstr "Print"
+
+#: lantana/main.html:128
+msgid "copy-url"
+msgstr "Copy Url to clipboard"
+
+#: lantana/main.html:133 lantana/main.html:136 lantana/main.html:139
+msgid "edit-this-article"
+msgstr "Edit this article"
+
+#: lantana/main.html:145
+msgid "view-in-embed-mode"
+msgstr "View in EmbedMode"
+

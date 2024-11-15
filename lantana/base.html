@@ -1,7 +1,9 @@
 {% if page and page.meta.language %}
 <!DOCTYPE html lang="{{ page.meta.language }}">
-{% else %}
+{% elif config.language  %}
 <!DOCTYPE html lang="{{ config.language }}">
+{% elif config.theme.locale %}
+<!DOCTYPE html lang="{{ config.theme.locale }}">
 {% endif %}
 <head>
   <meta charset="utf-8">
@@ -19,8 +21,10 @@
 
   {% if page and page.meta.language %}
     <meta http-equiv="content-language" content="{{ page.meta.language }}">
-  {% else %}
+  {% elif config.language  %}
     <meta http-equiv="content-language" content="{{ config.language }}">
+  {% elif config.theme.locale %}
+    <meta http-equiv="content-language" content="{{ config.theme.locale }}">
   {% endif %}
   {% if page and page.meta.summary %}
     <meta property="og:site_name" content="{{ config.site_name }}" />
@@ -89,7 +93,7 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <div class="d-none d-md-flex input-group mb-3">
                 {% if config.visible_search!=false %}
-                    <input class="form-control" type="search" id="searchbox" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索" aria-describedby="search-btn"/>
+                    <input class="form-control" type="search" id="searchbox" accesskey="/" placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}" aria-describedby="search-btn"/>
                     <button class="btn btn-outline-secondary" type="button" id="search-btn" onclick="search(false);">
                         <i class="bi bi-search"></i>
                     </button>
@@ -107,14 +111,14 @@
                 {% if page and page.meta.disable_nav %}
                 <!-- NAV -->
                 {% else %}
-                <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="ナビゲーションを表示"><i class="bi bi-book"></i></button>
+                <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="{% trans %}nav-show{% endtrans %}"><i class="bi bi-book"></i></button>
                 {% endif %}
                 {% if config.visible_search %}
-                <input class="form-control" type="search" id="searchbox_mobile" accesskey="/" placeholder="{{ config.site_name }}で検索" aria-label="検索">
+                <input class="form-control" type="search" id="searchbox_mobile" accesskey="/" placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}">
                 <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i class="bi bi-search"></i></button>
                 {% endif %}
                 {% if page and page.meta.disable_tol %}
-                 <!-- TOL -->
+                <!-- TOL -->
                 {% else %}
                 {% if page.toc %}
                 <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#tol"><i class="bi bi-list-ul"></i></button>
@@ -202,15 +206,15 @@
   <div class="modal-dialog modal-lg print-hide">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="searchModalLabel">検索</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+        <h5 class="modal-title" id="searchModalLabel">{% trans %}search{% endtrans %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans %}close{% endtrans %}"></button>
       </div>
       <div class="modal-body">
         <div class="input-group mb-3">
-          <input id="mkdocs-search-query" type="text" class="form-control" aria-label="検索" aria-describedby="inputGroup-sizing-default">
+          <input id="mkdocs-search-query" type="text" class="form-control" aria-label="{% trans %}search{% endtrans %}" aria-describedby="inputGroup-sizing-default">
         </div>
         <div id="mkdocs-search-results">
-          キーワードを入力して検索を始めましょう
+          {% trans %}search-area-desc{% endtrans %}
         </div>
 
       </div>

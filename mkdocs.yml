@@ -17,7 +17,6 @@ extra_javascript:
 logo : favicon.png
 favicon : favicon.png
 image : favicon.png
-language : ja
 
 disable_darkmode : true
 
@@ -27,6 +26,7 @@ share:
 
 theme:
     name: lantana
+    locale: ja
     custom_dir: lantana/
     static_templates : 
         - 404.html
