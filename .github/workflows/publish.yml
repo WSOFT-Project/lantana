@@ -3,9 +3,6 @@ name: Upload pypi package release
 on:
   # Trigger the workflow on push or pull request,
   # but only for the master branch
-  push:
-    branches:
-      - master
   release:
     types:
       - created
@@ -28,7 +25,7 @@ jobs:
       run: |
         python3 setup.py sdist --formats=zip
     - name: Publish a Python distribution to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+      uses: pypa/gh-action-pypi-publish@master
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
