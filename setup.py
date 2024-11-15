@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.11.1'
+VERSION = '2.11.2'
 
 setup(
     name="lantana",
