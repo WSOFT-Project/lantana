@@ -23,7 +23,7 @@ jobs:
         pip install wheel
     - name: Build
       run: |
-        python3 setup.py sdist --formats=zip
+        . build.sh
     - name: Publish a Python distribution to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
