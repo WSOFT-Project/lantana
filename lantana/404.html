@@ -3,12 +3,13 @@
 <div class="col-12 col-md-8">
   <p class="text-center display-3 text-primary"><i class="bi bi-cloud-sleet"></i></p>
   <p class="text-center display-4">404 Not Found</p>
-  <p>お探しのページは見つかりませんでした。次のいずれかが原因の可能性があります。</p>
+  <p>{% trans %}404-desc-with-reason{% endtrans %}</p>
   <ul>
-    <li>サイトは一時的にメンテナンス中である</li>
-    <li>この記事は移動もしくは削除された</li>
+    <li>{% trans %}404-wrong-url{% endtrans %}</li>
+    <li>{% trans %}404-moved-url{% endtrans %}</li>
   </ul>
-  <p class="d-md-flex d-none">画面左側の記事一覧および右上の検索ボックスより、記事をお探しいただけます。</p>
-  <p class="d-md-none">画面上部の「<i class="bi bi-book"></i>」アイコンをクリックすることで、記事をお探しいただけます。</p>
+  <p class="d-md-flex d-none">{% trans %}404-search-desktop{% endtrans %}</p>
+  <p class="d-md-none">{% trans %}404-search-mobile{% endtrans %}</p>
+  <p class="text-center"><a href="/">{% trans %}404-gotop{% endtrans %}</a></p>
 </div> 
 {% endblock %}

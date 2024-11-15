@@ -1,122 +1,158 @@
 {% extends "base.html" %}
 {% block main_content %}
-    {% if page and page.meta.disable_tol %}
-    <!-- TOL -->
-    {% else %}
-    {% if page.toc %}
-    
-    <div class="col-12 col-md-2 order-md-3 print-hide">
-      <div class="collapse d-md-block text-nowrap" id="tol"  style="overflow-x:scroll;">
-        <span>目次</span>
-         <hr/>
+{% if page and page.meta.disable_tol %}
+<!-- TOL -->
+{% else %}
+{% if page.toc %}
+
+<div class="col-12 col-md-2 order-md-3 print-hide">
+  <div class="collapse d-md-block text-nowrap" id="tol" style="overflow-x:scroll;">
+    <span>{% trans %}tol{% endtrans %}</span>
+    <hr />
+    <ul class="list-group list-group-flush">
+      {% for toc_item in page.toc %}
+      <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url|url }}">{{
+          toc_item.title }}</a>
+        {% if toc_item.children %}
         <ul class="list-group list-group-flush">
-        {% for toc_item in page.toc %}
-        <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url|url }}" >{{ toc_item.title }}</a>
-          {% if toc_item.children %}
-            <ul class="list-group list-group-flush">
-            {% for toc_item in toc_item.children %}
-              {% include "toc.html" %}
-            {% endfor %}
-      </ul>
-          {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-      </div>
-    </div>
-    {% endif %}
-    {% endif %}
-    <div class="col-12 col-md-8 print-main">
-      {% if page.meta.long_title %}
-      <h1>{{ page.meta.long_title }}</h1>
-      {% else %}
-      <h1>{{ page.title }}</h1>
+          {% for toc_item in toc_item.children %}
+          {% include "toc.html" %}
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+{% endif %}
+<div class="col-12 col-md-8 print-main">
+  {% if page.meta.long_title %}
+  <h1>{{ page.meta.long_title }}</h1>
+  {% else %}
+  <h1>{{ page.title }}</h1>
+  {% endif %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">{{ config.site_name }}</li>
+      {% for nav_item in nav %}
+      {% if nav_item.active %}
+      <li class="breadcrumb-item active" aria-current="page">{{ nav_item.title }}</li>
+      {% if nav_item.children %}
+      {% include "breadcrumb.html" %}
       {% endif %}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">{{ config.site_name }}</li>
-        {% for nav_item in nav %}
-        {% if nav_item.active %}
-        <li class="breadcrumb-item active" aria-current="page">{{ nav_item.title }}</li>
-        {% if nav_item.children %}
-        {% include "breadcrumb.html" %}
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-      </ol>
-    </nav>
-    {% if page and page.meta.summary %}
-        <p>{{ page.meta.summary }}</p>
-    <hr/>
-    {% endif %}
-    {% if page and not page.meta.disable_tools %}
-    <div class="d-flex justify-content-between">
+      {% endif %}
+      {% endfor %}
+    </ol>
+  </nav>
+  {% if page and page.meta.summary %}
+  <p>{{ page.meta.summary }}</p>
+  <hr />
+  {% endif %}
+  {% if page and not page.meta.disable_tools %}
+  <div class="container ml-0">
+    <div class="row">
       {% if page and not page.meta.disable_nav_tool %}
-      <div>
+      <div class="col-2 px-0" style="text-wrap: nowrap;">
         {% if page.previous_page %}
-        <a class="btn text-primary print-hide" href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}"><i class="bi bi-chevron-left"></i></a>
+        <a class="btn text-primary print-hide" href="{{ page.previous_page.url|url }}"
+          title="{{ page.previous_page.title }}"><i class="bi bi-chevron-left"></i></a>
         {% else %}
         <a class="btn text-muted print-hide"><i class="bi bi-chevron-left"></i></a>
         {% endif %}
         {% if page.next_page %}
-        <a class="btn text-primary print-hide" href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"><i class="bi bi-chevron-right"></i></a>
+        <a class="btn text-primary print-hide" href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"><i
+            class="bi bi-chevron-right"></i></a>
         {% else %}
         <a class="btn text-muted print-hide"><i class="bi bi-chevron-right"></i></a>
         {% endif %}
       </div>
-      {% endif %}
-      {% include "after_nav_tool.html" %}
-      <div>
-        <div>
-          {% if page and page.meta.author %}
-          {% if page and page.meta.author_url %}
-          <a href="{{ page.meta.author_url }}" class="unnewtab">{{ page.meta.author }}</a>
-          {% else %}
-          <span>{{ page.meta.author }}</span>
-          <span>|</span>
-          {% endif %}
-          {% else %}
-          {% if git_page_authors %}
-          <small>{{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}</small>
-          <span>|</span>
-          {% endif %}
-          {% endif %}
-          {% if page and page.meta.date %}
-          <span>{{ page.meta.date }}</span>
-          {% else %}
-          {% if page.meta.revision_date %}
-          <span>{{ page.meta.revision_date }}</span>
-          {% endif %}
-          {% endif %}
-          <button class="btn print-block" title="このページを印刷" onclick="window.print();"><i class="bi bi-printer"></i></button>
-          <button class="btn print-visible d-none" onclick="print_normal();" title="新しいタブで開く"><i class="bi bi-arrow-up-right-square"></i></button>
-          {% if page and not page.meta.disable_edit %}
-          {% if page and page.edit_url %}
-          <a class="btn print-hide unnewtab" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i></a>
-          {% elif config.repo_url %}
-          <a class="btn print-hide unnewtab" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i></a>
-          {% else %}
-          <a class="btn disabled print-hide"><i class="bi bi-pencil"></i></a>
-          {% endif %}
-          {% endif %}
-          <span class="dropdown print-hide">
-            <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><button class="btn dropdown-item" onclick="share_to_twitter('{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}','{% if config.share %}{% if config.share.twitter_params %}{{ config.share.twitter_params }}{% endif %}{% endif %}');"><i class="bi bi-twitter"></i>&nbsp;Twitter</button></li>
-              <li><button class="btn dropdown-item" onclick="share_to_facebook();"><i class="bi bi-facebook"></i>&nbsp;Facebook</button></li>
-              <li><button class="btn dropdown-item" onclick="share_to_line();"><i class="bi bi-line"></i>&nbsp;LINE</button></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><button class="btn dropdown-item" onclick="print_view();"><i class="bi bi-file-earmark-text"></i>&nbsp;埋込モードで表示</button></li>
-              <li><button class="btn dropdown-item" id="page-url-copy-btn"><i class="bi bi-clipboard"></i>&nbsp;URLをコピー</button></li>
-            </ul>
-          </span>
-        </div>
+      <div class="col px-0" style="text-align: right;">
+        {% if page and page.meta.author %}
+        {% if page and page.meta.author_url %}
+        <a href="{{ page.meta.author_url }}" class="unnewtab">{{ page.meta.author }}</a>
+        {% else %}
+        <span>{{ page.meta.author }}</span>
+        <span>|</span>
+        {% endif %}
+        {% else %}
+        {% if git_page_authors %}
+        <small>{{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}</small>
+        <span>|</span>
+        {% endif %}
+        {% endif %}
+        {% if page and page.meta.date %}
+        <span>{{ page.meta.date }}</span>
+        {% else %}
+        {% if page.meta.revision_date %}
+        <span>{{ page.meta.revision_date }}</span>
+        {% endif %}
+        {% endif %}
+      </div>
+      <div class="col-1 col-sm-2 px-0" style="text-align: right;text-wrap: nowrap;">
+        <button class="btn print-block d-none d-lg-inline" title="{% trans %}print-this-article{% endtrans %}"
+          onclick="window.print();"><i class="bi bi-printer"></i></button>
+        <button class="btn print-visible d-none" onclick="print_normal();"
+          title="{% trans %}open-new-tab{% endtrans %}"><i class="bi bi-arrow-up-right-square"></i></button>
+        {% if page and not page.meta.disable_edit %}
+        {% if page and page.edit_url %}
+        <a class="btn print-hide unnewtab d-none d-sm-inline" href="{{ page.edit_url }}"><i
+            class="bi bi-pencil"></i></a>
+        {% elif config.repo_url %}
+        <a class="btn print-hide unnewtab d-none d-sm-inline" href="{{ config.repo_url }}"><i
+            class="bi bi-pencil"></i></a>
+        {% else %}
+        <a class="btn disabled print-hide d-none d-sm-inline"><i class="bi bi-pencil"></i></a>
+        {% endif %}
+        {% endif %}
+        <span class="dropdown print-hide">
+          <button class="btn btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false"><i class="bi bi-list"></i></button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <h6 class="dropdown-header">{% trans %}share{% endtrans %}</h6>
+            </li>
+            <li><button class="btn dropdown-item"
+                onclick="share_to_twitter('{% if page.title %}{{ page.title }} | {% endif %}{{ config.site_name }}','{% if config.share %}{% if config.share.twitter_params %}{{ config.share.twitter_params }}{% endif %}{% endif %}');"><i
+                  class="bi bi-twitter-x"></i>&nbsp;X.com</button></li>
+            <li><button class="btn dropdown-item" onclick="share_to_facebook();"><i
+                  class="bi bi-facebook"></i>&nbsp;Facebook</button></li>
+            <li><button class="btn dropdown-item" onclick="share_to_line();"><i
+                  class="bi bi-line"></i>&nbsp;LINE</button></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><button class="btn dropdown-item" onclick="window.print();"><i class="bi bi-printer"></i>&nbsp;{% trans
+                %}print{% endtrans %}</button></li>
+            <li><button class="btn dropdown-item" id="page-url-copy-btn"><i class="bi bi-clipboard"></i>&nbsp;{% trans
+                %}copy-url{% endtrans %}</button></li>
+            <li>
+              {% if page and not page.meta.disable_edit %}
+              {% if page and page.edit_url %}
+              <a class="btn dropdown-item" href="{{ page.edit_url }}"><i class="bi bi-pencil"></i>&nbsp;{% trans
+                %}edit-this-article{% endtrans %}</a>
+              {% elif config.repo_url %}
+              <a class="btn dropdown-item" href="{{ config.repo_url }}"><i class="bi bi-pencil"></i>&nbsp;{% trans
+                %}edit-this-article{% endtrans %}</a>
+              {% else %}
+              <a class="btn dropdown-item disabled"><i class="bi bi-pencil"></i>&nbsp;{% trans
+                %}edit-this-article{% endtrans %}</a>
+              {% endif %}
+              {% endif %}
+            </li>
+            <li><button class="btn dropdown-item" onclick="print_view();"><i
+                  class="bi bi-file-earmark-text"></i>&nbsp;{% trans %}view-in-embed-mode{% endtrans %}</button></li>
+          </ul>
+        </span>
       </div>
     </div>
-    <hr/>
-    {% endif %}
-    {% block content %}
-      {{ page.content }}
-    {% endblock %}
-    
-{% endblock %}
+  </div>
+  {% endif %}
+  <hr />
+  {% endif %}
+  {% block content %}
+  {{ page.content }}
+  {% endblock %}
+
+  {% endblock %}

@@ -1,0 +1,96 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-11-16 03:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: lantana/404.html:6
+msgid "404-desc-with-reason"
+msgstr ""
+
+#: lantana/404.html:8
+msgid "404-wrong-url"
+msgstr ""
+
+#: lantana/404.html:9
+msgid "404-moved-url"
+msgstr ""
+
+#: lantana/404.html:11
+msgid "404-search-desktop"
+msgstr ""
+
+#: lantana/404.html:12
+msgid "404-search-mobile"
+msgstr ""
+
+#: lantana/404.html:13
+msgid "404-gotop"
+msgstr ""
+
+#: lantana/base.html:96 lantana/base.html:117
+msgid "search-in-site"
+msgstr ""
+
+#: lantana/base.html:96 lantana/base.html:117 lantana/base.html:209
+#: lantana/base.html:214
+msgid "search"
+msgstr ""
+
+#: lantana/base.html:114
+msgid "nav-show"
+msgstr ""
+
+#: lantana/base.html:210
+msgid "close"
+msgstr ""
+
+#: lantana/base.html:217
+msgid "search-area-desc"
+msgstr ""
+
+#: lantana/main.html:10
+msgid "tol"
+msgstr ""
+
+#: lantana/main.html:94
+msgid "print-this-article"
+msgstr ""
+
+#: lantana/main.html:97
+msgid "open-new-tab"
+msgstr ""
+
+#: lantana/main.html:114
+msgid "share"
+msgstr ""
+
+#: lantana/main.html:126
+msgid "print"
+msgstr ""
+
+#: lantana/main.html:128
+msgid "copy-url"
+msgstr ""
+
+#: lantana/main.html:133 lantana/main.html:136 lantana/main.html:139
+msgid "edit-this-article"
+msgstr ""
+
+#: lantana/main.html:145
+msgid "view-in-embed-mode"
+msgstr ""
+
