@@ -21,6 +21,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pip install wheel
+        pip install 'mkdocs[i18n]'
     - name: Build
       run: |
         . build.sh
