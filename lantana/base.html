@@ -72,7 +72,7 @@
   {% block extrahead %}
   {% endblock %}
 </head>
-<body>
+<body data-lantana-theme="{% if config.disable_darkmode %}light{% else %}auto{% endif %}">
   {% include "before_header.html" %}
   {% if not config.disable_header %}
     {% block header %}

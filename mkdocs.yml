@@ -52,13 +52,6 @@ plugins:
       reconfigure_material: true
       reconfigure_search: true
       languages:
-        - locale: ja
-          default: true
-          name: 日本語
-          build: true
-          site_name: "Lantana"
-          theme:
-            locale: ja
         - locale: en
           name: English
           build: true
@@ -66,6 +59,13 @@ plugins:
           theme:
             locale: en
             untranslated_message: "This page is not available in English."
+        - locale: ja
+          default: true
+          name: 日本語
+          build: true
+          site_name: "Lantana"
+          theme:
+            locale: ja
 
 markdown_extensions:
     - lantana
