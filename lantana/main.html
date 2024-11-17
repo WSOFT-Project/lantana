@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% if "i18n" in config.plugins %}
+{% set i18n_build_languages = config.plugins["i18n"].build_languages %}
+{% set i18n_alternates = config.plugins["i18n"].i18n_files_per_language %}
+{% endif %}
 {% block main_content %}
 {% if page and page.meta.disable_tol %}
 <!-- TOL -->
@@ -28,6 +32,21 @@
 {% endif %}
 {% endif %}
 <div class="col-12 col-md-8 print-main">
+  {% if ("i18n" in config.plugins) and (i18n_file_locale != i18n_page_locale) %}
+  <div class="alert print-hide alert-warning alert-dismissible fade show" role="alert">
+    <strong><i class="bi bi-translate"></i></strong>
+    {% for language in i18n_config.languages %}
+    {% if language.locale == i18n_page_locale %}
+    {% if config.theme.untranslated_message %}
+    <span>{{ config.theme.untranslated_message }} ({{ language.locale }})</span>
+    {% else %}
+    <span> This page is not available in this locale. ({{ language.locale }})</span>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
   {% if page.meta.long_title %}
   <h1>{{ page.meta.long_title }}</h1>
   {% else %}
@@ -89,12 +108,10 @@
         <span>{{ page.meta.revision_date }}</span>
         {% endif %}
         {% endif %}
-      </div>
-      <div class="col-1 col-sm-2 px-0" style="text-align: right;text-wrap: nowrap;">
-        <button class="btn print-block d-none d-lg-inline" title="{% trans %}print-this-article{% endtrans %}"
-          onclick="window.print();"><i class="bi bi-printer"></i></button>
         <button class="btn print-visible d-none" onclick="print_normal();"
           title="{% trans %}open-new-tab{% endtrans %}"><i class="bi bi-arrow-up-right-square"></i></button>
+      </div>
+      <div class="col-1 col-sm-2 px-0 print-hide" style="text-align: right;text-wrap: nowrap;">
         {% if page and not page.meta.disable_edit %}
         {% if page and page.edit_url %}
         <a class="btn print-hide unnewtab d-none d-sm-inline" href="{{ page.edit_url }}"><i
@@ -105,6 +122,25 @@
         {% else %}
         <a class="btn disabled print-hide d-none d-sm-inline"><i class="bi bi-pencil"></i></a>
         {% endif %}
+        {% endif %}
+        {% if "i18n" in config.plugins %}
+        <span class="dropdown print-hide d-none d-lg-inline">
+          <button class="btn btn" type="button" id="lang-selector" data-bs-toggle="dropdown" aria-expanded="false"><i
+              class="bi bi-translate"></i></button>
+          <ul class="dropdown-menu" aria-labelledby="lang-selector">
+            <li>
+              <h6 class="dropdown-header">{% trans %}switch-lang{% endtrans %}</h6>
+            </li>
+            {% for lang in i18n_config.languages %}
+            <li><a class="btn dropdown-item {% if lang.locale == i18n_page_locale %}active{% endif %}"
+                onclick="switch_language('{{ lang.link }}', {{ i18n_build_languages }})"><i
+                  class="bi bi-globe"></i>&nbsp;{{ lang.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </span>
+        {% else %}
+        <button class="btn print-block d-none d-lg-inline" title="{% trans %}print-this-article{% endtrans %}"
+          onclick="window.print();"><i class="bi bi-printer"></i></button>
         {% endif %}
         <span class="dropdown print-hide">
           <button class="btn btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -141,6 +177,9 @@
               {% endif %}
               {% endif %}
             </li>
+            <li><button class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#languageSwitcher"><i
+                  class="bi bi-translate"></i>&nbsp;{% trans
+                %}switch-lang{% endtrans %}</button></li>
             <li><button class="btn dropdown-item" onclick="print_view();"><i
                   class="bi bi-file-earmark-text"></i>&nbsp;{% trans %}view-in-embed-mode{% endtrans %}</button></li>
           </ul>
@@ -150,9 +189,30 @@
   </div>
   {% endif %}
   <hr />
+
+  <div class="modal fade" id="languageSwitcher" tabindex="-1" aria-labelledby="languageSwitcherLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="languageSwitcherLabel">{% trans %}switch-lang{% endtrans %}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group">
+            {% for lang in i18n_config.languages %}
+            <a class="list-group-item list-group-item-action {% if lang.locale == i18n_page_locale %}active{% endif %}"  aria-current="{{ lang.locale == i18n_page_locale }}" onclick="switch_language('{{ lang.link }}', {{ i18n_build_languages }})"><i class="bi bi-globe"></i>&nbsp;{{ lang.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="modal-footer">
+  
+        </div>
+      </div>
+    </div>
+  </div>
   {% endif %}
   {% block content %}
   {{ page.content }}
   {% endblock %}
-
   {% endblock %}
+</div>

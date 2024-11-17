@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-16 03:41+0900\n"
+"POT-Creation-Date: 2024-11-17 21:28+0900\n"
 "PO-Revision-Date: 2024-11-16 03:27+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -63,35 +63,42 @@ msgstr "閉じる"
 msgid "search-area-desc"
 msgstr "キーワードを入力して検索を始めましょう"
 
-#: lantana/main.html:10
+#: lantana/main.html:14
 msgid "tol"
 msgstr "記事の内容"
 
-#: lantana/main.html:94
+#: lantana/main.html:119
+msgid "switch-lang"
+msgstr "言語切替"
+
+#: lantana/main.html:127
 msgid "print-this-article"
 msgstr "この記事を印刷"
 
-#: lantana/main.html:97
+#: lantana/main.html:130
 msgid "open-new-tab"
 msgstr "新規タブで開く"
 
-#: lantana/main.html:114
+#: lantana/main.html:147
 msgid "share"
 msgstr "共有"
 
-#: lantana/main.html:126
+#: lantana/main.html:159
 msgid "print"
 msgstr "印刷"
 
-#: lantana/main.html:128
+#: lantana/main.html:161
 msgid "copy-url"
 msgstr "Urlをコピー"
 
-#: lantana/main.html:133 lantana/main.html:136 lantana/main.html:139
+#: lantana/main.html:166 lantana/main.html:169 lantana/main.html:172
 msgid "edit-this-article"
 msgstr "記事の編集"
 
-#: lantana/main.html:145
+#: lantana/main.html:178
 msgid "view-in-embed-mode"
 msgstr "埋め込みモードで表示"
+
+#~ msgid "lang"
+#~ msgstr ""
 
