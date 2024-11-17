@@ -1,0 +1,19 @@
+a {
+    color: #0066CC;
+}
+
+.highlighttable,
+.highlight {
+    background: #e6e6e6;
+}
+
+code,
+.highlighttable tr,
+.highlight pre {
+    color: #171717;
+    background: #f2f2f2 !important;
+}
+
+.highlight {
+    border: solid 0.5px #e6e6e6;
+}

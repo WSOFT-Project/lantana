@@ -1,0 +1,43 @@
+@media (prefers-color-scheme: dark) {
+    a {
+        color: #385898;
+    }
+
+    .highlighttable,
+    .highlight {
+        background: #404040;
+    }
+
+    code,
+    .highlighttable tr,
+    .highlight pre {
+        color: #e1e1e1;
+        background: #2f2f2f !important;
+    }
+
+    .highlight {
+        border: solid 0.5px #404040;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    a {
+        color: #0066CC;
+    }
+
+    .highlighttable,
+    .highlight {
+        background: #e6e6e6;
+    }
+
+    code,
+    .highlighttable tr,
+    .highlight pre {
+        color: #171717;
+        background: #f2f2f2 !important;
+    }
+
+    .highlight {
+        border: solid 0.5px #e6e6e6;
+    }
+}
