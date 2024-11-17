@@ -9,7 +9,7 @@ pybabel compile --statistics --directory lantana/locales -l ja
 pip install .
 
 # And i18n support for site
-pip install mkdocs-static-i18n==1.2.3
+pip install mkdocs-static-i18n==1.2.0
 
 # Build site
 mkdocs build
