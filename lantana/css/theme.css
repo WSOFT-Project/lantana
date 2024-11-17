@@ -1,8 +1,3 @@
-.highlight {
-    padding-top: 10px;
-    margin-bottom: 10px;
-}
-
 p code {
     padding: 5px;
 }
@@ -17,10 +12,16 @@ p code {
     padding-right: 10px;
 }
 
-.highlighttable tr,
-.highlight pre {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.highlight {
+    margin-bottom: 5px;
+}
+
+.highlight:has(> .filename) {
+    padding-top: 3px;
+}
+
+.highlight:not(:has(> .filename)) > pre {
+    margin-bottom: 0px;
 }
 
 
