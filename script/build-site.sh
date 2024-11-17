@@ -1,6 +1,4 @@
 #!/bin/bash
-python3 -m venv venv
-source venv/bin/activate
 pip install 'mkdocs[i18n]'
 
 # Building i18n support
