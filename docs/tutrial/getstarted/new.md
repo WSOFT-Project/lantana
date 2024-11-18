@@ -31,10 +31,8 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-language : ja
-
-
 theme: lantana
+    locale: ja
 
 visible_search : true
 
@@ -42,14 +40,27 @@ plugins:
     - search:
         lang : 'ja'
         min_search_length: 2
-    - macros
+    - git-revision-date
     - awesome-pages
-    - git-authors
+    - git-authors:
+        show_email_address: true
+        count_empty_lines: true
+        fallback_to_empty: false
+        enabled: true
 
 markdown_extensions:
+    - lantana
+    - lantana.alerts2
+    - lantana.selector
+    - lantana.extensions.mdx_embedly
+    - lantana.extensions.mdx_wsid
     - attr_list
+    - lantana.cards
+    - lantana.mtables
+    - footnotes
     - pymdownx.highlight:
        anchor_linenums: true
+    - lantana.codeblock_copybtn
     - admonition
     - pymdownx.arithmatex:
        generic : true
@@ -59,20 +70,21 @@ markdown_extensions:
         custom_fences:
           - name: mermaid
             class: mermaid
-            format: !!python/name:pymdownx.superfences.fence_code_format
+            format: !!python/name:mermaid2.fence_mermaid
+    - lantana.mermaid_precompile
     - pymdownx.snippets
     - pymdownx.critic
     - pymdownx.caret
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.tilde
-    - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.tasklist:
         custom_checkbox: true
     - pymdownx.magiclink
     - pymdownx.striphtml
+    - lantana.link_opennewtab
+    - lantana.alerts
+    - lantana.accordion
 ```
 
 設定ファイルには、他にもいくつかの項目があります。どのような設定があるかを知るには、[設定ファイル](/cheatsheet/config)を参照してください。

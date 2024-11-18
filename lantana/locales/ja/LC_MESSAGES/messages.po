@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-16 03:41+0900\n"
+"POT-Creation-Date: 2024-11-18 16:41+0900\n"
 "PO-Revision-Date: 2024-11-16 03:27+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -42,56 +42,63 @@ msgstr "画面上部の「<i class=\"bi bi-book\"></i>」アイコンをクリ�
 msgid "404-gotop"
 msgstr "サイトトップへ"
 
-#: lantana/base.html:96 lantana/base.html:117
+#: lantana/base.html:115 lantana/base.html:136
 msgid "search-in-site"
 msgstr "このサイトで検索"
 
-#: lantana/base.html:96 lantana/base.html:117 lantana/base.html:209
-#: lantana/base.html:214
+#: lantana/base.html:115 lantana/base.html:136
+#: lantana/components/searchModal.html.j2:6
+#: lantana/components/searchModal.html.j2:13
 msgid "search"
 msgstr "検索"
 
-#: lantana/base.html:114
+#: lantana/base.html:133
 msgid "nav-show"
 msgstr "ナビゲーションを表示"
 
-#: lantana/base.html:210
-msgid "close"
-msgstr "閉じる"
-
-#: lantana/base.html:217
-msgid "search-area-desc"
-msgstr "キーワードを入力して検索を始めましょう"
-
-#: lantana/main.html:10
-msgid "tol"
-msgstr "記事の内容"
-
-#: lantana/main.html:94
-msgid "print-this-article"
-msgstr "この記事を印刷"
-
-#: lantana/main.html:97
+#: lantana/main.html:81
 msgid "open-new-tab"
 msgstr "新規タブで開く"
 
-#: lantana/main.html:114
+#: lantana/components/langSwitchModal.html.j2:18 lantana/main.html:101
+#: lantana/main.html:150
+msgid "switch-lang"
+msgstr "言語切替"
+
+#: lantana/main.html:111
+msgid "print-this-article"
+msgstr "この記事を印刷"
+
+#: lantana/main.html:119
 msgid "share"
 msgstr "共有"
 
-#: lantana/main.html:126
+#: lantana/main.html:131
 msgid "print"
 msgstr "印刷"
 
-#: lantana/main.html:128
+#: lantana/main.html:133
 msgid "copy-url"
 msgstr "Urlをコピー"
 
-#: lantana/main.html:133 lantana/main.html:136 lantana/main.html:139
+#: lantana/main.html:138 lantana/main.html:141 lantana/main.html:144
 msgid "edit-this-article"
 msgstr "記事の編集"
 
-#: lantana/main.html:145
+#: lantana/main.html:153
 msgid "view-in-embed-mode"
 msgstr "埋め込みモードで表示"
+
+#: lantana/components/searchModal.html.j2:8
+msgid "close"
+msgstr "閉じる"
+
+#: lantana/components/searchModal.html.j2:16
+#, fuzzy
+msgid "search-area-desc"
+msgstr "キーワードを入力して検索を始めましょう"
+
+#: lantana/components/toc.html.j2:3
+msgid "toc"
+msgstr "記事の内容"
 

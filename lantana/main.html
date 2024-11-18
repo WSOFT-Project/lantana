@@ -1,37 +1,21 @@
 {% extends "base.html" %}
-{% block main_content %}
-{% if page and page.meta.disable_tol %}
-<!-- TOL -->
-{% else %}
-{% if page.toc %}
 
-<div class="col-12 col-md-2 order-md-3 print-hide">
-  <div class="collapse d-md-block text-nowrap" id="tol" style="overflow-x:scroll;">
-    <span>{% trans %}tol{% endtrans %}</span>
-    <hr />
-    <ul class="list-group list-group-flush">
-      {% for toc_item in page.toc %}
-      <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url|url }}">{{
-          toc_item.title }}</a>
-        {% if toc_item.children %}
-        <ul class="list-group list-group-flush">
-          {% for toc_item in toc_item.children %}
-          {% include "toc.html" %}
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+{% block main_content %}
+{% if page and not page.meta.disable_tol and page.toc %}
+{% with page = page %}
+{% include "./components/toc.html.j2" %}
+{% endwith %}
 {% endif %}
-{% endif %}
-<div class="col-12 col-md-8 print-main">
+<main role="main"  class="col-12 col-md-8 print-main">
+  {% if ("i18n" in config.plugins) and (i18n_file_locale != i18n_page_locale) %}
+  {% with i18n_config = i18n_config, i18n_page_locale = i18n_page_locale %}
+  {% include "./components/untranslatedAlert.html.j2" %}
+  {% endwith %}
+  {% endif %}
   {% if page.meta.long_title %}
-  <h1>{{ page.meta.long_title }}</h1>
+  <h1 {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>{{ page.meta.long_title }}</h1>
   {% else %}
-  <h1>{{ page.title }}</h1>
+  <h1 {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>{{ page.title }}</h1>
   {% endif %}
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -47,7 +31,7 @@
     </ol>
   </nav>
   {% if page and page.meta.summary %}
-  <p>{{ page.meta.summary }}</p>
+  <p {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>{{ page.meta.summary }}</p>
   <hr />
   {% endif %}
   {% if page and not page.meta.disable_tools %}
@@ -89,12 +73,10 @@
         <span>{{ page.meta.revision_date }}</span>
         {% endif %}
         {% endif %}
-      </div>
-      <div class="col-1 col-sm-2 px-0" style="text-align: right;text-wrap: nowrap;">
-        <button class="btn print-block d-none d-lg-inline" title="{% trans %}print-this-article{% endtrans %}"
-          onclick="window.print();"><i class="bi bi-printer"></i></button>
         <button class="btn print-visible d-none" onclick="print_normal();"
           title="{% trans %}open-new-tab{% endtrans %}"><i class="bi bi-arrow-up-right-square"></i></button>
+      </div>
+      <div class="col-1 col-sm-2 px-0 print-hide" style="text-align: right;text-wrap: nowrap;">
         {% if page and not page.meta.disable_edit %}
         {% if page and page.edit_url %}
         <a class="btn print-hide unnewtab d-none d-sm-inline" href="{{ page.edit_url }}"><i
@@ -105,6 +87,25 @@
         {% else %}
         <a class="btn disabled print-hide d-none d-sm-inline"><i class="bi bi-pencil"></i></a>
         {% endif %}
+        {% endif %}
+        {% if "i18n" in config.plugins %}
+        <span class="dropdown print-hide d-none d-lg-inline">
+          <button class="btn btn" type="button" id="lang-selector" data-bs-toggle="dropdown" aria-expanded="false"><i
+              class="bi bi-translate"></i></button>
+          <ul class="dropdown-menu" aria-labelledby="lang-selector">
+            <li>
+              <h6 class="dropdown-header">{% trans %}switch-lang{% endtrans %}</h6>
+            </li>
+            {% for lang in i18n_config.languages %}
+            <li><a class="btn dropdown-item {% if lang.locale == i18n_page_locale %}active{% endif %}"
+                onclick="switch_language('{{ lang.link }}', {{ i18n_build_languages }})"><i
+                  class="bi bi-globe"></i>&nbsp;{{ lang.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </span>
+        {% else %}
+        <button class="btn print-block d-none d-lg-inline" title="{% trans %}print-this-article{% endtrans %}"
+          onclick="window.print();"><i class="bi bi-printer"></i></button>
         {% endif %}
         <span class="dropdown print-hide">
           <button class="btn btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -141,6 +142,9 @@
               {% endif %}
               {% endif %}
             </li>
+            <li><button class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#langSwitchModal"><i
+                  class="bi bi-translate"></i>&nbsp;{% trans
+                %}switch-lang{% endtrans %}</button></li>
             <li><button class="btn dropdown-item" onclick="print_view();"><i
                   class="bi bi-file-earmark-text"></i>&nbsp;{% trans %}view-in-embed-mode{% endtrans %}</button></li>
           </ul>
@@ -151,8 +155,10 @@
   {% endif %}
   <hr />
   {% endif %}
-  {% block content %}
-  {{ page.content }}
+  <div {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>
+    {% block content %}
+    {{ page.content }}
+    {% endblock %}
+  </div>
   {% endblock %}
-
-  {% endblock %}
+</main>

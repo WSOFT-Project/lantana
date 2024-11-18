@@ -36,16 +36,36 @@ theme:
 visible_search : true
 
 plugins:
-    - search:
+  - search:
         lang : 'ja'
-        min_search_length: 2
-    - git-revision-date
-    - awesome-pages
-    - git-authors:
+        min_search_length : 2
+  - git-revision-date
+  - awesome-pages
+  - git-authors:
         show_email_address: true
         count_empty_lines: true
         fallback_to_empty: false
         enabled: true
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          build: true
+          site_name: "Lantana"
+          theme:
+            locale: en
+            untranslated_message: "This page is not available in English."
+        - locale: ja
+          default: true
+          name: 日本語
+          build: true
+          site_name: "Lantana"
+          theme:
+            locale: ja
 
 markdown_extensions:
     - lantana

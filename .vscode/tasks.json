@@ -4,29 +4,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Extension build and install",
+            "label": "Build Package",
             "type": "shell",
-            "command": "pip3 install -e . --break-system-packages"
+            "command": ". script/build-package.sh"
         },
         {
             "label": "Starting serve website",
             "type": "shell",
-            "command": "mkdocs serve --dev-addr localhost:8000  --watch-theme"
+            "command": ". script/start-serve.sh"
         },
         {
-            "label": "Build and serve",
+            "label": "Upldate translation",
             "type": "shell",
-            "command": "echo building",
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "Extension build and install",
-                "Starting serve website"
-            ],
-            "problemMatcher": [],
-            "group": {
-                "kind" : "build",
-                "isDefault" : true
-            }
-        }
+            "command": ". script/update-locales.sh"
+        },
     ]
 }

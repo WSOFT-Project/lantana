@@ -13,7 +13,7 @@ if(pms.has('embed'))
 function replace_class(base,to){
     document.querySelectorAll('.'+base).forEach(element => element.classList.replace(base,to));
 }
-function add_class(base,to){
+function add_class(base,to){ 
     document.querySelectorAll('.'+base).forEach(element => element.classList.add(to));
 }
 
@@ -106,4 +106,10 @@ function share_to_line(){
 }
 function share_to_twitter(text,params){
     window.open('https://twitter.com/share?url='+encodeURI(location.href)+"&text="+encodeURI(text)+params, '_blank');
+}
+
+function switch_language(target, languages){
+    const paths = location.pathname.split('/');
+    let lang_len = paths.length > 2 && languages.includes(paths[1]) ? paths[1].length + 2 : 1;
+    location.pathname = target+ location.pathname.substring(lang_len);
 }

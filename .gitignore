@@ -1,7 +1,9 @@
 site/*
 build/*
 dist/*
-lantana.egg-info/*
+lantana.egg-info
+__pycache__
+dist
 .vs/*
 *.bat
 bootstrap-custom/*
