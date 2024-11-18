@@ -111,12 +111,6 @@ markdown_extensions:
     - pymdownx.details
 ```
 
-### 検索の表示
-サイトのヘッダーに検索ボックスが表示されるかどうかの値です。
-```yaml
-visible_seartch : true
-```
-
 ### ヘッダーを非表示
 サイトのヘッダーを非表示にするかどうかの値です。
 ```yaml
