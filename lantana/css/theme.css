@@ -20,7 +20,12 @@ p code {
     padding-top: 3px;
 }
 
-.highlight:not(:has(> .filename)) > pre {
+.highlight>pre {
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+}
+
+.highlight:not(:has(> .filename))>pre {
     margin-bottom: 0px;
 }
 
@@ -75,16 +80,6 @@ svg {
     width: 100%;
 }
 
-/*
-.accordion-button:before{
-    font-family:bootstrap-icons;
-    padding-right: 0.25em;
-    font-size: 15px;
-}
-.note .accordion-button:before{
-    content: '\F272';
-}
-*/
 mark {
     font-weight: bold;
 }

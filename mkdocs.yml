@@ -36,9 +36,6 @@ theme:
 visible_search : true
 
 plugins:
-  - search:
-        lang : 'ja'
-        min_search_length : 2
   - git-revision-date
   - awesome-pages
   - git-authors:

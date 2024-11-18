@@ -1,0 +1,33 @@
+{# langSwitchModalコンポーネント
+    ドロップダウンから言語切り替えを選択した時に表示されるモーダル
+    i18nが使用可能な環境でのみ使用される #}
+
+{# i18nの機能を使えるようにする
+  使用可否は考慮しなくていい #}
+{% set i18n_enabled = true %}
+{% set i18n_build_languages = config.plugins["i18n"].build_languages %}
+{% set i18n_alternates = config.plugins["i18n"].i18n_files_per_language %}
+
+<div class="modal fade" id="langSwitchModal" tabindex="-1" aria-labelledby="langSwitchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="langSwitchModalLabel">{% trans %}switch-lang{% endtrans %}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    {% for lang in i18n_config.languages %}
+                    <a class="list-group-item list-group-item-action {% if lang.locale == i18n_page_locale %}active{% endif %}"
+                        aria-current="{{ lang.locale == i18n_page_locale }}"
+                        onclick="switch_language('{{ lang.link }}', {{ i18n_build_languages }})"><i
+                            class="bi bi-globe"></i>&nbsp;{{ lang.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{# untranslatedAlertコンポーネント
+    サイトの言語とページの原文の言語が異なるとき(=ページが翻訳されていないとき)にユーザーに通知する #}
+
+<div class="alert print-hide alert-warning alert-dismissible fade show" role="alert">
+    <strong><i class="bi bi-translate"></i></strong>
+    {% for language in i18n_config.languages %}
+    {% if language.locale == i18n_page_locale %}
+    {% if config.theme.untranslated_message %}
+    <span>{{ config.theme.untranslated_message }} ({{ language.locale }})</span>
+    {% else %}
+    <span> This page is not available in this locale. ({{ language.locale }})</span>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

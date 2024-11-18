@@ -1,0 +1,22 @@
+{# tocコンポーネント
+    ページの目次を表示するリスト
+    forを再帰的に回している #}
+
+<div class="col-12 col-md-2 order-md-3 print-hide">
+  <div class="collapse d-md-block text-nowrap" id="toc" style="overflow-x:scroll;">
+    <span>{% trans %}toc{% endtrans %}</span>
+    <hr />
+    <ul class="list-group list-group-flush">
+      {% for toc_item in page.toc recursive %}
+      <li class="list-group-item"><a class="text-decoration-none text-muted" href="{{ toc_item.url|url }}">{{
+          toc_item.title }}</a>
+        {% if toc_item.children %}
+        <ul class="list-group list-group-flush">
+          {{ loop(toc_item.children) }}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

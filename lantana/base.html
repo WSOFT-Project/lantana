@@ -1,5 +1,20 @@
+{# useコーナー #}
+
+{# i18nの機能を使えるようにする
+  使用可否は if i18n_enable で取得する #}
+{% if "i18n" in config.plugins %}
+{% set i18n_enabled = true %}
+{% set i18n_build_languages = config.plugins["i18n"].build_languages %}
+{% set i18n_alternates = config.plugins["i18n"].i18n_files_per_language %}
+{% else %}
+{% set i18n_enabled = false %}
+{% set i18n_build_languages = {} %}
+{% set i18n_alternates = {} %}
+{% endif %}
 {% if page and page.meta.language %}
 <!DOCTYPE html lang="{{ page.meta.language }}">
+{% elif i18n_page_locale %}
+<!DOCTYPE html lang="{{ i18n_page_locale }}">
 {% elif config.language  %}
 <!DOCTYPE html lang="{{ config.language }}">
 {% elif config.theme.locale %}
@@ -97,7 +112,7 @@
             <div class="print-hide">
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <div class="d-none d-md-flex input-group mb-3">
-                {% if config.visible_search!=false %}
+                {% if "search" in config.plugins %}
                     <input class="form-control" type="search" id="searchbox" accesskey="/" placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}" aria-describedby="search-btn"/>
                     <button class="btn btn-outline-secondary" type="button" id="search-btn" onclick="search(false);">
                         <i class="bi bi-search"></i>
@@ -113,21 +128,17 @@
           <div class="navbar-collapse d-flex">
             <p>
               <div class="d-flex input-group mb-3">
-                {% if page and page.meta.disable_nav %}
-                <!-- NAV -->
-                {% else %}
+                {% if page and not page.meta.disable_nav and nav %}
                 <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="{% trans %}nav-show{% endtrans %}"><i class="bi bi-book"></i></button>
                 {% endif %}
-                {% if config.visible_search %}
+                {% if "search" in config.plugins %}
                 <input class="form-control" type="search" id="searchbox_mobile" accesskey="/" placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}">
                 <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i class="bi bi-search"></i></button>
-                {% endif %}
-                {% if page and page.meta.disable_tol %}
-                <!-- TOL -->
                 {% else %}
-                {% if page.toc %}
-                <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#tol"><i class="bi bi-list-ul"></i></button>
+                <input class="form-control" id="searchbox_mobile" value="{{ config.site_name }}" readonly>
                 {% endif %}
+                {% if page and not page.meta.disable_tol and page.toc %}
+                <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#toc"><i class="bi bi-list-ul"></i></button>
                 {% endif %}
             </div>
             </p>
@@ -140,31 +151,12 @@
   {% block after_header %}
   {% endblock %}
   <div class="container">
-    <main role="main" class="pb-3">
+    <div class="pb-3">
       <div class="row">
-        
-        
-    {% if page and page.meta.disable_nav %}
-    <!-- NAV -->
-    {% else %}
-    <div class="col-12 col-md-2 print-hide">
-      <div class="collapse d-md-block text-nowrap" id="nav"  style="overflow-x:scroll;">
-        <ul class="list-group list-group-flush">
-        {% for nav_item in nav %}
-        {% if not nav_item.children %}
-        <li class="list-group-item"><a class="text-decoration-none {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a></li>
-        {% else %}
-        <li class="list-group-item">
-          <a class="nav_cop {% if not nav_item.active %} text-muted{% else %} text-body{% endif %}" aria-expanded="false" data-bs-toggle="collapse" role="button" >{{ nav_item.title }}</a>
-          <ul class="collapse list-group list-group-flush {% if nav_item.active %}show{% endif %} ">
-            {% include "nav.html" %}
-          </ul>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-      </div>
-    </div>
+    {% if page and not page.meta.disable_nav and nav %}
+    {% with nav = nav %}
+    {% include "./components/nav.html.j2" %}
+    {% endwith %}
     {% endif %}
        {% block main_content %}
        {% endblock %}
@@ -179,7 +171,7 @@
       {% for path2 in page.extra_javascript %}
     <script async src="{{ path2|url }}"></script>
       {% endfor %}
-    </main>
+    </div>
   </div>
   
   {% block before_footer %}
@@ -203,27 +195,17 @@
         {% endif %}
       </div>
     </div>
-  </footer>{% endblock %}
+  </footer>
+  {% endblock %}
   {% endif %}
   {% include "after_header.html" %}
-<div class="modal fade" id="searchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg print-hide">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="searchModalLabel">{% trans %}search{% endtrans %}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans %}close{% endtrans %}"></button>
-      </div>
-      <div class="modal-body">
-        <div class="input-group mb-3">
-          <input id="mkdocs-search-query" type="text" class="form-control" aria-label="{% trans %}search{% endtrans %}" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div id="mkdocs-search-results">
-          {% trans %}search-area-desc{% endtrans %}
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
+  {% if i18n_config %}
+  {% with i18n_config = i18n_config %}
+  {% include "./components/langSwitchModal.html.j2" %}
+  {% endwith %}
+  {% endif %}
+  {% if "search" in config.plugins %}
+  {% include "./components/searchModal.html.j2" %}
+  {% endif %}
 </body>
 </html>
