@@ -153,7 +153,7 @@
   <div class="container">
     <div class="pb-3">
       <div class="row">
-    {% if page and not page.meta.disable_nav and nav %}
+    {% if (not page or not page.meta.disable_nav) and nav %}
     {% with nav = nav %}
     {% include "./components/nav.html.j2" %}
     {% endwith %}

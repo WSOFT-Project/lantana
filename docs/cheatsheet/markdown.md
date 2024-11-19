@@ -389,7 +389,7 @@ Lantanaは規定でmermaid.jsをサポートします。mermaid.jsを使うと�
 
 <span class="badge bg-primary">対応バージョン:>=2.9</span>
 
-バージョン2.9以降では、[MermaidPrecompile](../extensions/mermaid_precompiler.md)拡張機能の導入が必要です。それ以前のバージョンでは、Mermaid図形を表示するためにユーザーにインターネット接続が必要です。
+バージョン2.9以降では、[MermaidPrecompile](../extensions/mermaid_precompiler.md)拡張機能の導入するか、[Mermaid.jsのCDN](https://www.jsdelivr.com/package/npm/mermaid)を`mkdocs.yml`内で`extra_javascript`として読み込む必要があります。PreCompileを行うにはビルド時に、CDNを読み込むには使用者に、インターネット接続が必要です。
 
 ```markdown title="例"
 ```mermaid
@@ -408,6 +408,7 @@ graph TD;
     B-->D;
     C-->D;
 ```
+
 
 ### アラート
 目を引く形で説明したい場合、`!!! 種類 "タイトル"`で囲みます。

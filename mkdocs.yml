@@ -1,51 +1,51 @@
 site_name: Lantana
-copyright : 'Copyright &copy; 2022 WSOFT All rights reserved.'
-author : WSOFT
+copyright: "Copyright &copy; 2022 WSOFT All rights reserved."
+author: WSOFT
 
-docs_dir : 'docs'
-site_url : 'https://lantana.wsoft.ws/'
+docs_dir: "docs"
+site_url: "https://lantana.wsoft.ws/"
 
-repo_name : 'GitHub'
-repo_url : 'https://github.com/WSOFT-Project/lantana/'
-edit_uri: 'blob/main/docs/'
-edit_uri_template: 'blob/master/docs/{path}'
+repo_name: "GitHub"
+repo_url: "https://github.com/WSOFT-Project/lantana/"
+edit_uri: "blob/main/docs/"
+edit_uri_template: "blob/master/docs/{path}"
 
 extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+# ↓は、MermaidPreCompilerを使わない場合に使う
+#  - https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js
 
-logo : favicon.png
-favicon : favicon.png
-image : favicon.png
+logo: favicon.png
+favicon: favicon.png
+image: favicon.png
 
-disable_darkmode : true
+disable_darkmode: true
 
 share:
-    twitter_params : '&via=WSOFT7&related=WSOFT7&hashtags=WSOFTDocs'
-
+  twitter_params: "&via=WSOFT7&related=WSOFT7&hashtags=WSOFTDocs"
 
 theme:
-    name: lantana
-    locale: ja
-    custom_dir: lantana/
-    static_templates : 
-        - 404.html
-        - statics.html
-        - version.json
-
-visible_search : true
+  name: lantana
+  locale: ja
+  custom_dir: lantana/
+  static_templates:
+    - 404.html
+    - -lantana/about/index.html
+    - -lantana/status/index.html
+    - -lantana/version.json
+  status: true
 
 plugins:
   - search:
-        lang : 'ja'
-        min_search_length : 2
+      lang: "ja"
+      min_search_length: 2
   - git-revision-date
   - awesome-pages
   - git-authors:
-        show_email_address: true
-        count_empty_lines: true
-        fallback_to_empty: false
-        enabled: true
+      show_email_address: true
+      count_empty_lines: true
+      fallback_to_empty: false
+      enabled: true
   - i18n:
       docs_structure: suffix
       fallback_to_default: true
@@ -68,41 +68,41 @@ plugins:
             locale: ja
 
 markdown_extensions:
-    - lantana
-    - lantana.alerts2
-    - lantana.selector
-    - attr_list
-    - lantana.cards
-    - lantana.mtables
-    - mdx_wsid
-    - footnotes
-    - pymdownx.highlight:
-       anchor_linenums: true
-    - admonition
-    - pymdownx.arithmatex:
-       generic : true
-    - md_in_html
-    - pymdownx.details
-    - pymdownx.superfences:
-        custom_fences:
-          - name: mermaid
-            class: mermaid
-            format: !!python/name:mermaid2.fence_mermaid
-    - pymdownx.snippets
-    - pymdownx.critic
-    - pymdownx.caret
-    - pymdownx.keys
-    - pymdownx.mark
-    - pymdownx.tilde
-    - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
-    - pymdownx.tasklist:
-        custom_checkbox: true
-    - pymdownx.magiclink
-    - pymdownx.striphtml
-    - lantana.link_opennewtab
-    - lantana.alerts
-    - lantana.accordion
-    - lantana.codeblock_copybtn
-    - lantana.mermaid_precompile
+  - lantana
+  - lantana.alerts2
+  - lantana.selector
+  - attr_list
+  - lantana.cards
+  - lantana.mtables
+  - mdx_wsid
+  - footnotes
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.magiclink
+  - pymdownx.striphtml
+  - lantana.link_opennewtab
+  - lantana.alerts
+  - lantana.accordion
+  - lantana.codeblock_copybtn
+  - lantana.mermaid_precompile
