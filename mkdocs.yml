@@ -78,6 +78,7 @@ markdown_extensions:
   - footnotes
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.inlinehilite
   - admonition
   - pymdownx.arithmatex:
       generic: true

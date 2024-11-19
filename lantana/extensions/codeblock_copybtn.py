@@ -31,7 +31,7 @@ def editRawHtml(html):
 
     # コードブロックがあった場合はスクリプトとかを生成
     if hasCodeBlock:
-        addClass(soup,'.highlight',['position-relative'])
+        addClass(soup,'div .highlight',['position-relative'])
         rawcode = """$('.copybtn').click(function (){
     const selection = window.getSelection();
     const code = this.parentNode;
