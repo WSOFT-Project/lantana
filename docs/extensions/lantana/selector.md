@@ -6,7 +6,7 @@ date : 2024-05-06
 mt_type: extension
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.11.2</span>
+<span class="badge bg-primary">対応バージョン:>=2.12.0</span>
 
 Selector拡張機能は、Lantanaに選択可能なサイトへのリンクを追加する拡張機能です。
 

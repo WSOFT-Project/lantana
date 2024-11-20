@@ -5,7 +5,7 @@ summary: インラインコード要素にシンタックスハイライトを�
 mt_type: extension
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.10</span>
+<span class="badge bg-primary">対応バージョン:>=2.12</span>
 
 ## 概要
 InlineHilite拡張機能を使うと、Markdownのインラインコードに、シンタックスハイライトをつけることができます。

@@ -214,7 +214,7 @@ public class Cat : Animal
     テーブルのデザインや一貫性の問題から、`linenums=1`属性はLantana2.0から非推奨になりました。
 
 ### インラインコードのハイライト
-<span class="badge bg-primary">対応バージョン:>=2.10</span>
+<span class="badge bg-primary">対応バージョン:>=2.12</span>
 
 <pre>`:::language code`</pre>と書くことで、インラインコードにもシンタックスハイライトを適用できます。
 
