@@ -3,6 +3,7 @@ title : Selector
 long_title : Selector拡張機能
 summary : この記事では、Selector拡張機能の使用方法について説明します
 date : 2024-05-06
+mt_type: extension
 ---
 
 <span class="badge bg-primary">対応バージョン:>=2.11.2</span>

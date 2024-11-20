@@ -1,14 +1,14 @@
 ---
-title: インラインハイライト
+title: InlineHilite
+long_title: InlineHilite 拡張機能
 summary: インラインコード要素にシンタックスハイライトをつけます
-mt_title: :::lang name
-mt_type: syntax
+mt_type: extension
 ---
 
 <span class="badge bg-primary">対応バージョン:>=2.10</span>
 
 ## 概要
-インラインハイライト構文を使うと、Markdownのインラインコードに、シンタックスハイライトをつけることができます。
+InlineHilite拡張機能を使うと、Markdownのインラインコードに、シンタックスハイライトをつけることができます。
 
 <p>段落中で、<code>`:::language code`</code>と書くことで、コードに<code>language</code>に対応したインラインハイライトがつきます。</p>
 

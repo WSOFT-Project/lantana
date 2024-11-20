@@ -3,6 +3,7 @@ title : CodeBlock CopyBtn
 long_title : CodeBlock CopyBtn拡張機能
 summary : この記事では、CodeBlock CopyBtn拡張機能の使用方法について説明します
 date : 2024-03-11
+mt_type: extension
 ---
 
 <span class="badge bg-primary">対応バージョン:>=2.9.1</span>
