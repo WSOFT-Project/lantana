@@ -6,43 +6,30 @@
 
 <h3 align="center">Lantana</h3>
 
-|[Japanese](./README.md)|English|
+|[Japanese](./README.ja.md)|English|
 |--------|-------|
 
-# [Lantana](https://lantana.wsoft.ws/)
-![Screenshot](/screenshot.png)
-Lantanaは、シンプルで軽量なMKDocsのテーマです。HTMLの知識がなくても簡単にサイトを作成できます。Lantanaは、WSOFT Docsのために開発されています。
+Lantana is a lightweight MkDocs theme using Bootstrap.
+With Lantana and MkDocs, you can easily create your own site.
 
-Lantanaはシンプルながらも、多言語に対応しており、フリーソフトかつオープンソースプロジェクトで開発されています。
+See [Lantana's Documentation](https://lantana.wsoft.ws/en/) for a tutorial and detailed usage instructions.
 
-基盤であるMKDocsは、静的サイトジェネレーターで、記事の更新毎にサイトのビルドが必要ですが、一度ビルドしてしまえばに表示できるうえ移植が容易です。
+## Support
+If you need assistance in using Lantana, please feel free to contact us.
 
-各記事はマークダウン言語で記述するため、マークダウン言語を使用したことがあればすぐに使いこなすことができます。
+- Please feel free to post any questions, even minor ones, to [Discussions](https://github.com/WSOFT-Project/lantana/discussions) on GitHub!
+- To report a bug or request a new feature, open [Issue](https://github.com/WSOFT-Project/lantana/issues) on GitHub.
 
-## 使用法
-LantanaはPyPIからダウンロードできます。
-```shell
-pip install lantana
-```
-Lantanaの詳しい使用方法については、[チュートリアル:作業開始](https://lantana.wsoft.ws/tutrial/getstarted/)を参照してください。
+## Contribute
+The Lantana project welcomes contributions from developers and users worldwide.
+To learn how you can contribute, please visit [Contribute Guide](https://lantana.wsoft.ws/contribute/)
 
-## 使用しているライブラリなど
-* [docs/Credit.md](https://lantana.wsoft.ws/Credit)にまとめてあります。ご確認ください。
+## Screenshots
 
-## 翻訳の追加および改善方法
-Lantanaの翻訳を改善してくださるコントリビューターの方向けの説明です。
+**PC**
 
-もし、あなたがまだ翻訳が実装されていない言語でLantanaを使用したい場合、次のコマンドを使ってテーマがサポートする言語を追加できます。
+![Screenshot of Lantana on PC](./screenshot.png)
 
-```sh
-./init-locale.sh 言語名
-```
+**Mobile**
 
-また、翻訳可能なテキストがLantanaに増えるたびに、次のコマンドを実行して、翻訳作業を行う必要があります。
-
-```sh
-./update-locales.sh
-```
-
-これらのスクリプトを実行した後、`lantana/locales`ディレクトリの中に`(言語名)/LC_MESSAGES/messages.po`というファイルができています。
-このファイルを使って、翻訳作業を行なってください。
+![Screenshot of Lantana on mobile](./screenshot-mobile.png)
