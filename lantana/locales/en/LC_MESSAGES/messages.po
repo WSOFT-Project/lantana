@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-19 14:15+0900\n"
+"POT-Creation-Date: 2024-11-21 00:34+0900\n"
 "PO-Revision-Date: 2024-11-16 01:12+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -67,7 +67,7 @@ msgid "open-new-tab"
 msgstr "Open NewTab"
 
 #: lantana/components/langSwitchModal.html.j2:15 lantana/main.html:97
-#: lantana/main.html:146
+#: lantana/main.html:150
 msgid "switch-lang"
 msgstr "Switch Language"
 
@@ -91,7 +91,7 @@ msgstr "Copy Url to clipboard"
 msgid "edit-this-article"
 msgstr "Edit this article"
 
-#: lantana/main.html:149
+#: lantana/main.html:154
 msgid "view-in-embed-mode"
 msgstr "View in EmbedMode"
 
@@ -99,7 +99,19 @@ msgstr "View in EmbedMode"
 msgid "about-this-site"
 msgstr "About this site"
 
-#: lantana/-lantana/about/index.html:24
+#: lantana/-lantana/about/index.html:15
+msgid "about-lantana"
+msgstr ""
+
+#: lantana/-lantana/about/index.html:18
+msgid "report-issues"
+msgstr "Report issues"
+
+#: lantana/-lantana/about/index.html:21
+msgid "credit"
+msgstr "Credits"
+
+#: lantana/-lantana/about/index.html:30
 msgid "statics_thanks"
 msgstr "Lantana was made possible by MkDocs and other open source projects."
 

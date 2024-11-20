@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-19 14:15+0900\n"
+"POT-Creation-Date: 2024-11-21 00:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "open-new-tab"
 msgstr ""
 
 #: lantana/components/langSwitchModal.html.j2:15 lantana/main.html:97
-#: lantana/main.html:146
+#: lantana/main.html:150
 msgid "switch-lang"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 msgid "edit-this-article"
 msgstr ""
 
-#: lantana/main.html:149
+#: lantana/main.html:154
 msgid "view-in-embed-mode"
 msgstr ""
 
@@ -92,7 +92,19 @@ msgstr ""
 msgid "about-this-site"
 msgstr ""
 
-#: lantana/-lantana/about/index.html:24
+#: lantana/-lantana/about/index.html:15
+msgid "about-lantana"
+msgstr ""
+
+#: lantana/-lantana/about/index.html:18
+msgid "report-issues"
+msgstr ""
+
+#: lantana/-lantana/about/index.html:21
+msgid "credit"
+msgstr ""
+
+#: lantana/-lantana/about/index.html:30
 msgid "statics_thanks"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-19 14:15+0900\n"
+"POT-Creation-Date: 2024-11-21 00:34+0900\n"
 "PO-Revision-Date: 2024-11-16 03:27+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -61,7 +61,7 @@ msgid "open-new-tab"
 msgstr "新規タブで開く"
 
 #: lantana/components/langSwitchModal.html.j2:15 lantana/main.html:97
-#: lantana/main.html:146
+#: lantana/main.html:150
 msgid "switch-lang"
 msgstr "言語切替"
 
@@ -85,7 +85,7 @@ msgstr "Urlをコピー"
 msgid "edit-this-article"
 msgstr "記事の編集"
 
-#: lantana/main.html:149
+#: lantana/main.html:154
 msgid "view-in-embed-mode"
 msgstr "埋め込みモードで表示"
 
@@ -93,7 +93,19 @@ msgstr "埋め込みモードで表示"
 msgid "about-this-site"
 msgstr "このサイトについて"
 
-#: lantana/-lantana/about/index.html:24
+#: lantana/-lantana/about/index.html:15
+msgid "about-lantana"
+msgstr "Lantanaについて"
+
+#: lantana/-lantana/about/index.html:18
+msgid "report-issues"
+msgstr "問題の報告"
+
+#: lantana/-lantana/about/index.html:21
+msgid "credit"
+msgstr "謝辞"
+
+#: lantana/-lantana/about/index.html:30
 msgid "statics_thanks"
 msgstr "LantanaはMkDocsなどのオープンソースプロジェクトによって実現しました。"
 

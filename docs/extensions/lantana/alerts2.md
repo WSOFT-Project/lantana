@@ -1,7 +1,7 @@
 ---
 title : Alerts2
 long_title : Alerts2拡張機能
-summary : この記事では、Alerts2拡張機能の使用方法について説明します
+summary : 重要な文章を目立つように表示します。GFMと互換性があります。
 date : 2024-05-06
 mt_type: extension
 ---

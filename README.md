@@ -1,3 +1,14 @@
+<p align="center">
+  <a href="https://lantana.wsoft.ws/">
+    <img src="./lantana.png" alt="Lantana logo" height="165">
+  </a>
+</p>
+
+<h3 align="center">Lantana</h3>
+
+|[Japanese](./README.md)|English|
+|--------|-------|
+
 # [Lantana](https://lantana.wsoft.ws/)
 ![Screenshot](/screenshot.png)
 Lantanaは、シンプルで軽量なMKDocsのテーマです。HTMLの知識がなくても簡単にサイトを作成できます。Lantanaは、WSOFT Docsのために開発されています。

@@ -1,7 +1,7 @@
 ---
 title : Alerts
 long_title : Alerts拡張機能
-summary : この記事では、Alerts拡張機能の使用方法について説明します
+summary : 重要な文章を目立つように表示します
 date : 2024-03-11
 mt_type: extension
 ---
