@@ -213,6 +213,21 @@ public class Cat : Animal
 !!! warning "注意"
     テーブルのデザインや一貫性の問題から、`linenums=1`属性はLantana2.0から非推奨になりました。
 
+### インラインコードのハイライト
+<span class="badge bg-primary">対応バージョン:>=2.10</span>
+
+<pre>`:::language code`</pre>と書くことで、インラインコードにもシンタックスハイライトを適用できます。
+
+```markdown title="Markdown"
+Pythonでモジュールを読み込むには、`:::py3 import`文を使います。
+例えば、`sys`モジュールを読み込むには、`:::py3 import sys`と書きます。
+```
+
+**結果**
+
+Pythonでモジュールを読み込むには、`:::py3 import`文を使います。
+例えば、`sys`モジュールを読み込むには、`:::py3 import sys`と書きます。
+
 ### 数式
 `\$\$`で囲むことでTeX記法を用いて数式を記述できます。
 ```markdown title="例"

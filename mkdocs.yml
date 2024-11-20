@@ -39,6 +39,11 @@ plugins:
   - search:
       lang: "ja"
       min_search_length: 2
+  - git-authors:
+      show_email_address: true
+      count_empty_lines: true
+      fallback_to_empty: false
+      enabled: true
   - git-revision-date
   - awesome-pages
   - git-authors:
@@ -78,6 +83,7 @@ markdown_extensions:
   - footnotes
   - pymdownx.highlight:
       anchor_linenums: true
+      auto_title: true
   - pymdownx.inlinehilite
   - admonition
   - pymdownx.arithmatex:

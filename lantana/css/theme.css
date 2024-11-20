@@ -70,6 +70,15 @@ a[target="_blank"]:not(.btn) {
     text-decoration: underline;
 }
 
+a[target="_blank"]:not(.btn)::after {
+    font-family: bootstrap-icons;
+    font-size: 0.6em;
+    content: '\F143';
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    display: inline-block;
+}
+
 .accordion {
     position: relative;
     padding: 0.5rem 0;
