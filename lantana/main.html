@@ -6,16 +6,16 @@
 {% include "./components/toc.html.j2" %}
 {% endwith %}
 {% endif %}
-<main role="main"  class="col-12 col-md-8 print-main">
+<main role="main" class="col-12 col-md-8 print-main">
   {% if ("i18n" in config.plugins) and (i18n_file_locale != i18n_page_locale) %}
   {% with i18n_config = i18n_config, i18n_page_locale = i18n_page_locale %}
   {% include "./components/untranslatedAlert.html.j2" %}
   {% endwith %}
   {% endif %}
   {% if page.meta.long_title %}
-  <h1 {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>{{ page.meta.long_title }}</h1>
+  <h1 {% if i18n_file_locale %}lang="{{ i18n_file_locale }}" {% endif %}>{{ page.meta.long_title }}</h1>
   {% else %}
-  <h1 {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>{{ page.title }}</h1>
+  <h1 {% if i18n_file_locale %}lang="{{ i18n_file_locale }}" {% endif %}>{{ page.title }}</h1>
   {% endif %}
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -31,7 +31,7 @@
     </ol>
   </nav>
   {% if page and page.meta.summary %}
-  <p {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>{{ page.meta.summary }}</p>
+  <p {% if i18n_file_locale %}lang="{{ i18n_file_locale }}" {% endif %}>{{ page.meta.summary }}</p>
   <hr />
   {% endif %}
   {% if page and not page.meta.disable_tools %}
@@ -142,9 +142,14 @@
               {% endif %}
               {% endif %}
             </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            {% if "i18n" in config.plugins %}
             <li><button class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#langSwitchModal"><i
                   class="bi bi-translate"></i>&nbsp;{% trans
                 %}switch-lang{% endtrans %}</button></li>
+            {% endif %}
             <li><button class="btn dropdown-item" onclick="print_view();"><i
                   class="bi bi-file-earmark-text"></i>&nbsp;{% trans %}view-in-embed-mode{% endtrans %}</button></li>
           </ul>
@@ -155,10 +160,10 @@
   {% endif %}
   <hr />
   {% endif %}
-  <div {% if i18n_file_locale %}lang="{{ i18n_file_locale }}"{% endif %}>
+  <div {% if i18n_file_locale %}lang="{{ i18n_file_locale }}" {% endif %}>
     {% block content %}
     {{ page.content }}
     {% endblock %}
   </div>
-  {% endblock %}
 </main>
+{% endblock %}

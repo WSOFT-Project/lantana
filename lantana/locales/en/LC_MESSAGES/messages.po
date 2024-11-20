@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-18 16:41+0900\n"
+"POT-Creation-Date: 2024-11-21 00:34+0900\n"
 "PO-Revision-Date: 2024-11-16 01:12+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -48,52 +48,120 @@ msgstr ""
 msgid "404-gotop"
 msgstr "Go to TopPage"
 
-#: lantana/base.html:115 lantana/base.html:136
+#: lantana/base.html:116 lantana/base.html:135
 msgid "search-in-site"
 msgstr "Search in here"
 
-#: lantana/base.html:115 lantana/base.html:136
+#: lantana/base.html:116 lantana/base.html:135
 #: lantana/components/searchModal.html.j2:6
 #: lantana/components/searchModal.html.j2:13
 msgid "search"
 msgstr "Search"
 
-#: lantana/base.html:133
+#: lantana/base.html:132
 msgid "nav-show"
 msgstr "Show Navigation"
 
-#: lantana/main.html:81
+#: lantana/main.html:77
 msgid "open-new-tab"
 msgstr "Open NewTab"
 
-#: lantana/components/langSwitchModal.html.j2:18 lantana/main.html:101
+#: lantana/components/langSwitchModal.html.j2:15 lantana/main.html:97
 #: lantana/main.html:150
 msgid "switch-lang"
 msgstr "Switch Language"
 
-#: lantana/main.html:111
+#: lantana/main.html:107
 msgid "print-this-article"
 msgstr "Print this article"
 
-#: lantana/main.html:119
+#: lantana/main.html:115
 msgid "share"
 msgstr "Share via"
 
-#: lantana/main.html:131
+#: lantana/main.html:127
 msgid "print"
 msgstr "Print"
 
-#: lantana/main.html:133
+#: lantana/main.html:129
 msgid "copy-url"
 msgstr "Copy Url to clipboard"
 
-#: lantana/main.html:138 lantana/main.html:141 lantana/main.html:144
+#: lantana/main.html:134 lantana/main.html:137 lantana/main.html:140
 msgid "edit-this-article"
 msgstr "Edit this article"
 
-#: lantana/main.html:153
+#: lantana/main.html:154
 msgid "view-in-embed-mode"
 msgstr "View in EmbedMode"
+
+#: lantana/-lantana/about/index.html:8 lantana/-lantana/status/index.html:22
+msgid "about-this-site"
+msgstr "About this site"
+
+#: lantana/-lantana/about/index.html:15
+msgid "about-lantana"
+msgstr ""
+
+#: lantana/-lantana/about/index.html:18
+msgid "report-issues"
+msgstr "Report issues"
+
+#: lantana/-lantana/about/index.html:21
+msgid "credit"
+msgstr "Credits"
+
+#: lantana/-lantana/about/index.html:30
+msgid "statics_thanks"
+msgstr "Lantana was made possible by MkDocs and other open source projects."
+
+#: lantana/-lantana/status/index.html:27
+msgid "statics-about-site"
+msgstr "Status about this site"
+
+#: lantana/-lantana/status/index.html:32
+msgid "site-name"
+msgstr "Name of this site"
+
+#: lantana/-lantana/status/index.html:36
+msgid "total-num-articles"
+msgstr "Total number of articles"
+
+#: lantana/-lantana/status/index.html:40
+msgid "build-date-utc"
+msgstr "Last update (UTC)"
+
+#: lantana/-lantana/status/index.html:45
+msgid "siteAuthor"
+msgstr "Author"
+
+#: lantana/-lantana/status/index.html:51
+msgid "statics_repo"
+msgstr "Repository of this site"
+
+#: lantana/-lantana/status/index.html:57
+msgid "installed_plugin"
+msgstr "Installed plugins"
+
+#: lantana/-lantana/status/index.html:66
+msgid "installed_extension"
+msgstr "Installed markdown extensions"
+
+#: lantana/-lantana/status/index.html:76
+msgid "builtLanguages"
+msgstr "Built Languages"
+
+#: lantana/-lantana/status/index.html:86
+msgid "lantana-version"
+msgstr "Lantana Version"
+
+#: lantana/-lantana/status/index.html:90
+msgid "mkdocs-version"
+msgstr "Mkdocs Version"
+
+#: lantana/-lantana/status/index.html:96
+msgid "status-disabled"
+msgstr "Nothing to show here."
 
 #: lantana/components/searchModal.html.j2:8
 msgid "close"
@@ -104,6 +172,10 @@ msgstr "Close"
 msgid "search-area-desc"
 msgstr "Enter a keyword to search."
 
-#: lantana/components/toc.html.j2:3
+#: lantana/components/toc.html.j2:7
 msgid "toc"
 msgstr "In this article"
+
+#~ msgid "status-i18n"
+#~ msgstr "Built language"
+

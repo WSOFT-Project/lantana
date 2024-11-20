@@ -4,8 +4,9 @@
 # Instructs the search plugin to include the search.html template
 static_templates : 
   - 404.html
-  - statics.html
-  - version.json
+  - -lantana/about/index.html
+  - -lantana/status/index.html
+  - -lantana/version.json
 
 include_search_page: false
 search_index_only: false

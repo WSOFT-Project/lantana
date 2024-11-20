@@ -15,6 +15,8 @@ class CodeBlockCopyBtnProcessor(Postprocessor):
     def run(self, html):
         return editRawHtml(html)
 
+HIGHLIGHT_TARGET_SELECTOR = 'div.highlight'
+
 def editRawHtml(html):
     soup = BeautifulSoup(html, 'html5lib')
     
@@ -25,21 +27,28 @@ def editRawHtml(html):
     # コードブロックがあった場合にtrue
     hasCodeBlock = False
     
-    for hlight in soup.select('.highlight'):
+    for hlight in soup.select(HIGHLIGHT_TARGET_SELECTOR):
         hasCodeBlock = True
-        hlight.insert(0,BeautifulSoup('<button class="btn copybtn position-absolute top-0 end-0"><i class="bi '+ICON_COPY+'"></i></button>','html.parser'))
+        hlight.insert(0,BeautifulSoup('<button class="btn lantana_codeblock_copybtn position-absolute top-0 end-0"><i class="bi '+ICON_COPY+'"></i></button>','html.parser'))
 
     # コードブロックがあった場合はスクリプトとかを生成
     if hasCodeBlock:
-        addClass(soup,'.highlight',['position-relative'])
-        rawcode = """$('.copybtn').click(function (){
-    const selection = window.getSelection();
-    const code = this.parentNode;
-    selection.selectAllChildren(code.children[code.children.length-1]);
-    document.execCommand('copy');
-    this.querySelector('.ICON_COPY').classList.add('text-success');
-    this.querySelector('.ICON_COPY').classList.replace('ICON_COPY','ICON_COPY_CHECK');
-});"""
+        addClass(soup,HIGHLIGHT_TARGET_SELECTOR,['position-relative'])
+        rawcode = """
+        const lantana_codeblock_copybtn_onclick = (btn) => {
+            const codeBlock = btn.parentNode.children[btn.parentNode.children.length - 1];
+            const icon = btn.querySelector('.bi-clipboard');
+
+            window.getSelection().selectAllChildren(codeBlock);
+            document.execCommand('copy');
+
+            icon.classList.add('text-success');
+            icon.classList.replace('bi-clipboard', 'bi-clipboard-check');
+        };
+        document.querySelectorAll('.lantana_codeblock_copybtn').forEach((element) => {
+            element.addEventListener('click', () => lantana_codeblock_copybtn_onclick(element));
+        });
+        """
         rawcode = rawcode.replace("ICON_COPY_CHECK",ICON_COPY_CHECK).replace("ICON_COPY",ICON_COPY)
         soup.append(BeautifulSoup(f"<script>{rawcode}</script>"))
 

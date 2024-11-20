@@ -1,37 +1,35 @@
-# [Lantana](https://lantana.wsoft.ws/)
-![Screenshot](/screenshot.png)
-Lantanaは、シンプルで軽量なMKDocsのテーマです。HTMLの知識がなくても簡単にサイトを作成できます。Lantanaは、WSOFT Docsのために開発されています。
+<p align="center">
+  <a href="https://lantana.wsoft.ws/">
+    <img src="./lantana.png" alt="Lantana logo" height="165">
+  </a>
+</p>
 
-Lantanaはシンプルながらも、多言語に対応しており、フリーソフトかつオープンソースプロジェクトで開発されています。
+<h3 align="center">Lantana</h3>
 
-基盤であるMKDocsは、静的サイトジェネレーターで、記事の更新毎にサイトのビルドが必要ですが、一度ビルドしてしまえばに表示できるうえ移植が容易です。
+|[Japanese](./README.ja.md)|English|
+|--------|-------|
 
-各記事はマークダウン言語で記述するため、マークダウン言語を使用したことがあればすぐに使いこなすことができます。
+Lantana is a lightweight MkDocs theme using Bootstrap.
+With Lantana and MkDocs, you can easily create your own site.
 
-## 使用法
-LantanaはPyPIからダウンロードできます。
-```shell
-pip install lantana
-```
-Lantanaの詳しい使用方法については、[チュートリアル:作業開始](https://lantana.wsoft.ws/tutrial/getstarted/)を参照してください。
+See [Lantana's Documentation](https://lantana.wsoft.ws/en/) for a tutorial and detailed usage instructions.
 
-## 使用しているライブラリなど
-* [docs/Credit.md](https://lantana.wsoft.ws/Credit)にまとめてあります。ご確認ください。
+## Support
+If you need assistance in using Lantana, please feel free to contact us.
 
-## 翻訳の追加および改善方法
-Lantanaの翻訳を改善してくださるコントリビューターの方向けの説明です。
+- Please feel free to post any questions, even minor ones, to [Discussions](https://github.com/WSOFT-Project/lantana/discussions) on GitHub!
+- To report a bug or request a new feature, open [Issue](https://github.com/WSOFT-Project/lantana/issues) on GitHub.
 
-もし、あなたがまだ翻訳が実装されていない言語でLantanaを使用したい場合、次のコマンドを使ってテーマがサポートする言語を追加できます。
+## Contribute
+The Lantana project welcomes contributions from developers and users worldwide.
+To learn how you can contribute, please visit [Contribute Guide](https://lantana.wsoft.ws/contribute/)
 
-```sh
-./init-locale.sh 言語名
-```
+## Screenshots
 
-また、翻訳可能なテキストがLantanaに増えるたびに、次のコマンドを実行して、翻訳作業を行う必要があります。
+**PC**
 
-```sh
-./update-locales.sh
-```
+![Screenshot of Lantana on PC](./screenshot.png)
 
-これらのスクリプトを実行した後、`lantana/locales`ディレクトリの中に`(言語名)/LC_MESSAGES/messages.po`というファイルができています。
-このファイルを使って、翻訳作業を行なってください。
+**Mobile**
+
+![Screenshot of Lantana on mobile](./screenshot-mobile.png)

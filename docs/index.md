@@ -9,8 +9,6 @@ disable_tools : true
 Lantanaは、MITライセンスで配布されているMKDocsのテーマです。Lantanaは、[WSOFT Docs](https://docs.wsoft.ws/)のために開発され、このWebサイトでも使用されています。
 Lantanaはシンプルながらも、多言語に対応しており、フリーソフトかつオープンソースプロジェクトで開発されています。基盤である[MKDocs](https://www.mkdocs.org/)は、静的サイトジェネレーターで、記事の更新毎にサイトのビルドが必要ですが、一度ビルドしてしまえばに表示できるうえ移植が容易です。各記事はマークダウン言語で記述するため、マークダウン言語を使用したことがあればすぐに使いこなすことができます。
 
-this is test message!
-
 ### 使用法
 !!! note "Lantanaによるサイトの作成"
     ---

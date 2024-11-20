@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% set ns = namespace(cnt = 1) %}
+{% for pg in pages %}
+{% set ns.cnt = ns.cnt + 1 %}
+{% endfor %}
+<div class="col-12 col-md-8">
+  <h1>{% trans %}about-this-site{% endtrans %}</h1>
+  <div class="card">
+    <div class="card-header">
+      <img class="img-structure" src="{{ " -lantana/resources/lantana.svg"|url }}" alt="Lantana" height="40em" />
+    </div>
+    <ul class="list-group list-group-flush">
+      <a href="https://lantana.wsoft.ws/">
+        <li class="list-group-item">{%trans%}about-lantana{%endtrans%}</li>
+      </a>
+      <a href="https://github.com/WSOFT-Project/lantana/issues">
+        <li class="list-group-item">{%trans%}report-issues{%endtrans%}</li>
+      </a>
+      <a href="https://lantana.wsoft.ws/credits/">
+        <li class="list-group-item">{%trans%}credit{%endtrans%}</li>
+      </a>
+    </ul>
+  </div>
+  <br />
+  <div class="card">
+    <div class="card-body">
+      <p>Lantana<br />
+        Copyright 2022 WSOFT. All rights reserved.</p>
+      <p>{%trans%}statics_thanks{%endtrans%}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

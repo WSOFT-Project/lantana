@@ -1,0 +1,99 @@
+{# useコーナー #}
+
+{# i18nの機能を使えるようにする
+使用可否は if i18n_enable で取得する #}
+{% if "i18n" in config.plugins %}
+{% set i18n_enabled = true %}
+{% set i18n_build_languages = config.plugins["i18n"].build_languages %}
+{% set i18n_alternates = config.plugins["i18n"].i18n_files_per_language %}
+{% else %}
+{% set i18n_enabled = false %}
+{% set i18n_build_languages = {} %}
+{% set i18n_alternates = {} %}
+{% endif %}
+
+{% extends "base.html" %}
+{% block main_content %}
+{% set ns = namespace(cnt = 1) %}
+{% for pg in pages %}
+{% set ns.cnt = ns.cnt + 1 %}
+{% endfor %}
+<div class="col-12 col-md-8">
+  <h1>{% trans %}about-this-site{% endtrans %}</h1>
+  {% if config.theme.status %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">{% trans %}statics-about-site{% endtrans %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{% trans %}site-name{% endtrans %}</th>
+        <td>{{ config.site_name }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{% trans %}total-num-articles{% endtrans %}</th>
+        <td>{{ ns.cnt }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{%trans%}build-date-utc{%endtrans%}</th>
+        <td>{{ build_date_utc }}</td>
+      </tr>
+      {% if config.author %}
+      <tr>
+        <th scope="row">{%trans%}siteAuthor{%endtrans%}</th>
+        <td colspan="2">{{ config.author }}</td>
+      </tr>
+      {% endif %}
+      {% if config.repo_url %}
+      <tr>
+        <th scope="row">{% trans %}statics_repo{% endtrans %}</th>
+        <td colspan="2"><a href="{{ config.repo_url }}">{% if config.repo_name %}{{ config.repo_name }}{% else %}{{
+            config.repo_url }}{% endif %}</a></td>
+      </tr>
+      {% endif %}
+      <tr>
+        <th scope="row">{%trans%}installed_plugin{%endtrans%}</th>
+        <td colspan="2">
+          <ul>
+            {% for plugin in config.plugins %}
+            <li>{{ plugin }}</li>
+            {% endfor %}
+          </ul>
+      </tr>
+      <tr>
+        <th scope="row">{%trans%}installed_extension{%endtrans%}</th>
+        <td colspan="2">
+          <ul>
+            {% for extension in config.markdown_extensions %}
+            <li>{{ extension }}</li>
+            {% endfor %}
+          </ul>
+      </tr>
+      {% if i18n_enabled %}
+      <tr>
+        <th scope="row">{%trans%}builtLanguages{%endtrans%}</th>
+        <td colspan="2">
+          <ul>
+            {% for lang in i18n_build_languages %}
+            <li>{{lang}}</li>
+            {% endfor %}
+          </ul>
+      </tr>
+      {% endif %}
+      <tr>
+        <th scope="row">{%trans%}lantana-version{%endtrans%}</th>
+        <td>WSOFT Lantana v2.12.0(tapioca)</td>
+      </tr>
+      <tr>
+        <th scope="row">{%trans%}mkdocs-version{%endtrans%}</th>
+        <td>{{ mkdocs_version }}</td>
+      </tr>
+    </tbody>
+  </table>
+  {% else %}
+  <p>{% trans %}status-disabled{%endtrans%}</p>
+  {% endif %}
+</div>
+{% endblock %}

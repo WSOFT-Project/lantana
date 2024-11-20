@@ -1,11 +1,12 @@
 ---
 title : Alerts2
 long_title : Alerts2拡張機能
-summary : この記事では、Alerts2拡張機能の使用方法について説明します
+summary : 重要な文章を目立つように表示します。GFMと互換性があります。
 date : 2024-05-06
+mt_type: extension
 ---
 
-<span class="badge bg-primary">対応バージョン:>=2.11.2</span>
+<span class="badge bg-primary">対応バージョン:>=2.12.0</span>
 
 Alerts2拡張機能は、Lantanaに引用を使用したアラートを追加する拡張機能です。
 

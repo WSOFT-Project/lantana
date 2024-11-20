@@ -1,4 +1,5 @@
-a {
+a,
+a[target="_blank"]:not(.btn)::after {
     color: #0066CC;
 }
 

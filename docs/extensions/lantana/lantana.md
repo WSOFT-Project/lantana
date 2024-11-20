@@ -3,6 +3,7 @@ title : lantana
 long_title : lantana拡張機能
 summary : この記事では、lantana拡張機能の使用方法について説明します
 date : 2024-03-07
+mt_type: extension
 ---
 
 <span class="badge bg-primary">対応バージョン:>=2.9</span>

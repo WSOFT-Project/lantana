@@ -1,5 +1,7 @@
 @media (prefers-color-scheme: dark) {
-    a {
+
+    a,
+    a[target="_blank"]:not(.btn)::after {
         color: #385898;
     }
 
@@ -21,7 +23,9 @@
 }
 
 @media (prefers-color-scheme: light) {
-    a {
+
+    a,
+    a[target="_blank"]:not(.btn)::after {
         color: #0066CC;
     }
 
