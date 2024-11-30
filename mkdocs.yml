@@ -71,8 +71,17 @@ plugins:
           site_name: "Lantana"
           theme:
             locale: ja
+          nav_translations:
+            Contribute: 貢献
+            CheatSheet: チートシート
+            Extensions: 拡張機能
+            Tutrial: チュートリアル
 
 markdown_extensions:
+  - toc:
+      slugify: !!python/name:lantana.extensions.fixed_toc.slugify
+      separator: "-"
+      permalink: true
   - lantana
   - lantana.alerts2
   - lantana.selector
@@ -83,7 +92,6 @@ markdown_extensions:
   - footnotes
   - pymdownx.highlight:
       anchor_linenums: true
-      auto_title: true
   - pymdownx.inlinehilite
   - admonition
   - pymdownx.arithmatex:

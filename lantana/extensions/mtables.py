@@ -92,7 +92,6 @@ def get_thumbnail_element(dir, options, index_filename='index.md',pages_filename
     return html
 
 def convert_to_id(name) -> str:
-    name = name.lower()
     name = name.replace(' ', '-')
     name = name.replace('(', '')
     name = name.replace(')', '')
