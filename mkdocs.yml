@@ -78,6 +78,10 @@ plugins:
             Tutrial: チュートリアル
 
 markdown_extensions:
+  - toc:
+      slugify: !!python/name:lantana.extensions.fixed_toc.slugify
+      separator: "-"
+      permalink: true
   - lantana
   - lantana.alerts2
   - lantana.selector

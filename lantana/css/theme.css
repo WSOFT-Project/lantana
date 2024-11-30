@@ -163,6 +163,28 @@ mark {
     }
 }
 
+a.headerlink {
+    font-size: 0;
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+}
+
+a.headerlink::before {
+    font-family: bootstrap-icons;
+    font-size: 1.15rem;
+    content: '\F470';
+    display: inline-block;
+    color: var(--bs-body-color)
+}
+
+a.headerlink:active {
+    opacity: 1;
+}
+
+a.headerlink:hover {
+    opacity: 1;
+}
+
 a {
     text-decoration: none;
 }
