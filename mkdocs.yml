@@ -109,6 +109,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.magiclink
@@ -118,3 +120,4 @@ markdown_extensions:
   - lantana.accordion
   - lantana.codeblock_copybtn
   - lantana.mermaid_precompile
+  - lantana.tabs
