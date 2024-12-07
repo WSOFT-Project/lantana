@@ -54,7 +54,7 @@ def createTabContents(soup, tag, id_list, selectedMap):
         ind += 1
     return div_tag
 
-def getId(soup, tag) -> tuple[list, dict]:
+def getId(soup, tag):
     id_list = list()
     selected_map = dict()
     for label in tag.select('input'):
