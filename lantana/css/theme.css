@@ -189,6 +189,6 @@ a {
     text-decoration: none;
 }
 
-.tabbed-block>p:first-child {
+.tabbed-block>*:not(.highlight, img):first-child {
     margin-top: 0.7em;
 }
