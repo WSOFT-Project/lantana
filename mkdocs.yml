@@ -51,32 +51,7 @@ plugins:
       count_empty_lines: true
       fallback_to_empty: false
       enabled: true
-  - i18n:
-      docs_structure: suffix
-      fallback_to_default: true
-      reconfigure_material: true
-      reconfigure_search: true
-      languages:
-        - locale: en
-          name: English
-          build: true
-          site_name: "Lantana"
-          theme:
-            locale: en
-            untranslated_message: "This page is not available in English."
-        - locale: ja
-          default: true
-          name: 日本語
-          build: true
-          site_name: "Lantana"
-          theme:
-            locale: ja
-          nav_translations:
-            Contribute: 貢献
-            CheatSheet: チートシート
-            Extensions: 拡張機能
-            Tutrial: チュートリアル
-
+  
 markdown_extensions:
   - toc:
       slugify: !!python/name:lantana.extensions.fixed_toc.slugify
@@ -105,10 +80,13 @@ markdown_extensions:
           format: !!python/name:mermaid2.fence_mermaid
   - pymdownx.snippets
   - pymdownx.critic
-  - pymdownx.caret
+  - pymdownx.caret:
+      smart_insert: false
   - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+  - pymdownx.mark:
+      smart_mark: false
+  - pymdownx.tilde:
+      smart_delete: false
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:

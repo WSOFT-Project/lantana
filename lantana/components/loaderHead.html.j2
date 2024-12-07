@@ -1,0 +1,27 @@
+{# loaderHeadコンポーネント
+head要素で読み込みたいstyleやscriptを挿入するコンポーネント
+各ページのhead要素に挿入される #}
+
+<link rel="stylesheet" href="{{ "css/bootstrap-icons.min.css"|url }}">
+<link rel="stylesheet" href="{{ "css/theme.css"|url }}">
+
+{% if config.disable_darkmode %}
+<link rel="stylesheet" href="{{ "css/colors/light.css"|url }}">
+<link rel="stylesheet" href="{{ "css/highlight/default.css"|url }}">
+{% else %}
+<link rel="stylesheet" href="{{ "css/colors/auto.css"|url }}">
+<link rel="stylesheet" href="{{ "css/highlight/default.css"|url }}" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="{{ "css/highlight/monokai.css"|url }}" media="(prefers-color-scheme: dark)">
+{% endif %}
+
+{% for path in config.extra_css %}
+<link href="{{ path|url }}" rel="stylesheet">
+{% endfor %}
+{% for path2 in page.extra_css %}
+<link href="{{ path2|url }}" rel="stylesheet">
+{% endfor %}
+
+<script async>var base_url = '{{ base_url }}';</script>
+<script src="{{ "js/jquery-3.6.1.slim.min.js"|url }}"></script>
+<script src="{{ "js/bootstrap.bundle.min.js"|url }}"></script>
+<script async src="{{ "js/highlight.min.js"|url }}"></script>

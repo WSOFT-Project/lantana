@@ -68,7 +68,7 @@ def editRawHtml(html):
                 break
         if cond:
             tag.attrs["target"] = ['_blank']
-            tag.attrs["rel"] = ['noopener" ,"noreferrer']
+            tag.attrs["rel"] = ['noopener' ,'noreferrer']
     return str(soup)
 
 def makeExtension(*args, **kwargs):

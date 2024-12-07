@@ -1,7 +1,7 @@
 {# useコーナー #}
 
 {# i18nの機能を使えるようにする
-  使用可否は if i18n_enable で取得する #}
+使用可否は if i18n_enable で取得する #}
 {% if "i18n" in config.plugins %}
 {% set i18n_enabled = true %}
 {% set i18n_build_languages = config.plugins["i18n"].build_languages %}
@@ -15,11 +15,12 @@
 <!DOCTYPE html lang="{{ page.meta.language }}">
 {% elif i18n_page_locale %}
 <!DOCTYPE html lang="{{ i18n_page_locale }}">
-{% elif config.language  %}
+{% elif config.language %}
 <!DOCTYPE html lang="{{ config.language }}">
 {% elif config.theme.locale %}
 <!DOCTYPE html lang="{{ config.theme.locale }}">
 {% endif %}
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -35,150 +36,140 @@
   {% endif %}
 
   {% if page and page.meta.language %}
-    <meta http-equiv="content-language" content="{{ page.meta.language }}">
-  {% elif config.language  %}
-    <meta http-equiv="content-language" content="{{ config.language }}">
+  <meta http-equiv="content-language" content="{{ page.meta.language }}">
+  {% elif config.language %}
+  <meta http-equiv="content-language" content="{{ config.language }}">
   {% elif config.theme.locale %}
-    <meta http-equiv="content-language" content="{{ config.theme.locale }}">
+  <meta http-equiv="content-language" content="{{ config.theme.locale }}">
   {% endif %}
   {% if page and page.meta.summary %}
-    <meta property="og:site_name" content="{{ config.site_name }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}" />
-    <meta name="twitter:card" content="Summary Card" />
-    {% if page and page.meta.summary %}
-      <meta name="description" content="{{ page.meta.summary }}">
-      <meta property="og:description" content="{{ page.meta.summary }}" />
-      <meta name="twitter:description" content="{{ page.meta.summary }}" />
-    {% endif %}
-    {% if page and page.meta.image %}
-      <meta property="og:image" content="{{ page.meta.image|url }}" />
-    {% else %}
-      <meta property="og:image" content="{{ config.image|url }}" />
-    {% endif %}
+  <meta property="og:site_name" content="{{ config.site_name }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title"
+    content="{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}" />
+  <meta name="twitter:card" content="Summary Card" />
+  {% if page and page.meta.summary %}
+  <meta name="description" content="{{ page.meta.summary }}">
+  <meta property="og:description" content="{{ page.meta.summary }}" />
+  <meta name="twitter:description" content="{{ page.meta.summary }}" />
+  {% endif %}
+  {% if page and page.meta.image %}
+  <meta property="og:image" content="{{ page.meta.image|url }}" />
+  {% else %}
+  <meta property="og:image" content="{{ config.image|url }}" />
+  {% endif %}
   {% endif %}
 
   {% if page and page.meta and page.meta.long_title %}
-    <title>{{ page.meta.long_title }} | {% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
+  <title>{{ page.meta.long_title }} | {% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{
+    config.site_name }}{% endif %}</title>
   {% else %}
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{% else %}{{ config.site_name }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{% if config.site_short_name %}{{ config.site_short_name }}{%
+    else %}{{ config.site_name }}{% endif %}</title>
   {% endif %}
 
   {% if config.favicon %}
-    <link rel="favicon" href="{{ config.favicon|url }}">
+  <link rel="favicon" href="{{ config.favicon|url }}">
   {% endif %}
 
-  <link rel="stylesheet" href="{{ "css/bootstrap-icons.min.css"|url }}">
-  <link rel="stylesheet" href="{{ "css/default.min.css"|url }}">
-  <link rel="stylesheet" href="{{ "css/vs.min.css"|url }}">
-  <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
-  {% if config.disable_darkmode %}
-  <link rel="stylesheet" href="{{ "css/colors/light.css"|url }}">
-  {% else %}
-  <link rel="stylesheet" href="{{ "css/colors/auto.css"|url }}">
-  {% endif %}
-  {% for path in config.extra_css %}
-    <link href="{{ path|url }}" rel="stylesheet">
-  {% endfor %}
-  {% for path2 in page.extra_css %}
-    <link href="{{ path2|url }}" rel="stylesheet">
-  {% endfor %}
-  
-  <script async>var base_url = '{{ base_url }}';</script>
-  <script src="{{ "js/jquery-3.6.1.slim.min.js"|url }}"></script>
-  <script src="{{ "js/bootstrap.bundle.min.js"|url }}"></script>
-  <script async src="{{ "js/highlight.min.js"|url }}"></script>
-
+  {% with config = config, page = page, base_url = base_url, path = path, path2 = path2 %}
+  {% include "./components/loaderHead.html.j2" %}
+  {% endwith %}
   {% block extrahead %}
   {% endblock %}
 </head>
-<body
-  {% include "before_header.html" %}
-  {% if not config.disable_header %}
-    {% block header %}
-    <header>
-      <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 {% if config.disable_header_when_printing %} print-hide {% endif %}">
-        <div class="container">
-            <a class="navbar-brand text-body" asp-area="" href="{{ "/"|url }}">
-              {% if config.logo %}
-              <img class="img-structure" src="{{ config.logo|url }}" alt="{{ config.site_name }}" width="28" height="28"/>
-              {% endif%}
-              {% if config.header_name %}
-                {{ config.header_name }}
-              {% else %}
-                {{ config.site_name }}
-              {% endif %}
-            </a>
-            <div class="print-hide">
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <div class="d-none d-md-flex input-group mb-3">
-                {% if "search" in config.plugins %}
-                    <input class="form-control" type="search" id="searchbox" accesskey="/" placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}" aria-describedby="search-btn"/>
-                    <button class="btn btn-outline-secondary" type="button" id="search-btn" onclick="search(false);">
-                        <i class="bi bi-search"></i>
-                    </button>
-                    {% endif %}
-                </div>
-            </div>
-            </div>
-        </div>
-    </nav>
-    <nav class="navbar border-bottom box-shadow mb-3 d-md-none print-hide">
-      <div class="container">
-          <div class="navbar-collapse d-flex">
-            <p>
-              <div class="d-flex input-group mb-3">
-                {% if page and not page.meta.disable_nav and nav %}
-                <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse" data-bs-target="#nav" title="{% trans %}nav-show{% endtrans %}"><i class="bi bi-book"></i></button>
-                {% endif %}
-                {% if "search" in config.plugins %}
-                <input class="form-control" type="search" id="searchbox_mobile" accesskey="/" placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}">
-                <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i class="bi bi-search"></i></button>
-                {% else %}
-                <input class="form-control" id="searchbox_mobile" value="{{ config.site_name }}" readonly>
-                {% endif %}
-                {% if page and not page.meta.disable_tol and page.toc %}
-                <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse" data-bs-target="#toc"><i class="bi bi-list-ul"></i></button>
-                {% endif %}
-            </div>
-            </p>
+
+<body {% include "before_header.html" %} {% if not config.disable_header %} {% block header %} <header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 {% if config.disable_header_when_printing %} print-hide {% endif %}">
+    <div class="container">
+      <a class="navbar-brand text-body" asp-area="" href="{{ " /"|url }}">
+        {% if config.logo %}
+        <img class="img-structure" src="{{ config.logo|url }}" alt="{{ config.site_name }}" width="28" height="28" />
+        {% endif%}
+        {% if config.header_name %}
+        {{ config.header_name }}
+        {% else %}
+        {{ config.site_name }}
+        {% endif %}
+      </a>
+      <div class="print-hide">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <div class="d-none d-md-flex input-group mb-3">
+            {% if "search" in config.plugins %}
+            <input class="form-control" type="search" id="searchbox" accesskey="/"
+              placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}"
+              aria-describedby="search-btn" />
+            <button class="btn btn-outline-secondary" type="button" id="search-btn" onclick="search(false);">
+              <i class="bi bi-search"></i>
+            </button>
+            {% endif %}
           </div>
+        </div>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <nav class="navbar border-bottom box-shadow mb-3 d-md-none print-hide">
+    <div class="container">
+      <div class="navbar-collapse d-flex">
+        <p>
+        <div class="d-flex input-group mb-3">
+          {% if page and not page.meta.disable_nav and nav %}
+          <button class="btn btn-outline-secondary" onclick="toggle_nav(this);" type="button" data-bs-toggle="collapse"
+            data-bs-target="#nav" title="{% trans %}nav-show{% endtrans %}"><i class="bi bi-book"></i></button>
+          {% endif %}
+          {% if "search" in config.plugins %}
+          <input class="form-control" type="search" id="searchbox_mobile" accesskey="/"
+            placeholder="{% trans %}search-in-site{% endtrans %}" aria-label="{% trans %}search{% endtrans %}">
+          <button class="btn btn-outline-secondary" type="button" onclick="search(true);"><i
+              class="bi bi-search"></i></button>
+          {% else %}
+          <input class="form-control" id="searchbox_mobile" value="{{ config.site_name }}" readonly>
+          {% endif %}
+          {% if page and not page.meta.disable_tol and page.toc %}
+          <button class="btn btn-outline-secondary" onclick="toggle_toc(this);" type="button" data-bs-toggle="collapse"
+            data-bs-target="#toc"><i class="bi bi-list-ul"></i></button>
+          {% endif %}
+        </div>
+        </p>
+      </div>
+    </div>
+  </nav>
   </header>
-    {% endblock %}
+  {% endblock %}
   {% endif %}
   {% block after_header %}
   {% endblock %}
   <div class="container">
     <div class="pb-3">
       <div class="row">
-    {% if (not page or not page.meta.disable_nav) and nav %}
-    {% with nav = nav %}
-    {% include "./components/nav.html.j2" %}
-    {% endwith %}
-    {% endif %}
-       {% block main_content %}
-       {% endblock %}
+        {% if (not page or not page.meta.disable_nav) and nav %}
+        {% with nav = nav %}
+        {% include "./components/nav.html.j2" %}
+        {% endwith %}
+        {% endif %}
+        {% block main_content %}
+        {% endblock %}
       </div>
-      </div>
-      <script src="{{ "js/theme.js"|url }}"></script>
-      {% if not config.disable_newtab_link %}
-      {% endif %}
-      {% for path in config.extra_javascript %}
-    <script async src="{{ path|url }}"></script>
-      {% endfor %}
-      {% for path2 in page.extra_javascript %}
-    <script async src="{{ path2|url }}"></script>
-      {% endfor %}
     </div>
+    <script src="{{ "js/theme.js"|url }}"></script>
+    {% if not config.disable_newtab_link %}
+    {% endif %}
+    {% for path in config.extra_javascript %}
+    <script async src="{{ path|url }}"></script>
+    {% endfor %}
+    {% for path2 in page.extra_javascript %}
+    <script async src="{{ path2|url }}"></script>
+    {% endfor %}
   </div>
-  
+  </div>
+
   {% block before_footer %}
   {% endblock %}
   {% if not config.disable_footer %}
   {% block footer %}
-  <footer class="border-top footer text-muted .position-absolute.bottom-0.start-50.translate-middle-x" style="padding-top:15px;">
+  <footer class="border-top footer text-muted .position-absolute.bottom-0.start-50.translate-middle-x"
+    style="padding-top:15px;">
     <div class="container">
       <div class="row">
         <div class="col-md">
@@ -208,4 +199,5 @@
   {% include "./components/searchModal.html.j2" %}
   {% endif %}
 </body>
+
 </html>

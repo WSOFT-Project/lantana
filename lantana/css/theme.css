@@ -188,3 +188,7 @@ a.headerlink:hover {
 a {
     text-decoration: none;
 }
+
+.tabbed-block>p:first-child {
+    margin-top: 0.7em;
+}
