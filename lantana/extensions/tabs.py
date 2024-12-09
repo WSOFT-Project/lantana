@@ -59,8 +59,9 @@ def getId(soup, tag):
     selected_map = dict()
     for label in tag.select('input'):
         label.attrs.setdefault('checked', 'false')
-        id_list.append(label['id'])
-        selected_map[label['id']] = label['checked'] == 'checked'
+        if 'id' in label.attrs:
+            id_list.append(label['id'])
+            selected_map[label['id']] = label['checked'] == 'checked'
     return id_list, selected_map
 
 def createButton(soup, target_id: str, selected: bool, content: str):

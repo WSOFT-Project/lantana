@@ -5,6 +5,13 @@ date : 2022-10-22
 order : 1
 ---
 
+<p>すべて切り替え</p>
+<div class="btn-group btn-group-sm padding-bottom" role="group">
+    <button type="button" id="switch-btn-1" class="btn btn-outline-primary">Markdown</button>
+    <button type="button" id="switch-btn-2" class="btn btn-outline-primary">HTML</button>
+    <button type="button" id="switch-btn-3" class="btn btn-outline-primary">表示</button>
+</div>
+
 ## 見出し
 記事に見出しをつけます。見出しは目次の表示され、見出しへのリンクが生成されます。また、記事にタイトルが指定されていない場合、自動的に記事の一番最初の見出しがタイトルになります。
 
@@ -299,14 +306,14 @@ HTMLのtitle属性を指定できます。
 
 #### 数字付きの箇条書き
 数字付きの箇条書きを書くには、数字を先頭につけます。
-箇条書きの上には空行が必要です。すべての数字を1にすると、自動的に番号が付きます。
+箇条書きの上には空行が必要です。数字はどんな場合でも、ブラウザによって1から始まる数字にレンダリングされます。
 
 === "Markdown"
 
     ```markdown
     1. 文頭に"数字."を入れると番号付きリストになります。
     2. "数字."のあとには**スペースが必要**です
-    3. すべての数字を1にすると、自動的に番号が付きます。
+    3. ブラウザによって1から始まる数字にレンダリングされます。
     ```
 === "HTML"
 
@@ -314,14 +321,41 @@ HTMLのtitle属性を指定できます。
     <ol>
         <li>文頭に"数字."を入れると番号付きリストになります。</li>
         <li>"数字."のあとには<strong>スペースが必要</strong>です</li>
-        <li>すべての数字を1にすると、自動的に番号が付きます。</li>
+        <li>ブラウザによって1から始まる数字にレンダリングされます。</li>
     </ol>
     ```
 === "表示"
 
     1. 文頭に"数字."を入れると番号付きリストになります。
     2. "数字."のあとには**スペースが必要**です
-    3. すべての数字を1にすると、自動的に番号が付きます。
+    3. ブラウザによって1から始まる数字にレンダリングされます。
+
+#### タスクリスト
+箇条書きに`[ ]`を追加すると、タスクリストになり、チェックボックスが表示されます。`[x]`と書くとチェックが入ります。
+順序なしリストの記述の後ろに[ ]を入れるとチェックボックスが生成されます。
+また、チェックが入った状態のボックスを生成する場合は[x]を入力します。
+
+=== "Markdown"
+
+    ```markdown
+    - [x] バナナを買う
+    - [ ] りんごを買う
+    - [ ] ぶどうを買う
+    ```
+=== "HTML"
+
+    ```html
+    <ul class="task-list">
+        <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></label> バナナを買う</li>
+        <li class="task-list-item"><label class="task-list-control"><input checked="false" disabled="" type="checkbox"><span class="task-list-indicator"></span></label> りんごを買う</li>
+        <li class="task-list-item"><label class="task-list-control"><input checked="false" disabled="" type="checkbox"><span class="task-list-indicator"></span></label> ぶどうを買う</li>
+    </ul>
+    ```
+=== "表示"
+
+    - [x] バナナを買う
+    - [ ] りんごを買う
+    - [ ] ぶどうを買う
 
 ---
 
@@ -786,3 +820,12 @@ HTMLコードは、そのまま記述することで埋め込むことができ�
 ```html
 <h3 id="query">この要素にはqueryというIdがつきます</h3>
 ```
+
+<script>
+function switchPreview(type){
+    document.querySelectorAll(`button[data-bs-target^="#__tabbed_"][data-bs-target$="_${type}"]`).forEach((element) => (new bootstrap.Tab(element)).show());
+}
+document.getElementById('switch-btn-1').addEventListener("click", ()=>switchPreview(1));
+document.getElementById('switch-btn-2').addEventListener("click", ()=>switchPreview(2));
+document.getElementById('switch-btn-3').addEventListener("click", ()=>switchPreview(3));
+</script>

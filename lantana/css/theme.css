@@ -192,3 +192,23 @@ a {
 .tabbed-block>*:not(.highlight, img):first-child {
     margin-top: 0.7em;
 }
+.task-list-control input[type="checkbox"] {
+    vertical-align: -0.1em;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
+  
+.task-list-control input[type="checkbox"][checked="false"]:before {
+    font-family: bootstrap-icons;
+    content: '\F584';
+}
+.task-list-control input[type="checkbox"]:checked:not([checked="false"]):before {
+    font-family: bootstrap-icons;
+    content: '\F271';
+}
+
+li.task-list-item{
+    list-style-type: none;
+    margin-left: -1.5em;
+}
