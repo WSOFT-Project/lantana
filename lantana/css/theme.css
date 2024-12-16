@@ -194,6 +194,7 @@ a {
 }
 .task-list-control input[type="checkbox"] {
     vertical-align: -0.1em;
+    appearance: none;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;

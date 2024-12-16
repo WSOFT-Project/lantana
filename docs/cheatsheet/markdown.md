@@ -380,6 +380,196 @@ HTMLのtitle属性を指定できます。
 
 ---
 
+## 画像
+記事内で画像を埋め込んで表示できます。
+画像の説明と画像へのパスを順番に記述します。
+
+=== "Markdown"
+
+    ```markdown
+    ![Aliceの正面写真](./media/alice.jpg)
+    ```
+=== "HTML"
+
+    ```html
+    <p>
+        <img alt="Aliceの正面写真" class="img-fluid" src="../media/alice.jpg">
+    </p>
+    ```
+=== "表示"
+
+    ![Aliceの正面写真](./media/alice.jpg)
+
+---
+
+## 引用
+文頭に>を置くことで引用になります。引用文が複数行にまたがる場合、すべての文頭に>を置きます。引用をネストすることもできます。
+
+=== "Markdown"
+
+    ```markdown
+    > 本郷の大学前の電車通りを、轟々と音立てて電車が通った。  
+    > 葉の散りかかった銀杏並木の上に、天が凄まじい高さで拡がっている。
+    > <figcaption class="blockquote-footer">
+    >   梅崎春生 「風宴」
+    > </figcaption>
+    ```
+=== "HTML"
+
+    ```html
+    <blockquote class="blockquote">
+        <p>
+            本郷の大学前の電車通りを、轟々と音立てて電車が通った。
+            <br/>
+            葉の散りかかった銀杏並木の上に、天が凄まじい高さで拡がっている。
+        </p>
+        <figcaption class="blockquote-footer">
+            梅崎春生 「風宴」
+        </figcaption><p></p>
+    </blockquote>
+    ```
+=== "表示"
+
+    > 本郷の大学前の電車通りを、轟々と音立てて電車が通った。  
+    > 葉の散りかかった銀杏並木の上に、天が凄まじい高さで拡がっている。
+    > <figcaption class="blockquote-footer">
+    >   梅崎春生 「風宴」
+    > </figcaption>
+
+---
+
+## 表
+縦棒でカラムを分けることで、表を作成できます。
+
+### 基本の表
+次の例をご覧ください。
+
+=== "Markdown"
+
+    ```markdown
+    #|学年|組| 名前 
+    -|---|--|------
+    1|  1| 1| 青木 太郎
+    2|  1| 2| 井上 二郎
+    3|  2| 1| 佐藤 花子 
+    ```
+=== "HTML"
+
+    ```html
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>学年</th>
+                <th>組</th>
+                <th>名前</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>青木 太郎</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+                <td>2</td>
+                <td>井上 二郎</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2</td>
+                <td>1</td>
+                <td>佐藤 花子</td>
+            </tr>
+        </tbody>
+    </table>
+    ```
+=== "表示"
+
+    #|学年|組| 名前 
+    -|---|--|------
+    1|  1| 1| 青木 太郎
+    2|  1| 2| 井上 二郎
+    3|  2| 1| 佐藤 花子 
+
+---
+
+### 表の左右中央寄せ
+左右どちらか、または両方の端にコロン(:)をつけることで、表内の文を左右中央寄せにできます。
+
+=== "Markdown"
+
+    ```markdown
+    | Left align | Right align | Center align |
+    |:-----------|------------:|:------------:|
+    | This       | This        | This         |
+    | column     | column      | column       |
+    | will       | will        | will         |
+    | be         | be          | be           |
+    | left       | right       | center       |
+    | aligned    | aligned     | aligned      |
+    ```
+=== "HTML"
+
+    ```html
+    <table class="table">
+        <thead>
+            <tr>
+                <th align="left">Left align</th>
+                <th align="right">Right align</th>
+                <th align="center">Center align</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left">This</td>
+                <td align="right">This</td>
+                <td align="center">This</td>
+            </tr>
+            <tr>
+                <td align="left">column</td>
+                <td align="right">column</td>
+                <td align="center">column</td>
+            </tr>
+            <tr>
+                <td align="left">will</td>
+                <td align="right">will</td>
+                <td align="center">will</td>
+            </tr>
+            <tr>
+                <td align="left">be</td>
+                <td align="right">be</td>
+                <td align="center">be</td>
+            </tr>
+            <tr>
+                <td align="left">left</td>
+                <td align="right">right</td>
+                <td align="center">center</td>
+            </tr>
+            <tr>
+                <td align="left">aligned</td>
+                <td align="right">aligned</td>
+                <td align="center">aligned</td>
+            </tr>
+        </tbody>
+    </table>
+    ```
+=== "表示"
+
+    | Left align | Right align | Center align |
+    |:-----------|------------:|:------------:|
+    | This       | This        | This         |
+    | column     | column      | column       |
+    | will       | will        | will         |
+    | be         | be          | be           |
+    | left       | right       | center       |
+    | aligned    | aligned     | aligned      |
+
+---
+
 ## コメント
 
 HTMLと同じようにコメントが書けます。コメントはレンダリング時に削除されます。
@@ -400,412 +590,399 @@ HTMLと同じようにコメントが書けます。コメントはレンダリ�
     ここより下にコメントがあります。
     <!-- これはコメントです -->
 
+---
 
-```markdown title="例"
-_ か * で囲むとHTMLのemタグになり、 *このように* 表示されます。
+## コード
+インラインコード要素と、コードブロックのふたつを使って、コードをシンタックスハイライトできます。
+Lantanaは、既定では[Pygments](https://pygments.org/)によるシンタックスハイライトが提供されます。
 
-__ か ** で囲むとHTMLのstrongタグになり、**このように** 表示されます。
+### インラインコード
+文の途中でコードを表すには、バッククオート（\`）でテキストを囲みます。また、シンタックスハイライトを行うには、コロン（`:::`）3つの後に言語を指定します。次に例を示します。
 
-それらを組み合わせることもできます。*** で囲むと、***このように*** 表示されます。
+=== "Markdown"
 
-~~ で囲むと打消し線になり、　~~このように~~ 表示されます。
+    ```markdown
+    Pythonでモジュールを読み込むには、`:::py3 import`文を使います。  
+    例えば、`sys`モジュールを読み込むには、`:::py3 import sys`と書きます。
+    ```
 
-^^ で囲むと下線がつき、^^このように^^ 表示されます。
+=== "HTML"
+    ```html
+    <p>Pythonでモジュールを読み込むには、<code class="highlight"><span class="kn">import</span></code>文を使います。<br>
+    例えば、<code>sys</code>モジュールを読み込むには、<code class="highlight"><span class="kn">import</span> <span class="nn">sys</span></code>と書きます。</p>
+    ```
 
-== で囲むとハイライトがつき、==このように== 表示されます。
+=== "表示"
+    Pythonでモジュールを読み込むには、`:::py3 import`文を使います。  
+    例えば、`sys`モジュールを読み込むには、`:::py3 import sys`と書きます。
 
-~ で囲むと下付き文字になり、使用すると~このように~表示されます。
-
-^ で囲むと上付き文字になり、使用すると^このように^表示されます。
-
-++ で囲むと++ctrl+alt+del++のようにキーボードのキーを表現できます。
-
-また、`print("Hello,World!");`と記述することでコードをインライン表示できます。
-
-```
-_ か \* で囲むとHTMLのemタグになり、 *このように* 表示されます。
-
-__ か \*\* で囲むとHTMLのstrongタグになり、**このように** 表示されます。
-
-それらを組み合わせることもできます。\*\*\* で囲むと、***このように*** 表示されます。
-
-\~\~ で囲むと打消し線になり、　~~このように~~ 表示されます。
-
-\^\^ で囲むと下線がつき、^^このように^^ 表示されます。
-
-\=\= で囲むとハイライトがつき、==このように== 表示されます。
-
-\~ で囲むと下付き文字になり、使用すると~このように~表示されます。
-
-\^ で囲むと上付き文字になり、使用すると^このように^表示されます。
-
-\+\+ で囲むと++ctrl+alt+del++のようにキーボードのキーを表現できます。
-
-また、`print("Hello,World!");`と記述することでコードをインライン表示できます。
+---
 
 ### コードブロック
-```` ``` ```` で囲むことでコードとして認識され、初めを```` ```言語名 ```` とすることでシンタックスハイライトがつきます。`title="タイトル"`とすることでファイル名なども表現できます。
-```markdown title="例"
-``` csharp title="Program.cs"
-using System;
+記事内のテキストのある部分がコードであることを表すには、バッククォート（\`）3つで囲んでフェンスを作成します。コードブロック内で使用されているプログラミング言語を指定するには、開始時のバッククォートの後に言語名を記述します。シンタックスハイライトに対応している言語の一覧は、[Languages — Pygments](https://pygments.org/languages/)をご覧ください。次に例を示します。
 
-public class Program
- {
-    public static void Main()
-     {
-            Console.WriteLine("Hello World!");
-     }
- }
- ```
-```
+=== "Markdown"
 
-表示
+    ````markdown
+    ```c
+    #include <stdio.h>
 
-```csharp title="Program.cs"
-using System;
- 
-public class Program
- {
-    public static void Main()
-     {
-            Console.WriteLine("Hello World!");
-     }
- }
-```
-
-`hl_lines`属性を指定すると、特定の行を強調表示できます。
-
-```markdown title="例"
-```csharp title="AnimalClasses.cs" hl_lines="6 20"
-public class Animal
-{
-    public string Name { get;set; }
-    public string Description { get;set; }
-
-    public virtual void Move()
-    {
-        throw new NotImplementedException();
+    int main(){
+        printf("Hello World.\n");
+        return 0;
     }
-}
+    ```
+    ````
+=== "HTML"
 
-public class Cat : Animal
-{
-    public Cat()
-    {
-        this.Name = "たま";
-        this.Description = "吾輩は猫である。名前も決まっている。";
+    ```html
+    <div class="highlight position-relative">
+        <button class="btn lantana_codeblock_copybtn position-absolute top-0 end-0"><i class="bi bi-clipboard"></i></button>
+        <pre>
+            <span></span>
+            <code>
+                <a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+                <a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>
+                <a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+                <a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello World.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+                <a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="p">}</span>
+            </code>
+        </pre>
+    </div>
+    ```
+=== "表示"
+
+    ```c
+    #include <stdio.h>
+
+    int main(){
+        printf("Hello World.\n");
+        return 0;
     }
-
-    public override void Move()
-    {
-        /// ひっかく
-    }
-}
- ```
-```
-
-表示
-
-```csharp title="AnimalClasses.cs" hl_lines="6 20"
-public class Animal
-{
-    public string Name { get;set; }
-    public string Description { get;set; }
-
-    public virtual void Move()
-    {
-        throw new NotImplementedException();
-    }
-}
-
-public class Cat : Animal
-{
-    public Cat()
-    {
-        this.Name = "たま";
-        this.Description = "吾輩は猫である。名前も決まっている。";
-    }
-
-    public override void Move()
-    {
-        /// ひっかく
-    }
-}
-```
-
-!!! warning "注意"
-    テーブルのデザインや一貫性の問題から、`linenums=1`属性はLantana2.0から非推奨になりました。
-
-### インラインコードのハイライト
-<span class="badge bg-primary">対応バージョン:>=2.12</span>
-
-<pre>`:::language code`</pre>と書くことで、インラインコードにもシンタックスハイライトを適用できます。
-
-```markdown title="Markdown"
-Pythonでモジュールを読み込むには、`:::py3 import`文を使います。
-例えば、`sys`モジュールを読み込むには、`:::py3 import sys`と書きます。
-```
-
-**表示**
-
-Pythonでモジュールを読み込むには、`:::py3 import`文を使います。
-例えば、`sys`モジュールを読み込むには、`:::py3 import sys`と書きます。
-
-### 数式
-`\$\$`で囲むことでTeX記法を用いて数式を記述できます。
-```markdown title="例"
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-```
-表示
-
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-
-`$`または`\(...\)`で囲むことで、数式を文中に埋め込むこともできます。
-```markdown title="例"
-ディッフィー・ヘルマン鍵共有プロトコルでは、まず大きな素数 ${\displaystyle p}p$ と、
-${\displaystyle p-1}p-1$ を割り切る大きな素数 ${\displaystyle q}q$ を用意します。
-また、 ${\displaystyle g}g$ を
-${\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}{\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}$ の元で、
-位数が ${\displaystyle q}q$ である値とします。
-この ${\displaystyle p,q,g}{\displaystyle p,q,g}$ の値は公開されているものとします。
-```
-表示
-
-ディッフィー・ヘルマン鍵共有プロトコルでは、まず大きな素数 ${\displaystyle p}p$ と、 ${\displaystyle p-1}p-1$ を割り切る大きな素数 ${\displaystyle q}q$ を用意します。また、 ${\displaystyle g}g$ を ${\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}{\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}$ の元であり、位数が ${\displaystyle q}q$ である値とします。この ${\displaystyle p,q,g}{\displaystyle p,q,g}$ の値は公開されているものとします。
-
-### 順序なしリスト
-リストの上には空行が必要です。
-```markdown title="例"
-* 文頭に"*"、"+"、"-"のいずれかを入れると順序なしリストになります
-+ 記号のあとには**スペースが必要**です
-- 同じリストでは同じ記号を使うことを推奨します。
-```
-表示
-
-* 文頭に"`*`"、"`+`"、"`-`"のいずれかを入れると順序なしリストになります
-+ 記号のあとには**スペースが必要**です
-- 同じリストでは同じ記号を使うことを推奨します。
-
-### 番号付きリスト
-リストの上には空行が必要です。
-```markdown title="例"
-1. 文頭に"数字."を入れると番号付きリストになります。
-1. "数字."のあとには**スペースが必要**です
-1. すべての数字を1にすると、自動的に番号が付きます。
-```
-表示
-
-1. 文頭に"`数字.`"を入れると番号付きリストになります。
-1. "`数字.`"のあとには**スペースが必要**です
-1. すべての数字を1にすると、自動的に番号が付きます。
-
-### タスクリスト
-順序なしリストの記述の後ろに[ ]を入れるとチェックボックスが生成されます。
-また、チェックが入った状態のボックスを生成する場合は[x]を入力します。
-```markdown title="例"
-- [ ] タスク1
-- [x] タスク2
-```
-表示
-
-- [ ] タスク1
-- [x] タスク2
-
-### 水平線
-```markdown title="例"
----
-```
-表示
+    ```
 ---
 
-### URL
-Urlやメールアドレスを書くだけで、自動的にリンクになります。
-```markdown title="例"
-https://lantana.wsoft.ws
+#### コードのタイトル
+ファイル名などを指定するために、コードにタイトルをつけられます。
+コードにタイトルをつけると、コードブロックにヘッダーがつきます。
+次に例を示します。
 
-info@wsoft.ws
-```
-表示
+=== "Markdown"
 
-https://lantana.wsoft.ws
+    ````markdown
+    ```c title="hello_world.c"
+    #include <stdio.h>
 
-info@wsoft.ws
+    int main(){
+        printf("Hello World.\n");
+        return 0;
+    }
+    ```
+    ````
+=== "HTML"
 
-### リンク
-このサイト外へのリンクは新規タブで開かれます。
-```markdown title="例"
-[リンク](about:blank)
+    ```html
+    <div class="highlight position-relative">
+        <button class="btn lantana_codeblock_copybtn position-absolute top-0 end-0"><i class="bi bi-clipboard"></i></button>
+        <span class="filename">hello_world.c</span>
+        <pre><span></span>
+            <code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+                <a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a>
+                <a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+                <a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello World.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+                <a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="p">}</span>
+            </code>
+        </pre>
+    </div>
+    ```
+=== "表示"
 
-[WSOFT](https://wsoft.ws/)
-```
-表示
+    ```c title="hello_world.c"
+    #include <stdio.h>
 
-[リンク](about:blank)
+    int main(){
+        printf("Hello World.\n");
+        return 0;
+    }
+    ```
+---
 
-[WSOFT](https://wsoft.ws/)
+#### コードのマーカー
+コード内で注目して欲しい部分を表現するために、コードにマーカーを引くことができます。
+マーカーを引くには、`hl_lines`にハイライトしたい行番号を書きます。
 
-### タイトル付きリンク
-タイトルはリンクをホバーした時に表示されます。
-```markdown title="例"
-[リンク](about:blank "タイトル")
-```
-表示
+=== "Markdown"
 
-[リンク](about:blank "タイトル")
+    ````markdown
+    ```c hl_lines="1 4-5"
+    #include <stdio.h>
 
-### リンクの使いまわし
-```markdown title="例"
-[link]: about:blank
-[ここ][link]と[ここ][link]は同じになります。
-```
-表示
+    int main(){
+        printf("Hello World.\n");
+        return 0;
+    }
+    ```
+    ````
+=== "HTML"
 
-[link]: about:blank
-[ここ][link]と[ここ][link]は同じになります。
+    ```html
+    <div class="highlight position-relative">
+        <button class="btn lantana_codeblock_copybtn position-absolute top-0 end-0"><i class="bi bi-clipboard"></i></button>
+        <pre><span></span>
+            <code>
+                <a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="hll"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+                </span><a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a>
+                <a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+                <a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="hll"><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello World.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                </span><a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="hll"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+                </span><a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="p">}</span>
+            </code>
+        </pre>
+    </div>
+    ```
+=== "表示"
 
-また、[link]という書き方もできます。
+    ```c hl_lines="1 4-5"
+    #include <stdio.h>
+
+    int main(){
+        printf("Hello World.\n");
+        return 0;
+    }
+    ```
+---
+
+## 数式
+LaTex記法を使って美しい数式を書けます。
+この機能は、[MathJax](https://www.mathjax.org/)を使ってレンダリングされます。
+
+### インライン数式
+文中に数式を埋め込むには、数式部分を\$で囲みます。
+
+=== "Markdown"
+
+    ```markdown
+    ディッフィー・ヘルマン鍵共有プロトコルでは、まず大きな素数 ${\displaystyle p}p$ と、
+    ${\displaystyle p-1}p-1$ を割り切る大きな素数 ${\displaystyle q}q$ を用意します。
+    また、 ${\displaystyle g}g$ を
+    ${\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}{\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}$ の元で、
+    位数が ${\displaystyle q}q$ である値とします。
+    この ${\displaystyle p,q,g}{\displaystyle p,q,g}$ の値は公開されているものとします。
+    ```
+=== "HTML"
+
+    ```html
+    <p>ディッフィー・ヘルマン鍵共有プロトコルでは、まず大きな素数 <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-mstyle></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>p</mi></mstyle></mrow><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> と、
+        <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-mstyle></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>p</mi><mo>−</mo><mn>1</mn></mstyle></mrow><mi>p</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> を割り切る大きな素数 <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-mstyle></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>q</mi></mstyle></mrow><mi>q</mi></math></mjx-assistive-mml></mjx-container></span> を用意します。
+        また、 <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-mstyle></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>g</mi></mstyle></mrow><mi>g</mi></math></mjx-assistive-mml></mjx-container></span> を
+        <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-ds mjx-b"><mjx-c class="mjx-c2124 TEX-A"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-ds mjx-b"><mjx-c class="mjx-c2124 TEX-A"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.413em;"><mjx-texatom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo></mjx-texatom></mjx-script></mjx-msup></mjx-mstyle></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-ds mjx-b"><mjx-c class="mjx-c2124 TEX-A"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-ds mjx-b"><mjx-c class="mjx-c2124 TEX-A"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.413em;"><mjx-texatom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo></mjx-texatom></mjx-script></mjx-msup></mjx-mstyle></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="double-struck">Z</mi></mrow></mrow><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>p</mi><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="double-struck">Z</mi></mrow></mrow><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>∗</mo></mrow></msup></mstyle></mrow><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="double-struck">Z</mi></mrow></mrow><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>p</mi><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="double-struck">Z</mi></mrow></mrow><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>∗</mo></mrow></msup></mstyle></mrow></math></mjx-assistive-mml></mjx-container></span> の元で、
+        位数が <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-mstyle></mjx-texatom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>q</mi></mstyle></mrow><mi>q</mi></math></mjx-assistive-mml></mjx-container></span> である値とします。
+        この <span class="arithmatex"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-mstyle></mjx-texatom><mjx-texatom texclass="ORD"><mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-mstyle></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>p</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>g</mi></mstyle></mrow><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mi>p</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>g</mi></mstyle></mrow></math></mjx-assistive-mml></mjx-container></span> の値は公開されているものとします。
+    </p>
+    ```
+=== "表示"
+
+    ディッフィー・ヘルマン鍵共有プロトコルでは、まず大きな素数 ${\displaystyle p}p$ と、
+    ${\displaystyle p-1}p-1$ を割り切る大きな素数 ${\displaystyle q}q$ を用意します。
+    また、 ${\displaystyle g}g$ を
+    ${\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}{\displaystyle ({\mathbb {Z} }/p{\mathbb {Z} })^{\ast }}$ の元で、
+    位数が ${\displaystyle q}q$ である値とします。
+    この ${\displaystyle p,q,g}{\displaystyle p,q,g}$ の値は公開されているものとします。
+
+---
+
+### 数式ブロック
+\$\$で囲んだブロック内にLaTex記法を書きます。
+
+=== "Markdown"
+
+    ```markdown
+    $$
+    \begin{eqnarray}
+        i\hbar\frac{\partial}{\partial t}\psi(x,t)=
+        \left(-\frac{\hbar^2}{2m}+V(x)\right)\psi(x,t)
+    \end{eqnarray}
+    $$
+    ```
+=== "HTML"
+
+    ```html
+    <div class="arithmatex">
+        <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="0" style="font-size: 113.1%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-mtable style="min-width: 16.63em;">
+            <mjx-table><mjx-itable><mjx-mtr><mjx-mtd style="text-align: right;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-var"><mjx-c class="mjx-c210F"></mjx-c></mjx-mi><mjx-mfrac><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D713 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mrow space="4"><mjx-mo class="mjx-s3"><mjx-c class="mjx-c28 TEX-S3"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mfrac><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-msup><mjx-mi class="mjx-var"><mjx-c class="mjx-c210F"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-s3"><mjx-c class="mjx-c29 TEX-S3"></mjx-c></mjx-mo></mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D713 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr></mjx-itable></mjx-table></mjx-mtable></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable displaystyle="true" columnalign="right" columnspacing="" rowspacing="3pt"><mtr><mtd><mi>i</mi><mi data-mjx-alternate="1">ℏ</mi><mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>t</mi></mrow></mfrac><mi>ψ</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">(</mo><mo>−</mo><mfrac><msup><mi data-mjx-alternate="1">ℏ</mi><mn>2</mn></msup><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mo>+</mo><mi>V</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo data-mjx-texclass="CLOSE">)</mo></mrow><mi>ψ</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mtd></mtr></mtable></math></mjx-assistive-mml>
+        </mjx-container>
+    </div>
+    ```
+=== "表示"
+
+    $$
+    \begin{eqnarray}
+        i\hbar\frac{\partial}{\partial t}\psi(x,t)=
+        \left(-\frac{\hbar^2}{2m}+V(x)\right)\psi(x,t)
+    \end{eqnarray}
+    $$
+
+---
+
+## 図式
+Mermaid記法を使ってフローチャートなどの図式を書けます。
+
+バージョン2.9以降では、[MermaidPrecompile](../extensions/mermaid_precompiler.md)拡張機能の導入するか、
+[Mermaid.jsのCDN](https://www.jsdelivr.com/package/npm/mermaid)を`mkdocs.yml`内で`extra_javascript`として読み込む必要があります。
+PreCompileを行うにはビルド時に、CDNを読み込むには使用者に、インターネット接続が必要です。
+
+=== "Markdown"
+
+    ````markdown
+    ```mermaid
+    graph TD;
+        A-->B;
+        A-->C;
+        B-->D;
+        C-->D;
+    ```
+    ````
+=== "HTML"
+
+    ```html
+    <div class="arithmatex">
+        <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="0" style="font-size: 113.1%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-mtable style="min-width: 16.63em;">
+            <mjx-table><mjx-itable><mjx-mtr><mjx-mtd style="text-align: right;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-var"><mjx-c class="mjx-c210F"></mjx-c></mjx-mi><mjx-mfrac><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D713 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mrow space="4"><mjx-mo class="mjx-s3"><mjx-c class="mjx-c28 TEX-S3"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mfrac><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-msup><mjx-mi class="mjx-var"><mjx-c class="mjx-c210F"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-s3"><mjx-c class="mjx-c29 TEX-S3"></mjx-c></mjx-mo></mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D713 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr></mjx-itable></mjx-table></mjx-mtable></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable displaystyle="true" columnalign="right" columnspacing="" rowspacing="3pt"><mtr><mtd><mi>i</mi><mi data-mjx-alternate="1">ℏ</mi><mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>t</mi></mrow></mfrac><mi>ψ</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">(</mo><mo>−</mo><mfrac><msup><mi data-mjx-alternate="1">ℏ</mi><mn>2</mn></msup><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mo>+</mo><mi>V</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo data-mjx-texclass="CLOSE">)</mo></mrow><mi>ψ</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mtd></mtr></mtable></math></mjx-assistive-mml>
+        </mjx-container>
+    </div>
+    ```
+=== "表示"
+
+    ```mermaid
+    graph TD;
+        A-->B;
+        A-->C;
+        B-->D;
+        C-->D;
+    ```
+
+---
+
+## アコーディオン
+細かな情報を折りたたんでおいて、必要に応じてユーザーが参照できるようにできます。
 
 
-### 画像
-```markdown title="例"
-![代替テキスト](https://wsoft.ws/products/Alice.jpg)
-```
+=== "Markdown"
 
-表示
+    ```markdown
+    ??? "ポラーノの広場"
+        あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+    ```
 
-![代替テキスト](https://wsoft.ws/products/Alice.jpg)
+=== "HTML"
+    ```html
+    <div class="accordion" id="accordion-2ca8651f-30ad-4bd1-b5a9-9ef3052b2001">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button aria-controls="accordion-2ca8651f-30ad-4bd1-b5a9-9ef3052b2001-details" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#accordion-2ca8651f-30ad-4bd1-b5a9-9ef3052b2001-details" data-bs-toggle="collapse" type="button">
+                    ポラーノの広場
+                </button>
+            </h2>
+        <div class="accordion-collapse collapse" id="accordion-2ca8651f-30ad-4bd1-b5a9-9ef3052b2001-details" style="">
+            <div class="accordion-body">
+                <p>
+                    あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+                </p>
+            </div>
+        </div>
+    </div>
+    ```
+
+=== "表示"
+    
+    ??? "ポラーノの広場"
+        あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+
+---
+
+## アラート
+読者に注意を促したい内容などを、目を引く形で表示できます。
+一部のアラートはGFM(GitHub Flavored Markdown)と互換性があります。
+
+=== "Markdown"
+
+    ```markdown
+    > [!NOTE] メモ
+    > 流し読みしているユーザーにも読んでもらいたい情報を記述します。
+    ```
+
+次に、アラート記法で使用できる色とアイコンの一覧を示します。
 
 
-### 表
-Bootstrapの制約により、ヘッダーでは左右中央揃えが適用されません
-
-```markdown title="例"
-| Left align | Right align | Center align |
-|:-----------|------------:|:------------:|
-| This       | This        | This         |
-| column     | column      | column       |
-| will       | will        | will         |
-| be         | be          | be           |
-| left       | right       | center       |
-| aligned    | aligned     | aligned      |
-```
-
-表示
-
-| Left align | Right align | Center align |
-|:-----------|------------:|:------------:|
-| This       | This        | This         |
-| column     | column      | column       |
-| will       | will        | will         |
-| be         | be          | be           |
-| left       | right       | center       |
-| aligned    | aligned     | aligned      |
-
-### 引用
-```markdown title="例"
-> 文頭に>を置くことで引用になります。
-> 複数行にまたがる場合、改行のたびにこの記号を置く必要があります。
+NOTE
+> [!NOTE]
+> `NOTE`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 > 
-> 引用の中に別のMarkdownを使用することも可能です。
+> このアラートはGFMのアラートと互換性があります。
+
+TIP
+> [!TIP]
+> `TIP`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 > 
-> > これはネストされた引用です。
-```
-表示
-> 文頭に>を置くことで引用になります。
-> 複数行にまたがる場合、改行のたびにこの記号を置く必要があります。
+> このアラートはGFMのアラートと互換性があります。
+
+IMPORTANT
+> [!IMPORTANT]
+> `TIP`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 > 
-> 引用の中に別のMarkdownを使用することも可能です。
+> このアラートはGFMのアラートと互換性があります。
+
+CAUTION
+> [!CAUTION]
+> `CAUTION`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 > 
-> > これはネストされた引用です。
+> このアラートはGFMのアラートと互換性があります。
 
-### 図形
-Lantanaは規定でmermaid.jsをサポートします。mermaid.jsを使うと、複雑な図形を簡単に挿入できます。
+WARNING
+> [!WARNING]
+> `WARNING`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
+> 
+> このアラートはGFMのアラートと互換性があります。
 
-<span class="badge bg-primary">対応バージョン:>=2.9</span>
+ABSTRACT
+> [!ABSTRACT]
+> `ABSTRACT`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-バージョン2.9以降では、[MermaidPrecompile](../extensions/mermaid_precompiler.md)拡張機能の導入するか、[Mermaid.jsのCDN](https://www.jsdelivr.com/package/npm/mermaid)を`mkdocs.yml`内で`extra_javascript`として読み込む必要があります。PreCompileを行うにはビルド時に、CDNを読み込むには使用者に、インターネット接続が必要です。
+INFO
+> [!INFO]
+> `INFO`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-```markdown title="例"
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+SUCCESS
+> [!SUCCESS]
+> `SUCCESS`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-表示
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+QUESTION
+> [!QUESTION]
+> `QUESTION`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
+FAILURE
+> [!FAILURE]
+> `FAILURE`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-### アラート
-目を引く形で説明したい場合、`!!! 種類 "タイトル"`で囲みます。
+DANGER
+> [!DANGER]
+> `DANGER`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-```markdown title="例"
-!!! note "メモ"
-    `note`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-```
-表示
-!!! note "メモ"
-    `note`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
+BUG
+> [!BUG]
+> `BUG`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-!!! abstract
-    `abstract`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
+EXAMPLE
+> [!EXAMPLE]
+> `EXAMPLE`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
-!!! info
-    `info`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! tip
-    `tip`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! success
-    `success`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! question
-    `question`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! warning
-    `warning`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! failure
-    `failure`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! danger
-    `danger`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! bug
-    `bug`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! example
-    `example`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-!!! quote
-    `quote`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
-
-### 折り畳み要素
-折り畳みを使用するには、`??? タイトル`で囲みます。
-
-```markdown title="例"
-??? "ポラーノの広場"
-    あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-    またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
-```
-
-**表示**
-
-??? "ポラーノの広場"
-    あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-    またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+QUOTE
+> [!QUOTE]
+> `QUOTE`で使用できる装飾です。[リンク](#)は自動的に適切な色になります。
 
 ### 記事一覧
 ` = "" =`で囲い、その中にディレクトリを指定すると、そのディレクトリの記事一覧を出力します。
