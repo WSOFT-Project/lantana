@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '2.12.2'
+VERSION = '2.13.0'
 
 setup(
     name="lantana",
@@ -31,6 +31,7 @@ setup(
             "lantana.alerts2 = lantana.extensions.alerts2:Alerts2Extension",
             "lantana.selector = lantana.extensions.selector:SelectorExtension",
             "lantana.accordion = lantana.extensions.accordion:AccordionExtension",
+            "lantana.tabs = lantana.extensions.tabs:TabsExtension",
             "lantana.link_opennewtab = lantana.extensions.link_opennewtab:OpenNewTabExtension",
             "lantana.codeblock_copybtn = lantana.extensions.codeblock_copybtn:CodeBlockCopyBtnExtension",
             "lantana.mermaid_precompile = lantana.extensions.mermaid_precompile:MermaidPrecompileExtension",

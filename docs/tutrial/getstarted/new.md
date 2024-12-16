@@ -86,6 +86,7 @@ markdown_extensions:
     - lantana.link_opennewtab
     - lantana.alerts
     - lantana.accordion
+    - lantana.tabs
 ```
 
 設定ファイルには、他にもいくつかの項目があります。どのような設定があるかを知るには、[設定ファイル](/cheatsheet/config)を参照してください。

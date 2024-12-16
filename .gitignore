@@ -10,3 +10,4 @@ bootstrap-custom/*
 lantana/__pycache__/*
 lantana/extensions/__pycache__/*
 lantana/locales/*/LC_MESSAGES/*.mo
+venv/*
